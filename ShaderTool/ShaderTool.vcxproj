@@ -140,10 +140,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Shader.hpp" />
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
+    <ClInclude Include="src\behavior\DocumentManager.hpp" />
+    <ClInclude Include="src\behavior\ShaderCompiler.hpp" />
+    <ClInclude Include="src\behavior\View.hpp" />
+    <ClInclude Include="src\behavior\Window.hpp" />
+    <ClInclude Include="src\data\Shader.hpp" />
+    <ClInclude Include="src\data\Texture.hpp" />
+    <ClInclude Include="src\data\UniformVariable.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

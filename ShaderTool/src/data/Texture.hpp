@@ -11,19 +11,25 @@ Subject to license in LICENSE.txt
 
 #include <string>
 
+using namespace std;
+
 namespace st
 {
-	class Shader
+	class Texture
 	{
-		std::string shader_text;
+		string path;
+
+		//Color [] color
 
 	public:
 
-		Shader()
+		Texture()
 		{
 		}
 
-		///Loads a shader from a file
-		Shader(std::string path);
+		Texture(string path)
+		{
+
+		}
 	};
 }
