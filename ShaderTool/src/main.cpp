@@ -18,8 +18,31 @@ Subject to license in LICENSE.txt
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 
-int main()
+#include "behavior\DocumentManager.hpp"
+
+using namespace std;
+using namespace st;
+
+int main(int number_of_arguments, char * arguments[])
 {
+	cout << number_of_arguments << " Arguments:" << endl;
+	for (int i = 0; i < number_of_arguments; i++)
+	{
+		cout << arguments[i] << endl;
+	}
+
+	string shader_path = "\\Shaders";
+
+	if (number_of_arguments > 1)
+	{
+		shader_path = arguments[1];
+	}
+
+	//Shader active_shader(shader_path)
+	DocumentManager document_manager;
+	document_manager.loadShader(shader_path);
+
+	getchar();
 
 	return 0;
 }

@@ -11,7 +11,7 @@ Subject to license in LICENSE.txt
 
 #include <string>
 
-#include "data\Shader.hpp"
+#include <Shader.hpp>
 
 using namespace std;
 
