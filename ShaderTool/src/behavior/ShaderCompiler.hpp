@@ -10,8 +10,14 @@ Subject to license in LICENSE.txt
 #pragma once
 
 #include <string>
+#include <memory>
+#include <iostream>
+#include <cassert>
+#include <Windows.h>
 
-#include "data\Shader.hpp"
+#include <GL/glew.h>
+
+#include "..\data\Shader.hpp"
 
 using namespace std;
 
@@ -19,13 +25,18 @@ namespace st
 {
 	class ShaderCompiler
 	{
+		static const std::string   vertex_shader_code;
+		static const std::string fragment_shader_code;
 
 	public:
 
-		ShaderCompiler()
-		{
-		}
+		ShaderCompiler(shared_ptr<string> code);
 
-		void compileShader(Shader shader);
+		GLuint compileShader();
+
+	private:
+
+		void   show_compilation_error(GLuint  shader_id);
+		void   show_linkage_error(GLuint program_id);
 	};
 }
