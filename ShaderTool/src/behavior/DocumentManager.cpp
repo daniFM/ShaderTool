@@ -62,7 +62,7 @@ namespace st
 
 		if(success)
 		{
-			shader = Shader(shader_str);
+			shader = Shader(path, path, shader_str);
 		}
 
 		return success;

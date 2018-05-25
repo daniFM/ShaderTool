@@ -18,7 +18,9 @@ Subject to license in LICENSE.txt
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 
-#include "behavior\DocumentManager.hpp"
+#include <DocumentManager.hpp>
+#include <Window.hpp>
+#include <View.hpp>
 
 using namespace std;
 using namespace st;
@@ -41,6 +43,10 @@ int main(int number_of_arguments, char * arguments[])
 	//Shader active_shader(shader_path)
 	DocumentManager document_manager;
 	document_manager.loadShader(shader_path);
+
+	//Window window()
+
+	View(1024, 768, document_manager.getShader()->getCode());
 
 	getchar();
 

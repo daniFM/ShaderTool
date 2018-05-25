@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="src\behavior\DocumentManager.cpp" />
     <ClCompile Include="src\behavior\ShaderCompiler.cpp" />
+    <ClCompile Include="src\behavior\View.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -11,14 +11,15 @@ Subject to license in LICENSE.txt
 
 namespace st
 {
-	ShaderCompiler::ShaderCompiler(shared_ptr<string> code)
+	ShaderCompiler::ShaderCompiler()
 	{
-		const std::string vertex_shader_code = code->substr(0, code->find_last_of("#"));
-		const std::string fragment_shader_code = code->substr( code->find_last_of("#"));
 	}
 
-	GLuint ShaderCompiler::compileShader()
+	GLuint ShaderCompiler::compileShader(shared_ptr<string> code)
 	{
+		vertex_shader_code = code->substr(0, code->find_last_of("#"));
+		fragment_shader_code = code->substr(code->find_last_of("#"));
+
 		GLint succeeded = GL_FALSE;
 
 		// Se crean objetos para los shaders:

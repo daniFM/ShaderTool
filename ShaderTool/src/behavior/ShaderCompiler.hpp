@@ -25,14 +25,14 @@ namespace st
 {
 	class ShaderCompiler
 	{
-		static const std::string   vertex_shader_code;
-		static const std::string fragment_shader_code;
+		std::string   vertex_shader_code;
+		std::string fragment_shader_code;
 
 	public:
 
-		ShaderCompiler(shared_ptr<string> code);
+		ShaderCompiler();
 
-		GLuint compileShader();
+		GLuint compileShader(shared_ptr<string> code);
 
 	private:
 

@@ -10,6 +10,7 @@ Subject to license in LICENSE.txt
 #pragma once
 
 #include <string>
+#include <memory>
 
 #include <Shader.hpp>
 
@@ -29,5 +30,10 @@ namespace st
 
 		bool loadShader(string path);
 		bool saveShader(string path);
+
+		shared_ptr<Shader> getShader()
+		{
+			return make_shared<Shader>(shader);
+		}
 	};
 }
