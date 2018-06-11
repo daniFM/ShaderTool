@@ -43,7 +43,7 @@ namespace st
 		GLuint triangle_vbo0;
 		GLuint triangle_vbo1;
 
-		shared_ptr<Window> window;
+		//shared_ptr<Window> window;
 
 		int    window_width;
 		int    window_height;

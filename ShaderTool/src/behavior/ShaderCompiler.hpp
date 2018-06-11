@@ -9,15 +9,16 @@ Subject to license in LICENSE.txt
 
 #pragma once
 
+#include <GL/glew.h>
+
 #include <string>
 #include <memory>
 #include <iostream>
 #include <cassert>
 #include <Windows.h>
 
-#include <GL/glew.h>
-
-#include "..\data\Shader.hpp"
+//#include "..\data\Shader.hpp"
+#include <Shader.hpp>
 
 using namespace std;
 

@@ -11,10 +11,10 @@ Subject to license in LICENSE.txt
 #include <iostream>
 #include <cassert>
 
-#include <glm/glm.hpp>                          // vec3, vec4, ivec4, mat4
-#include <glm/gtc/matrix_transform.hpp>         // translate, rotate, scale, perspective
-#include <glm/gtc/type_ptr.hpp>
-
+//#include <glm/glm.hpp>                          // vec3, vec4, ivec4, mat4
+//#include <glm/gtc/matrix_transform.hpp>         // translate, rotate, scale, perspective
+//#include <glm/gtc/type_ptr.hpp>
+//
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 
@@ -23,10 +23,13 @@ Subject to license in LICENSE.txt
 #include <View.hpp>
 
 using namespace std;
+using namespace sf;
 using namespace st;
 
 int main(int number_of_arguments, char * arguments[])
 {
+	//Check arguments
+
 	cout << number_of_arguments << " Arguments:" << endl;
 	for (int i = 0; i < number_of_arguments; i++)
 	{
@@ -40,15 +43,57 @@ int main(int number_of_arguments, char * arguments[])
 		shader_path = arguments[1];
 	}
 
-	//Shader active_shader(shader_path)
+	//Init OpenGL
+
+	GLenum glew_initialization = glewInit();
+	assert(glew_initialization == GLEW_OK);
+
+	//Set document
+
 	DocumentManager document_manager;
 	document_manager.loadShader(shader_path);
 
-	//Window window()
+	//Window window(1024, 768, "Shader Tool", true);
+	sf::Window window(VideoMode(1024, 768), "Shader Tool", Style::Default, ContextSettings(32));
+	window.setVerticalSyncEnabled(true);
 
-	View(1024, 768, document_manager.getShader()->getCode());
+	View view(1024, 768, document_manager.getShader()->getCode());
 
-	getchar();
+	bool running = true;
+
+	do
+	{
+		Event event;
+
+		while (window.pollEvent(event))
+		{
+			switch (event.type)
+			{
+			case Event::Closed:
+			{
+				running = false;
+				break;
+			}
+
+			case Event::Resized:
+			{
+				Vector2u window_size = window.getSize();
+
+				view.resize(window_size.x, window_size.y);
+
+				break;
+			}
+			}
+		}
+
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		view.update();
+		view.render();
+
+		window.display();
+
+	} while (running);
 
 	return 0;
 }

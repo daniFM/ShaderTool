@@ -86,15 +86,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\src\data;$(SolutionDir)\src\behavior;..\libraries\sfml-2.3-vs-2015\include;..\libraries\gl\headers;..\libraries\targa\include;..\libraries\glew\include;..\libraries\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\src\data;$(SolutionDir)\src\behavior;$(SolutionDir)..\libraries\sfml-2.3-vs-2015\include;$(SolutionDir)..\libraries\gl\headers;$(SolutionDir)..\libraries\targa\include;$(SolutionDir)..\libraries\glew\include;$(SolutionDir)..\libraries\glm;$(SolutionDir)..\libraries\SOIL\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>libSOIL.lib;winmm.lib;sfml-main-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;opengl32.lib;glu32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\libraries\SOIL\lib;..\libraries\sfml-2.3-vs-2015\lib;..\libraries\glew\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\libraries\SOIL\lib;$(SolutionDir)..\libraries\sfml-2.3-vs-2015\lib;$(SolutionDir)..\libraries\glew\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
