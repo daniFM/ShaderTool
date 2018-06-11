@@ -61,7 +61,7 @@ int main(int number_of_arguments, char * arguments[])
 	//Set document
 
 	DocumentManager document_manager;
-	document_manager.loadShader(shader_path);
+	document_manager.loadShader(shader_path);	//"..\\assets\\example_texture.tga"
 	
 	View view(1024, 768, document_manager.getShader());
 
