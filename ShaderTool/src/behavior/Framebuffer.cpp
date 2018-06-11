@@ -7,6 +7,8 @@ Date:	10/06/2018
 
 #include <Framebuffer.hpp>
 
+#include <SOIL.h>
+
 namespace st
 {
 	Framebuffer::Framebuffer(std::shared_ptr < ShaderProgram > shader)
@@ -19,29 +21,39 @@ namespace st
 			glBindFramebuffer(GL_FRAMEBUFFER, framebuffer_id);
 		}
 
+		const char* filename = "..\assets\example_texture.jpg";
+
+		out_texture_id = SOIL_load_OGL_texture
+		(
+			filename,
+			SOIL_LOAD_AUTO,
+			SOIL_CREATE_NEW_ID,
+			SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_MULTIPLY_ALPHA
+		);
+
 		// Se crea una textura que será el búfer de color vinculado al framebuffer:
-		{
-			glGenTextures(1, &out_texture_id);
-			glBindTexture(GL_TEXTURE_2D, out_texture_id);
+		//{
+		//	glGenTextures(1, &out_texture_id);
+		//	glBindTexture(GL_TEXTURE_2D, out_texture_id);
 
-			// El búfer de color tendrá formato RGB:
+		//	// El búfer de color tendrá formato RGB:
 
-			glTexImage2D
-			(
-				GL_TEXTURE_2D,
-				0,
-				GL_RGB,
-				framebuffer_width,
-				framebuffer_height,
-				0,
-				GL_RGB,
-				GL_UNSIGNED_BYTE,
-				0
-			);
+		//	glTexImage2D
+		//	(
+		//		GL_TEXTURE_2D,
+		//		0,
+		//		GL_RGB,
+		//		framebuffer_width,
+		//		framebuffer_height,
+		//		0,
+		//		GL_RGB,
+		//		GL_UNSIGNED_BYTE,
+		//		0
+		//	);
 
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		}
+		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		//}
 
 		// Se crea un Z-Buffer para usarlo en combinación con el framebuffer:
 		{

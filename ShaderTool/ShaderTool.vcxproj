@@ -93,7 +93,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>libSOIL.lib;winmm.lib;sfml-main-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;opengl32.lib;glu32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SOIL.lib;winmm.lib;sfml-main-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;opengl32.lib;glu32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)..\libraries\SOIL\lib;$(SolutionDir)..\libraries\sfml-2.3-vs-2015\lib;$(SolutionDir)..\libraries\glew\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -152,6 +152,8 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\behavior\Color_Buffer.hpp" />
+    <ClInclude Include="src\behavior\Color_Buffer_Rgba8888.hpp" />
     <ClInclude Include="src\behavior\DocumentManager.hpp" />
     <ClInclude Include="src\behavior\Framebuffer.hpp" />
     <ClInclude Include="src\behavior\ShaderProgram.hpp" />

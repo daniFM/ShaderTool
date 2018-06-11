@@ -62,5 +62,11 @@
     <ClInclude Include="src\behavior\Framebuffer.hpp">
       <Filter>Header Files\Behavior</Filter>
     </ClInclude>
+    <ClInclude Include="src\behavior\Color_Buffer.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\behavior\Color_Buffer_Rgba8888.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -36,11 +36,17 @@ int main(int number_of_arguments, char * arguments[])
 		cout << arguments[i] << endl;
 	}
 
+	// Están mal
 	string shader_path = "\\Shaders";
+	string texture_path = "\\Textures";
 
 	if (number_of_arguments > 1)
 	{
 		shader_path = arguments[1];
+	}
+	if (number_of_arguments > 2)
+	{
+		texture_path = arguments[2];
 	}
 
 	//Window window(1024, 768, "Shader Tool", true);

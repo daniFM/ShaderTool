@@ -10,9 +10,12 @@ Date:	10/06/2018
 #include <memory>
 
 #include <ShaderProgram.hpp>
+#include <Color_Buffer_Rgba8888.hpp>
 
 namespace st
 {
+	//typedef Color_Buffer_Rgba8888 Texture;
+
 	/// Used to render the scene to a framebuffer and apply post processig shaders to it.
 	class Framebuffer
 	{
