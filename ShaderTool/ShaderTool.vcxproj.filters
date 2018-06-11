@@ -27,10 +27,13 @@
     <ClCompile Include="src\behavior\DocumentManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\behavior\ShaderCompiler.cpp">
+    <ClCompile Include="src\behavior\View.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\behavior\View.cpp">
+    <ClCompile Include="src\behavior\ShaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\behavior\Framebuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,14 +50,17 @@
     <ClInclude Include="src\behavior\View.hpp">
       <Filter>Header Files\Behavior</Filter>
     </ClInclude>
-    <ClInclude Include="src\behavior\ShaderCompiler.hpp">
-      <Filter>Header Files\Behavior</Filter>
-    </ClInclude>
     <ClInclude Include="src\behavior\DocumentManager.hpp">
       <Filter>Header Files\Behavior</Filter>
     </ClInclude>
     <ClInclude Include="src\data\UniformVariable.hpp">
       <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\behavior\ShaderProgram.hpp">
+      <Filter>Header Files\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="src\behavior\Framebuffer.hpp">
+      <Filter>Header Files\Behavior</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

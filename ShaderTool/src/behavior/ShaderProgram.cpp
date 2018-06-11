@@ -7,18 +7,21 @@ Subject to license in LICENSE.txt
 
 */
 
-#include "ShaderCompiler.hpp"
+#include <ShaderProgram.hpp>
 
 namespace st
 {
-	ShaderCompiler::ShaderCompiler()
+	ShaderProgram::ShaderProgram()
 	{
+		vertex_shader_code = "";
+		fragment_shader_code = "";
 	}
 
-	GLuint ShaderCompiler::compileShader(shared_ptr<string> code)
+	GLuint ShaderProgram::compileShader(shared_ptr<Shader> shader)
 	{
-		vertex_shader_code = code->substr(0, code->find_last_of("#"));
-		fragment_shader_code = code->substr(code->find_last_of("#"));
+		string code = *shader->getCode().get();
+		vertex_shader_code = code.substr(0, code.find_last_of("#"));
+		fragment_shader_code = code.substr(code.find_last_of("#"));
 
 		GLint succeeded = GL_FALSE;
 
@@ -73,10 +76,11 @@ namespace st
 		glDeleteShader(vertex_shader_id);
 		glDeleteShader(fragment_shader_id);
 
+		shader_program_id = program_id;
 		return (program_id);
 	}
 
-	void ShaderCompiler::show_compilation_error(GLuint shader_id)
+	void ShaderProgram::show_compilation_error(GLuint shader_id)
 	{
 		string info_log;
 		GLint  info_log_length;
@@ -96,7 +100,7 @@ namespace st
 		assert(false);
 	}
 
-	void ShaderCompiler::show_linkage_error(GLuint program_id)
+	void ShaderProgram::show_linkage_error(GLuint program_id)
 	{
 		string info_log;
 		GLint  info_log_length;

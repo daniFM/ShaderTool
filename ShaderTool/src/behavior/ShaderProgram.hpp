@@ -24,16 +24,28 @@ using namespace std;
 
 namespace st
 {
-	class ShaderCompiler
+	class ShaderProgram
 	{
+		GLint shader_program_id;
+
 		std::string   vertex_shader_code;
 		std::string fragment_shader_code;
 
 	public:
 
-		ShaderCompiler();
+		ShaderProgram();
 
-		GLuint compileShader(shared_ptr<string> code);
+		GLuint compileShader(shared_ptr<Shader> shader);
+
+		void use()
+		{
+			glUseProgram(shader_program_id);
+		}
+
+		void disable()
+		{
+			glUseProgram(0);
+		}
 
 	private:
 

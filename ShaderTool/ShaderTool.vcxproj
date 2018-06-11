@@ -146,13 +146,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\behavior\DocumentManager.cpp" />
-    <ClCompile Include="src\behavior\ShaderCompiler.cpp" />
+    <ClCompile Include="src\behavior\Framebuffer.cpp" />
+    <ClCompile Include="src\behavior\ShaderProgram.cpp" />
     <ClCompile Include="src\behavior\View.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\behavior\DocumentManager.hpp" />
-    <ClInclude Include="src\behavior\ShaderCompiler.hpp" />
+    <ClInclude Include="src\behavior\Framebuffer.hpp" />
+    <ClInclude Include="src\behavior\ShaderProgram.hpp" />
     <ClInclude Include="src\behavior\View.hpp" />
     <ClInclude Include="src\behavior\Window.hpp" />
     <ClInclude Include="src\data\Shader.hpp" />

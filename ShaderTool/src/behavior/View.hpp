@@ -17,8 +17,10 @@ Subject to license in LICENSE.txt
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <Shader.hpp>
 #include <Window.hpp>
-#include <ShaderCompiler.hpp>
+#include <Framebuffer.hpp>
+#include <ShaderProgram.hpp>
 
 using namespace std;
 
@@ -26,40 +28,25 @@ namespace st
 {
 	class View
 	{
-		static const GLsizei framebuffer_width = 512;
-		static const GLsizei framebuffer_height = 512;
+		static const std::string   default_shader_code;
 
 		GLint  model_view_matrix_id;
 		GLint  projection_matrix_id;
 
-		ShaderCompiler shader_compiler;
+		ShaderProgram shader_program;
 
-		GLuint framebuffer_id;
-		GLuint depthbuffer_id;
-		GLuint out_texture_id;
-
-		GLuint shader_program_id;//effect_program_id
-
-		GLuint triangle_vbo0;
-		GLuint triangle_vbo1;
-
-		//shared_ptr<Window> window;
+		Framebuffer   framebuffer;
 
 		int    window_width;
 		int    window_height;
 
 	public:
 
-		View(int width, int height, shared_ptr<string> code);
+		View(int width, int height, shared_ptr<Shader> shader);
 
 		void   update();
 		void   render();
 		void   resize(int  width, int height);
-
-	private:
-
-		void   build_framebuffer();
-		void   render_framebuffer();
 
 	};
 }

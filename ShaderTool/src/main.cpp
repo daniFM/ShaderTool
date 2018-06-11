@@ -43,6 +43,10 @@ int main(int number_of_arguments, char * arguments[])
 		shader_path = arguments[1];
 	}
 
+	//Window window(1024, 768, "Shader Tool", true);
+	sf::Window window(VideoMode(1024, 768), "Shader Tool", Style::Default, ContextSettings(32));
+	window.setVerticalSyncEnabled(true);
+
 	//Init OpenGL
 
 	GLenum glew_initialization = glewInit();
@@ -52,12 +56,8 @@ int main(int number_of_arguments, char * arguments[])
 
 	DocumentManager document_manager;
 	document_manager.loadShader(shader_path);
-
-	//Window window(1024, 768, "Shader Tool", true);
-	sf::Window window(VideoMode(1024, 768), "Shader Tool", Style::Default, ContextSettings(32));
-	window.setVerticalSyncEnabled(true);
-
-	View view(1024, 768, document_manager.getShader()->getCode());
+	
+	View view(1024, 768, document_manager.getShader());
 
 	bool running = true;
 
