@@ -24,10 +24,9 @@ namespace st
 
 	public:
 
-		DocumentManager()
-		{
-		}
+		DocumentManager() = default;
 
+		bool loadShader();
 		bool loadShader(string path);
 		bool saveShader(string path);
 

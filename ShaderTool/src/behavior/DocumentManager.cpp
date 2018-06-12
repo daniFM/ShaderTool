@@ -14,6 +14,11 @@ Subject to license in LICENSE.txt
 
 namespace st
 {
+	bool DocumentManager::loadShader()
+	{
+		return loadShader(shader.getPath());
+	}
+
 	bool DocumentManager::loadShader(string path)
 	{
 		//path += "\\newShader.glsl";
@@ -30,11 +35,11 @@ namespace st
 
 		if (infile.good())
 		{
-			while (!infile.eof()) // To get you all the lines.
-			{
-				getline(infile, shader_str); // Saves the line in STRING.
-				cout << shader_str; // Prints our STRING.
-			}
+			//while (!infile.eof()) // To get you all the lines.
+			//{
+			//	getline(infile, shader_str); // Saves the line in STRING.
+			//	cout << shader_str; // Prints our STRING.
+			//}
 		}
 		else
 		{

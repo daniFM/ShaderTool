@@ -7,20 +7,13 @@ Subject to license in LICENSE.txt
 
 */
 
-//#include <GL/glew.h>
 #include <UIController.hpp>
 #include <iostream>
 #include <cassert>
 
-//#include <SFML/Window.hpp>
-//#include <SFML/OpenGL.hpp>
-
 #include <DocumentManager.hpp>
-//#include <Window.hpp>
-//#include <View.hpp>
 
 using namespace std;
-//using namespace sf;
 using namespace st;
 using namespace st_front;
 
@@ -47,28 +40,17 @@ int main(int number_of_arguments, char * arguments[])
 		texture_path = arguments[2];
 	}
 
-	////Window window(1024, 768, "Shader Tool", true);
-	//sf::Window window(VideoMode(1024, 768), "Shader Tool", Style::Default, ContextSettings(32));
-	//window.setVerticalSyncEnabled(true);
-
-	//Init OpenGL
-
-	/*GLenum glew_initialization = glewInit();
-	assert(glew_initialization == GLEW_OK);*/
-
 	//Set document
 
-	DocumentManager document_manager;
-	document_manager.loadShader(shader_path);	//"..\\assets\\example_texture.tga"
-	//
-	//View view(1024, 768, document_manager.getShader());
-
+	shared_ptr < DocumentManager > document_manager = make_shared<DocumentManager>();
+	document_manager->loadShader(shader_path);	//"..\\assets\\example_texture.tga"
+	
 	try
 	{
 		nanogui::init();
 		{
 
-			st_front::UIController ui(document_manager.getShader());
+			st_front::UIController ui(document_manager);
 
 			ui.drawAll();
 			ui.setVisible(true);
@@ -87,41 +69,4 @@ int main(int number_of_arguments, char * arguments[])
 
 	return 0;
 
-	/*bool running = true;
-
-	do
-	{
-		Event event;
-
-		while (window.pollEvent(event))
-		{
-			switch (event.type)
-			{
-			case Event::Closed:
-			{
-				running = false;
-				break;
-			}
-
-			case Event::Resized:
-			{
-				Vector2u window_size = window.getSize();
-
-				view.resize(window_size.x, window_size.y);
-
-				break;
-			}
-			}
-		}
-
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		view.update();
-		view.render();
-
-		window.display();
-
-	} while (running);
-
-	return 0;*/
 }
