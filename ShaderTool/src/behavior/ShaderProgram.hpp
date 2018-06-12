@@ -9,7 +9,8 @@ Subject to license in LICENSE.txt
 
 #pragma once
 
-#include <GL/glew.h>
+//#include <GL/glew.h>
+#include <nanogui/opengl.h>
 
 #include <string>
 #include <memory>

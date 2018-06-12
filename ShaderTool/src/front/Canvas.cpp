@@ -1,20 +1,42 @@
-/*
 
-Author: Daniel Fernández
-Date:	10/06/2018
+#include <Canvas.hpp>
+#include <GLTexture.hpp>
 
-*/
-
-#include <Framebuffer.hpp>
-
-//#include <SOIL.h>
-
-namespace st
+namespace st_front
 {
-	Framebuffer::Framebuffer(std::shared_ptr < ShaderProgram > shader)
-		:
-		shader(shader)
+	Canvas::Canvas(Widget *parent) : nanogui::GLCanvas(parent)
 	{
+		using namespace nanogui;
+
+		mShader.init(
+			/* An identifying name */
+			"a_simple_shader",
+
+			/* Vertex shader */
+			"#version 330\n"
+			"layout (location = 0) in vec3 vertex_coordinates;\n"
+			"layout (location = 1) in vec2 vertex_texture_uv;\n"
+			"out vec2 texture_uv;\n"
+			"void main()\n"
+			"{\n"
+			"   gl_Position = vec4(vertex_coordinates, 1.0);\n"
+			"   texture_uv  = vertex_texture_uv;\n"
+			"}",
+
+			/* Fragment shader */
+			"#version 330\n"
+			"uniform sampler2D sampler2d;\n"
+			"in  vec2 texture_uv;\n"
+			"out vec4 fragment_color;\n"
+			"void main()\n"
+			"{\n"
+			"    vec3 color = texture (sampler2d, texture_uv.st).rgb;\n"
+			"    float i = (color.r + color.g + color.b) * 0.3333333333;\n"
+			"    //fragment_color = vec4(vec3(i, i, i) * vec3(1.0, 0.75, 0.5), 1.0);\n"
+			"    fragment_color = vec4(1, 0, 0, 1);\n"
+			"}"
+		);
+
 		// Se crea un framebuffer en el que poder renderizar:
 		{
 			glGenFramebuffers(1, &framebuffer_id);
@@ -37,29 +59,32 @@ namespace st
 		//	printf("SOIL loading error: '%s'\n", SOIL_last_result());
 		//}
 
+		auto_ptr<st::GLTexture> texture;
+		out_texture_id = texture->load("..\\assets\\example_texture.jpg");
+
 		//Se crea una textura que será el búfer de color vinculado al framebuffer:
-		{
-			glGenTextures(1, &out_texture_id);
-			glBindTexture(GL_TEXTURE_2D, out_texture_id);
+		//{
+		//	glGenTextures(1, &out_texture_id);
+		//	glBindTexture(GL_TEXTURE_2D, out_texture_id);
 
-			// El búfer de color tendrá formato RGB:
+		//	// El búfer de color tendrá formato RGB:
 
-			glTexImage2D
-			(
-				GL_TEXTURE_2D,
-				0,
-				GL_RGB,
-				framebuffer_width,
-				framebuffer_height,
-				0,
-				GL_RGB,
-				GL_UNSIGNED_BYTE,
-				0
-			);
+		//	glTexImage2D
+		//	(
+		//		GL_TEXTURE_2D,
+		//		0,
+		//		GL_RGB,
+		//		framebuffer_width,
+		//		framebuffer_height,
+		//		0,
+		//		GL_RGB,
+		//		GL_UNSIGNED_BYTE,
+		//		0
+		//	);
 
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		}
+		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		//}
 
 		// Se crea un Z-Buffer para usarlo en combinación con el framebuffer:
 		{
@@ -118,20 +143,30 @@ namespace st
 		glBindBuffer(GL_ARRAY_BUFFER, triangle_vbo1);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(quad_texture_uv), quad_texture_uv, GL_STATIC_DRAW);
 
+		mShader.bind();
+		/*mShader.uploadIndices(indices);
+
+		mShader.uploadAttrib("position", positions);
+		mShader.uploadAttrib("color", colors);*/
 	}
 
-	void Framebuffer::render(int x, int y, int width, int height)
+	void Canvas::drawGL()
 	{
-		glDisable(GL_DEPTH_TEST);
+		using namespace nanogui;
 
-		glViewport(x, y, width, height);
+		mShader.bind();
+
+
+		//glDisable(GL_DEPTH_TEST);
+
+		//glViewport(x, y, width, height);
 
 		// Se activa el framebuffer de la ventana:
 
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 		//glUseProgram(effect_program_id);
-		shader->use();
+		//shader->use();
 
 		// Se activa la textura del framebuffer:
 
@@ -145,17 +180,17 @@ namespace st
 		glBindBuffer(GL_ARRAY_BUFFER, triangle_vbo1);
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+		//glDrawArrays(GL_TRIANGLES, 0, 6);
 
-		shader->disable();
+		//shader->disable();
 
-		glEnable(GL_DEPTH_TEST);
-	}
+		//glEnable(GL_DEPTH_TEST);
 
-	void Framebuffer::setFramebuffer()
-	{
-		glViewport(0, 0, framebuffer_width, framebuffer_height);
+		mShader.drawArray(GL_TRIANGLES, 0, 6);
 
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);//framebuffer_id     // Se activa el framebuffer de la textura
+		//glEnable(GL_DEPTH_TEST);
+		///* Draw 12 triangles starting at index 0 */
+		////mShader.drawIndexed(GL_TRIANGLES, 0, 12);
+		//glDisable(GL_DEPTH_TEST);
 	}
 }

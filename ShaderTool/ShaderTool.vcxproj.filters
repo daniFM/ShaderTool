@@ -42,6 +42,9 @@
     <ClCompile Include="src\front\UIController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\front\Canvas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data\Shader.hpp">
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="src\front\Canvas.hpp">
       <Filter>Header Files\Front</Filter>
+    </ClInclude>
+    <ClInclude Include="src\behavior\GLTexture.hpp">
+      <Filter>Header Files\Behavior</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

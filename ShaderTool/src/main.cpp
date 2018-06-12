@@ -15,13 +15,13 @@ Subject to license in LICENSE.txt
 //#include <SFML/Window.hpp>
 //#include <SFML/OpenGL.hpp>
 
-//#include <DocumentManager.hpp>
+#include <DocumentManager.hpp>
 //#include <Window.hpp>
 //#include <View.hpp>
 
 using namespace std;
 //using namespace sf;
-//using namespace st;
+using namespace st;
 using namespace st_front;
 
 int main(int number_of_arguments, char * arguments[])
@@ -58,8 +58,8 @@ int main(int number_of_arguments, char * arguments[])
 
 	//Set document
 
-	//DocumentManager document_manager;
-	//document_manager.loadShader(shader_path);	//"..\\assets\\example_texture.tga"
+	DocumentManager document_manager;
+	document_manager.loadShader(shader_path);	//"..\\assets\\example_texture.tga"
 	//
 	//View view(1024, 768, document_manager.getShader());
 
@@ -68,7 +68,7 @@ int main(int number_of_arguments, char * arguments[])
 		nanogui::init();
 		{
 
-			st_front::UIController ui;
+			st_front::UIController ui(document_manager.getShader());
 
 			ui.drawAll();
 			ui.setVisible(true);

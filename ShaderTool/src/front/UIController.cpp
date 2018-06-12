@@ -28,36 +28,40 @@ using namespace nanogui;
 
 namespace st_front
 {
-	UIController::UIController()
+	UIController::UIController(shared_ptr<st::Shader> shader)
 		:
 		Screen(Eigen::Vector2i(1024, 768), "NanoGUI Test", true)
+		/*shader_program(),
+		framebuffer(shader_program)*/
 	{
-		//this->setLayout(new nanogui::GroupLayout);
+		shader_program = make_shared<st::ShaderProgram>();
+		framebuffer = make_shared<st::Framebuffer>(shader_program);	//make_shared<st::ShaderProgram>(shader_program)
 
-		Window *window = new Window(this, "Preview");
-		window->setPosition(Vector2i(15, 15));
-		window->setLayout(new GroupLayout());
+		shader_program->compileShader(shader);
 
-		auto * button = new nanogui::Button(window, "Preview");
+		this->setLayout(new nanogui::GroupLayout);
+
+		/*Window *window = new Window(this, "Preview");
+		window->setPosition(Vector2i(0, 0));
+		window->setLayout(new GroupLayout());*/
+
+		auto * button = new nanogui::Button(this, "Preview");
 
 		button->setCallback(std::bind(&UIController::buttonClicked, this));
 
 		//label = new nanogui::Label(this, "");
 
-		canvas = new Canvas(window);
-		//canvas->setFixedSize(nanogui::Vector2i(512, 600));
+		canvas = new Canvas(this);
+		canvas->setFixedSize(nanogui::Vector2i(512, 512));
 
-		window = new Window(this, "Shader Editor");
-		window->setPosition(Vector2i(512, 15));
+		/*window = new Window(this, "Shader Editor");
+		window->setPosition(Vector2i(542, 0));
 		window->setLayout(new GroupLayout());
 
 		text_box = new nanogui::TextBox(window);
 		text_box->setEditable(true);
 		text_box->setFixedSize(Vector2i(512, 600));
-		text_box->setAlignment(TextBox::Alignment::Left);
-		//shader_editor->setFixedSize(nanogui::Vector2i(512, 600));
-		//shader_editor->setPosition(nanogui::Vector2i(512, -600));
-		//shader_editor->setAlignment(nanogui::TextBox::Alignment::Right);
+		text_box->setAlignment(TextBox::Alignment::Left);*/
 
 		performLayout();
 
@@ -80,7 +84,7 @@ namespace st_front
 		}
 
 		//label->setCaption(caption.str());
-		text_box->setValue(caption.str());
+		//text_box->setValue(caption.str());
 
 		performLayout();
 	}
@@ -92,6 +96,15 @@ namespace st_front
 
 	void UIController::draw(NVGcontext * context)
 	{
+		//framebuffer->setFramebuffer();
+
 		Screen::draw(context);
+
+		/*int width = canvas->width();
+		int height = canvas->height();
+		int x = canvas->position().x();
+		int y = canvas->position().y() + this->height() - height;
+
+		framebuffer->render(x, y, width, height);*/
 	}
 }
