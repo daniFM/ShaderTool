@@ -7,7 +7,7 @@ Date:	10/06/2018
 
 #include <Framebuffer.hpp>
 
-#include <SOIL.h>
+//#include <SOIL.h>
 
 namespace st
 {
@@ -23,19 +23,19 @@ namespace st
 
 		const char* filename = "..\\assets\\example_texture.jpg";
 
-		out_texture_id = SOIL_load_OGL_texture
-		(
-			filename,
-			SOIL_LOAD_AUTO,
-			SOIL_CREATE_NEW_ID,
-			SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-		);
+		//out_texture_id = SOIL_load_OGL_texture
+		//(
+		//	filename,
+		//	SOIL_LOAD_AUTO,
+		//	SOIL_CREATE_NEW_ID,
+		//	SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+		//);
 
-		/* check for an error during the load process */
-		if (0 == out_texture_id)
-		{
-			printf("SOIL loading error: '%s'\n", SOIL_last_result());
-		}
+		///* check for an error during the load process */
+		//if (0 == out_texture_id)
+		//{
+		//	printf("SOIL loading error: '%s'\n", SOIL_last_result());
+		//}
 
 		// Se crea una textura que será el búfer de color vinculado al framebuffer:
 		//{

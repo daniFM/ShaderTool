@@ -10,7 +10,7 @@ Date:	10/06/2018
 #include <memory>
 
 #include <ShaderProgram.hpp>
-#include <Color_Buffer_Rgba8888.hpp>
+//#include <Color_Buffer_Rgba8888.hpp>
 
 namespace st
 {

@@ -25,7 +25,7 @@ using namespace std;
 
 namespace st
 {
-	UIController::UIController() : Screen(Eigen::Vector2i(800, 600), "NanoGUI Test", false)
+	UIController::UIController() : Screen(Eigen::Vector2i(1024, 768), "NanoGUI Test", true)
 	{
 		this->setLayout(new nanogui::GroupLayout);
 
