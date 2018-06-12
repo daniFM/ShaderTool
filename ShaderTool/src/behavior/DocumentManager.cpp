@@ -63,6 +63,9 @@ namespace st
 		if(success)
 		{
 			shader = Shader(path, path, shader_str);
+
+			string command = "start notepad.exe " + path;
+			system(command.c_str());
 		}
 
 		return success;
