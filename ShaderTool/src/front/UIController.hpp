@@ -11,7 +11,8 @@ Subject to license in LICENSE.txt
 
 #include <nanogui/screen.h>
 #include <Canvas.hpp>
-#include <Framebuffer.hpp>
+#include <Canvas3D.hpp>
+#include <DocumentManager.hpp>
 
 namespace st_front
 {
@@ -19,18 +20,17 @@ namespace st_front
 	{
 	private:
 
+		//Canvas * canvas;
+		Canvas3D * canvas;
+
 		nanogui::Label * label;
-		Canvas * canvas;
 		nanogui::TextBox * text_box;
 
-		shared_ptr < st::Framebuffer >   framebuffer;
-		shared_ptr < st::ShaderProgram > shader_program;
-
-		unsigned int     clickCount;
+		shared_ptr < st::DocumentManager > doc_manager;
 
 	public:
 
-		UIController(shared_ptr<st::Shader> shader);
+		UIController(shared_ptr<st::DocumentManager> dm);
 
 	private:
 

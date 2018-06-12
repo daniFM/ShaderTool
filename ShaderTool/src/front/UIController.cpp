@@ -28,17 +28,11 @@ using namespace nanogui;
 
 namespace st_front
 {
-	UIController::UIController(shared_ptr<st::Shader> shader)
+	UIController::UIController(shared_ptr<st::DocumentManager> dm)
 		:
-		Screen(Eigen::Vector2i(1024, 768), "NanoGUI Test", true)
-		/*shader_program(),
-		framebuffer(shader_program)*/
+		Screen(Eigen::Vector2i(1024, 768), "NanoGUI Test", true),
+		doc_manager(dm)
 	{
-		shader_program = make_shared<st::ShaderProgram>();
-		//framebuffer = make_shared<st::Framebuffer>(shader_program);	//make_shared<st::ShaderProgram>(shader_program)
-
-		shader_program->compileShader(shader);
-
 		this->setLayout(new nanogui::GroupLayout);
 
 		/*Window *window = new Window(this, "Preview");
@@ -51,7 +45,8 @@ namespace st_front
 
 		//label = new nanogui::Label(this, "");
 
-		canvas = new Canvas(this);
+		//canvas = new Canvas(this);
+		canvas = new Canvas3D(this);
 		canvas->setFixedSize(nanogui::Vector2i(512, 512));
 
 		/*window = new Window(this, "Shader Editor");
@@ -64,27 +59,12 @@ namespace st_front
 		text_box->setAlignment(TextBox::Alignment::Left);*/
 
 		performLayout();
-
-		clickCount = 0;
 	}
 
 	void UIController::buttonClicked()
 	{
-		clickCount++;
-
-		ostringstream caption;
-
-		caption << "The button has been clicked ";
-
-		switch (clickCount)
-		{
-		case 1:  caption << "once.";  break;
-		case 2:  caption << "twice."; break;
-		default: caption << clickCount << " times.";
-		}
-
-		//label->setCaption(caption.str());
-		//text_box->setValue(caption.str());
+		doc_manager->loadShader();
+		canvas->setShader(doc_manager->getShader());
 
 		performLayout();
 	}

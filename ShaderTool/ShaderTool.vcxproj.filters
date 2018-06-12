@@ -45,6 +45,9 @@
     <ClCompile Include="src\front\Canvas.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\front\Canvas3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data\Shader.hpp">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="src\behavior\GLTexture.hpp">
       <Filter>Header Files\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="src\front\Canvas3D.hpp">
+      <Filter>Header Files\Front</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
