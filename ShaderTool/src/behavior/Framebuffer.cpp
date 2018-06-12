@@ -7,7 +7,7 @@ Date:	10/06/2018
 
 #include <Framebuffer.hpp>
 
-#include <SOIL.h>
+//#include <SOIL.h>
 
 namespace st
 {
@@ -23,43 +23,43 @@ namespace st
 
 		const char* filename = "..\\assets\\example_texture.jpg";
 
-		out_texture_id = SOIL_load_OGL_texture
-		(
-			filename,
-			SOIL_LOAD_AUTO,
-			SOIL_CREATE_NEW_ID,
-			SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-		);
+		//out_texture_id = SOIL_load_OGL_texture
+		//(
+		//	filename,
+		//	SOIL_LOAD_AUTO,
+		//	SOIL_CREATE_NEW_ID,
+		//	SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+		//);
 
-		/* check for an error during the load process */
-		if (0 == out_texture_id)
-		{
-			printf("SOIL loading error: '%s'\n", SOIL_last_result());
-		}
-
-		// Se crea una textura que será el búfer de color vinculado al framebuffer:
+		///* check for an error during the load process */
+		//if (0 == out_texture_id)
 		//{
-		//	glGenTextures(1, &out_texture_id);
-		//	glBindTexture(GL_TEXTURE_2D, out_texture_id);
-
-		//	// El búfer de color tendrá formato RGB:
-
-		//	glTexImage2D
-		//	(
-		//		GL_TEXTURE_2D,
-		//		0,
-		//		GL_RGB,
-		//		framebuffer_width,
-		//		framebuffer_height,
-		//		0,
-		//		GL_RGB,
-		//		GL_UNSIGNED_BYTE,
-		//		0
-		//	);
-
-		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		//	printf("SOIL loading error: '%s'\n", SOIL_last_result());
 		//}
+
+		//Se crea una textura que será el búfer de color vinculado al framebuffer:
+		{
+			glGenTextures(1, &out_texture_id);
+			glBindTexture(GL_TEXTURE_2D, out_texture_id);
+
+			// El búfer de color tendrá formato RGB:
+
+			glTexImage2D
+			(
+				GL_TEXTURE_2D,
+				0,
+				GL_RGB,
+				framebuffer_width,
+				framebuffer_height,
+				0,
+				GL_RGB,
+				GL_UNSIGNED_BYTE,
+				0
+			);
+
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		}
 
 		// Se crea un Z-Buffer para usarlo en combinación con el framebuffer:
 		{
@@ -120,18 +120,18 @@ namespace st
 
 	}
 
-	void Framebuffer::render(int width, int height)
+	void Framebuffer::render(int x, int y, int width, int height)
 	{
-		//glDisable(GL_DEPTH_TEST);
+		glDisable(GL_DEPTH_TEST);
 
-		glViewport(0, 0, width, height);
+		glViewport(x, y, width, height);
 
 		// Se activa el framebuffer de la ventana:
 
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 		//glUseProgram(effect_program_id);
-		//shader->use();
+		shader->use();
 
 		// Se activa la textura del framebuffer:
 
@@ -147,9 +147,9 @@ namespace st
 
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 
-		//shader->disable();
+		shader->disable();
 
-		//glEnable(GL_DEPTH_TEST);
+		glEnable(GL_DEPTH_TEST);
 	}
 
 	void Framebuffer::setFramebuffer()

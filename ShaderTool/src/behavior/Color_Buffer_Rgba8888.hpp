@@ -13,7 +13,7 @@
 #define COLOR_BUFFER_RGBA8888_HEADER
 
     #include "Color_Buffer.hpp"
-    #include <SFML/OpenGL.hpp>
+    //#include <SFML/OpenGL.hpp>
     #include <stdint.h>             // This header is <csdint> on C++11...
     #include <vector>
 
@@ -131,8 +131,8 @@
                 // Color buffer objects could be more appropriate, but glDrawPixels() is more simple and compatible
                 // within the context of this example.
 
-                glRasterPos2i (raster_x, raster_y);
-                glDrawPixels  (width, height, GL_RGBA, GL_UNSIGNED_BYTE, colors ());
+                /*glRasterPos2i (raster_x, raster_y);
+                glDrawPixels  (width, height, GL_RGBA, GL_UNSIGNED_BYTE, colors ());*/
             }
 
         };

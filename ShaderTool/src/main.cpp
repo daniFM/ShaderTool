@@ -7,24 +7,15 @@ Subject to license in LICENSE.txt
 
 */
 
-#include <GL/glew.h>
+#include <UIController.hpp>
 #include <iostream>
 #include <cassert>
 
-//#include <glm/glm.hpp>                          // vec3, vec4, ivec4, mat4
-//#include <glm/gtc/matrix_transform.hpp>         // translate, rotate, scale, perspective
-//#include <glm/gtc/type_ptr.hpp>
-//
-#include <SFML/Window.hpp>
-#include <SFML/OpenGL.hpp>
-
 #include <DocumentManager.hpp>
-#include <Window.hpp>
-#include <View.hpp>
 
 using namespace std;
-using namespace sf;
 using namespace st;
+using namespace st_front;
 
 int main(int number_of_arguments, char * arguments[])
 {
@@ -49,57 +40,33 @@ int main(int number_of_arguments, char * arguments[])
 		texture_path = arguments[2];
 	}
 
-	//Window window(1024, 768, "Shader Tool", true);
-	sf::Window window(VideoMode(1024, 768), "Shader Tool", Style::Default, ContextSettings(32));
-	window.setVerticalSyncEnabled(true);
-
-	//Init OpenGL
-
-	GLenum glew_initialization = glewInit();
-	assert(glew_initialization == GLEW_OK);
-
 	//Set document
 
-	DocumentManager document_manager;
-	document_manager.loadShader(shader_path);	//"..\\assets\\example_texture.tga"
+	shared_ptr < DocumentManager > document_manager = make_shared<DocumentManager>();
+	document_manager->loadShader(shader_path);	//"..\\assets\\example_texture.tga"
 	
-	View view(1024, 768, document_manager.getShader());
-
-	bool running = true;
-
-	do
+	try
 	{
-		Event event;
-
-		while (window.pollEvent(event))
+		nanogui::init();
 		{
-			switch (event.type)
-			{
-			case Event::Closed:
-			{
-				running = false;
-				break;
-			}
 
-			case Event::Resized:
-			{
-				Vector2u window_size = window.getSize();
+			st_front::UIController ui(document_manager);
 
-				view.resize(window_size.x, window_size.y);
+			ui.drawAll();
+			ui.setVisible(true);
 
-				break;
-			}
-			}
+			nanogui::mainloop();
+
 		}
+		nanogui::shutdown();
+	}
+	catch (const std::runtime_error & error)
+	{
+		std::cerr << "Uncaught exception at main(): " << error.what() << std::endl;
 
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		view.update();
-		view.render();
-
-		window.display();
-
-	} while (running);
+		return -1;
+	}
 
 	return 0;
+
 }

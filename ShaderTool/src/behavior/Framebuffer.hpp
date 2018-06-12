@@ -10,7 +10,7 @@ Date:	10/06/2018
 #include <memory>
 
 #include <ShaderProgram.hpp>
-#include <Color_Buffer_Rgba8888.hpp>
+//#include <Color_Buffer_Rgba8888.hpp>
 
 namespace st
 {
@@ -37,6 +37,8 @@ namespace st
 
 	public:
 
+		Framebuffer() = default;
+
 		/// Creates a Framebuffer.
 		/// Creation of the GL_FRAMEBUFFER, texture, z-buffer and the screen quad.
 		/// @param post processing shader that will be used to render the framebuffer.
@@ -47,7 +49,7 @@ namespace st
 		/// To be called after rendering all other scene elements.
 		/// @param width screen width.
 		/// @param height screen height.
-		void render(int width, int height);
+		void render(int x, int y, int width, int height);
 		/// Inits the glViewport and the GL_FRAMEBUFFER for the scene objects to be rendered.
 		/// To be called at the start of the scene rendering.
 		void setFramebuffer();
