@@ -35,7 +35,7 @@ namespace st_front
 		framebuffer(shader_program)*/
 	{
 		shader_program = make_shared<st::ShaderProgram>();
-		framebuffer = make_shared<st::Framebuffer>(shader_program);	//make_shared<st::ShaderProgram>(shader_program)
+		//framebuffer = make_shared<st::Framebuffer>(shader_program);	//make_shared<st::ShaderProgram>(shader_program)
 
 		shader_program->compileShader(shader);
 

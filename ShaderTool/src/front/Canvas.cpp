@@ -32,7 +32,7 @@ namespace st_front
 			"{\n"
 			"    vec3 color = texture (sampler2d, texture_uv.st).rgb;\n"
 			"    float i = (color.r + color.g + color.b) * 0.3333333333;\n"
-			"    //fragment_color = vec4(vec3(i, i, i) * vec3(1.0, 0.75, 0.5), 1.0);\n"
+			"    fragment_color = vec4(vec3(i, i, i) * vec3(1.0, 0.75, 0.5), 1.0);\n"
 			"    fragment_color = vec4(1, 0, 0, 1);\n"
 			"}"
 		);
@@ -59,8 +59,8 @@ namespace st_front
 		//	printf("SOIL loading error: '%s'\n", SOIL_last_result());
 		//}
 
-		auto_ptr<st::GLTexture> texture;
-		out_texture_id = texture->load("..\\assets\\example_texture.jpg");
+		st::GLTexture texture;
+		out_texture_id = texture.load("..\\assets\\example_texture.jpg");
 
 		//Se crea una textura que será el búfer de color vinculado al framebuffer:
 		//{
@@ -158,18 +158,17 @@ namespace st_front
 
 
 		//glDisable(GL_DEPTH_TEST);
-
+		glEnable(GL_DEPTH_TEST);
 		//glViewport(x, y, width, height);
 
 		// Se activa el framebuffer de la ventana:
 
 		//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-		//glUseProgram(effect_program_id);
 		//shader->use();
 
 		// Se activa la textura del framebuffer:
-
+		glActiveTexture(1);
 		glBindTexture(GL_TEXTURE_2D, out_texture_id);
 
 		glEnableVertexAttribArray(0);
@@ -186,11 +185,15 @@ namespace st_front
 
 		//glEnable(GL_DEPTH_TEST);
 
-		mShader.drawArray(GL_TRIANGLES, 0, 6);
+		//mShader.drawArray(GL_TRIANGLES, 0, 6);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
 
 		//glEnable(GL_DEPTH_TEST);
 		///* Draw 12 triangles starting at index 0 */
 		////mShader.drawIndexed(GL_TRIANGLES, 0, 12);
-		//glDisable(GL_DEPTH_TEST);
+		glDisable(GL_DEPTH_TEST);
+
+		glBindTexture(GL_TEXTURE_2D, 0);
+
 	}
 }
