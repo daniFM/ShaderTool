@@ -163,6 +163,7 @@
     <ClInclude Include="src\data\Shader.hpp" />
     <ClInclude Include="src\data\Texture.hpp" />
     <ClInclude Include="src\data\UniformVariable.hpp" />
+    <ClInclude Include="src\front\Canvas.hpp" />
     <ClInclude Include="src\front\UIController.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

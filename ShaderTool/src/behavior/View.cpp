@@ -45,6 +45,8 @@ namespace st
 		shader_program(),
 		framebuffer(make_shared<ShaderProgram>(shader_program))
 	{
+		/*shader_program = ShaderProgram();
+		framebuffer = Framebuffer(make_shared<ShaderProgram>(shader_program));*/
 		/*shader_program = make_shared<ShaderProgram>();
 		framebuffer = Framebuffer(shader_program);*/
 

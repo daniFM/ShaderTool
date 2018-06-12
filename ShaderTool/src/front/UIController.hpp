@@ -10,15 +10,18 @@ Subject to license in LICENSE.txt
 #pragma once
 
 #include <nanogui/screen.h>
+#include <Canvas.hpp>
 
-namespace st
+namespace st_front
 {
 	class UIController : public nanogui::Screen
 	{
 	private:
 
 		nanogui::Label * label;
-		nanogui::GLCanvas * canvas;
+		Canvas * canvas;
+		nanogui::TextBox * text_box;
+
 		unsigned int     clickCount;
 
 	public:

@@ -77,5 +77,8 @@
     <ClInclude Include="src\front\UIController.hpp">
       <Filter>Header Files\Front</Filter>
     </ClInclude>
+    <ClInclude Include="src\front\Canvas.hpp">
+      <Filter>Header Files\Front</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
