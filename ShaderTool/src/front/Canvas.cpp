@@ -1,6 +1,11 @@
 
 #include <Canvas.hpp>
-#include <GLTexture.hpp>
+
+
+extern "C"
+{
+#include <targa.h>
+}
 
 namespace st_front
 {
@@ -33,85 +38,46 @@ namespace st_front
 			"    vec3 color = texture (sampler2d, texture_uv.st).rgb;\n"
 			"    float i = (color.r + color.g + color.b) * 0.3333333333;\n"
 			"    fragment_color = vec4(vec3(i, i, i) * vec3(1.0, 0.75, 0.5), 1.0);\n"
-			"    fragment_color = vec4(1, 0, 0, 1);\n"
+			"    //fragment_color = vec4(1, 0, 0, 1);\n"
 			"}"
 		);
 
-		// Se crea un framebuffer en el que poder renderizar:
+		mShader.bind();
+
+		const char* filename = "..\\assets\\example_texture.tga";
+
+		//st::GLTexture texture;
+		std::auto_ptr< Texture > texture = loadTexture(filename);
+
+		bool has_texture = texture.get() != 0;
+
+		if (has_texture)
 		{
-			glGenFramebuffers(1, &framebuffer_id);
-			glBindFramebuffer(GL_FRAMEBUFFER, framebuffer_id);
+			// Se habilitan las texturas, se genera un id para un búfer de textura,
+			// se selecciona el búfer de textura creado y se configuran algunos de
+			// sus parámetros:
+
+			glEnable(GL_TEXTURE_2D);
+			glGenTextures(1, &out_texture_id);
+			glBindTexture(GL_TEXTURE_2D, out_texture_id);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+			// Se suben los colores de la textura a la memoria de vídeo:
+
+			glTexImage2D
+			(
+				GL_TEXTURE_2D,
+				0,
+				GL_RGBA,
+				texture->get_width(),
+				texture->get_height(),
+				0,
+				GL_RGBA,
+				GL_UNSIGNED_BYTE,
+				texture->colors()
+			);
 		}
-
-		const char* filename = "..\\assets\\example_texture.jpg";
-
-		//out_texture_id = SOIL_load_OGL_texture
-		//(
-		//	filename,
-		//	SOIL_LOAD_AUTO,
-		//	SOIL_CREATE_NEW_ID,
-		//	SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-		//);
-
-		///* check for an error during the load process */
-		//if (0 == out_texture_id)
-		//{
-		//	printf("SOIL loading error: '%s'\n", SOIL_last_result());
-		//}
-
-		st::GLTexture texture;
-		out_texture_id = texture.load("..\\assets\\example_texture.jpg");
-
-		//Se crea una textura que será el búfer de color vinculado al framebuffer:
-		//{
-		//	glGenTextures(1, &out_texture_id);
-		//	glBindTexture(GL_TEXTURE_2D, out_texture_id);
-
-		//	// El búfer de color tendrá formato RGB:
-
-		//	glTexImage2D
-		//	(
-		//		GL_TEXTURE_2D,
-		//		0,
-		//		GL_RGB,
-		//		framebuffer_width,
-		//		framebuffer_height,
-		//		0,
-		//		GL_RGB,
-		//		GL_UNSIGNED_BYTE,
-		//		0
-		//	);
-
-		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		//}
-
-		// Se crea un Z-Buffer para usarlo en combinación con el framebuffer:
-		{
-			glGenRenderbuffers(1, &depthbuffer_id);
-			glBindRenderbuffer(GL_RENDERBUFFER, depthbuffer_id);
-			glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, framebuffer_width, framebuffer_height);
-			glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthbuffer_id);
-		}
-
-		// Se configura el framebuffer:
-		{
-			glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, out_texture_id, 0);
-
-			const GLenum draw_buffer = GL_COLOR_ATTACHMENT0;
-
-			glDrawBuffers(1, &draw_buffer);
-		}
-
-		// Se comprueba que el framebuffer está listo:
-
-		assert(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE);
-
-		// Se desvincula el framebuffer:
-
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-		// Se crea el quad para hacer el render del framebuffer:
 
 		static const GLfloat quad_positions[] =
 		{
@@ -143,11 +109,6 @@ namespace st_front
 		glBindBuffer(GL_ARRAY_BUFFER, triangle_vbo1);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(quad_texture_uv), quad_texture_uv, GL_STATIC_DRAW);
 
-		mShader.bind();
-		/*mShader.uploadIndices(indices);
-
-		mShader.uploadAttrib("position", positions);
-		mShader.uploadAttrib("color", colors);*/
 	}
 
 	void Canvas::drawGL()
@@ -195,5 +156,38 @@ namespace st_front
 
 		glBindTexture(GL_TEXTURE_2D, 0);
 
+	}
+
+	auto_ptr< Texture > Canvas::loadTexture(string path)
+	{
+		std::auto_ptr< Texture > texture;
+		tga_image                loaded_image;
+
+		if (tga_read(&loaded_image, path.c_str()) == TGA_NOERR)
+		{
+			// Si se ha podido cargar la imagen desde el archivo, se crea un búfer para una textura:
+
+			texture.reset(new Texture(loaded_image.width, loaded_image.height));
+
+			// Se convierte el formato de píxel de la imagen cargada a RGBA8888:
+
+			tga_convert_depth(&loaded_image, texture->bits_per_color());
+			tga_swap_red_blue(&loaded_image);
+
+			// Se copian los pixels del búfer de la imagen cargada al búfer de la textura:
+
+			Texture::Color * loaded_image_pixels = reinterpret_cast< Texture::Color * >(loaded_image.image_data);
+			Texture::Color * loaded_image_pixels_end = loaded_image_pixels + loaded_image.width * loaded_image.height;
+			Texture::Color * image_buffer_pixels = texture->colors();
+
+			while (loaded_image_pixels <  loaded_image_pixels_end)
+			{
+				*image_buffer_pixels++ = *loaded_image_pixels++;
+			}
+
+			tga_free_buffers(&loaded_image);
+		}
+
+		return (texture);
 	}
 }

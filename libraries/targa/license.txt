@@ -1,0 +1,10 @@
+
+Copyright © 2001-2004 Emil Mikulic.
+
+Source and binary redistribution of this code, with or without changes, for free
+or for profit, is allowed as long as this copyright notice is kept intact.
+
+Modified versions must be clearly marked as modified.
+
+This code is provided without any warranty.  The copyright holder is not liable
+for anything bad that might happen as a result of the code.

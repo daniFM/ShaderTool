@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\libraries\targa\src\targa.c" />
     <ClCompile Include="src\behavior\DocumentManager.cpp" />
     <ClCompile Include="src\behavior\Framebuffer.cpp" />
     <ClCompile Include="src\behavior\ShaderProgram.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\libraries\targa\include\targa.h" />
     <ClInclude Include="src\behavior\Color_Buffer.hpp" />
     <ClInclude Include="src\behavior\Color_Buffer_Rgba8888.hpp" />
     <ClInclude Include="src\behavior\DocumentManager.hpp" />

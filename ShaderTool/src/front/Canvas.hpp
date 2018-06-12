@@ -41,9 +41,11 @@ Subject to license in LICENSE.txt
 #include <utility>
 
 #include <ShaderProgram.hpp>
+#include <Color_Buffer_Rgba8888.hpp>
 
 namespace st_front
 {
+	typedef st::Color_Buffer_Rgba8888 Texture;
 
 	class Canvas : public nanogui::GLCanvas
 	{
@@ -74,6 +76,10 @@ namespace st_front
 		}
 
 		virtual void drawGL() override;
+
+	private:
+
+		auto_ptr< Texture > loadTexture(string path);
 
 	};
 

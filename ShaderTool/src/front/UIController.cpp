@@ -45,8 +45,8 @@ namespace st_front
 
 		//label = new nanogui::Label(this, "");
 
-		//canvas = new Canvas(this);
-		canvas = new Canvas3D(this);
+		canvas = new Canvas(this);
+		//canvas = new Canvas3D(this);
 		canvas->setFixedSize(nanogui::Vector2i(512, 512));
 
 		/*window = new Window(this, "Shader Editor");
@@ -64,7 +64,7 @@ namespace st_front
 	void UIController::buttonClicked()
 	{
 		doc_manager->loadShader();
-		canvas->setShader(doc_manager->getShader());
+		//canvas->setShader(doc_manager->getShader());
 
 		performLayout();
 	}

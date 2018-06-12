@@ -48,6 +48,9 @@
     <ClCompile Include="src\front\Canvas3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\libraries\targa\src\targa.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data\Shader.hpp">
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="src\front\Canvas3D.hpp">
       <Filter>Header Files\Front</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\targa\include\targa.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

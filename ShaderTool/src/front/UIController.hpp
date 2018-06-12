@@ -20,8 +20,8 @@ namespace st_front
 	{
 	private:
 
-		//Canvas * canvas;
-		Canvas3D * canvas;
+		Canvas * canvas;
+		//Canvas3D * canvas;
 
 		nanogui::Label * label;
 		nanogui::TextBox * text_box;
