@@ -114,7 +114,14 @@ namespace st_front
 
 	void UIController::openTexButton()
 	{
-		canvas->loadTexture(texture_path->value());
+		Vector2i newres = canvas->loadTexture(texture_path->value());
+
+		int w = newres.x();
+		int h = newres.y();
+		float aspect = (float)w / (float)h;
+
+		int prevh = canvas->fixedHeight();
+		canvas->setHeight((int)(prevh / aspect));	//(int)(prevh * aspect)
 	}
 
 	bool UIController::keyboardEvent(int key, int scancode, int action, int modifiers)

@@ -80,7 +80,7 @@ namespace st_front
 		void setShader();
 		void setShader(shared_ptr<st::Shader> shader);
 
-		void loadTexture(string path);
+		nanogui::Vector2i loadTexture(string path);
 		//auto_ptr< Texture > loadTexture(string path);
 
 	};

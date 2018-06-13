@@ -123,7 +123,7 @@ namespace st_front
 		mShader.bind();
 	}
 
-	void Canvas::loadTexture(string path)
+	nanogui::Vector2i Canvas::loadTexture(string path)
 	{
 		using handleType = std::unique_ptr<uint8_t[], void(*)(void*)>;
 
@@ -159,6 +159,7 @@ namespace st_front
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
+		return nanogui::Vector2i(w, h);
 
 		//std::auto_ptr< Texture > texture = loadTexture(filename);
 
