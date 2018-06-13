@@ -39,6 +39,7 @@ namespace st_front
 		void saveButton();
 
 		void openTexButton();
+		void loadTexture(string path);
 
 		bool keyboardEvent(int key, int scancode, int action, int modifiers) override;
 

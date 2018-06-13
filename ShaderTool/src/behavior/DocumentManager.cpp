@@ -22,8 +22,6 @@ namespace st
 
 	bool DocumentManager::loadShader(string path)
 	{
-		//path += "\\newShader.glsl";
-
 		cout << "Openning file: " << path << endl;
 
 		bool success = true;
@@ -48,22 +46,30 @@ namespace st
 
 			//Get default template
 
-			ifstream t("..\\Shaders\\defaultShader.glsl");
+			ifstream t(shaders_path + "\\defaultShader.glsl");
 			string new_shader_str(
 				(istreambuf_iterator<char>(t)),
 				 istreambuf_iterator<char>()
 			);
 
-			//Create new shader file
+			if (!t.good())
+			{
+				cout << "ERROR: Could not find shader template" << endl;
+				success = false;
+			}
+			else
+			{
+				//Create new shader file
 
-			path = path.substr(0, path.find_last_of("/\\"));
-			path += "\\Shaders\\newShader.glsl";
-			cout << "Creating new file in " << path << endl;
-			//cout << "With template " << new_shader_str << endl;
-			ofstream file(path);
-			file << new_shader_str;
+				path = path.substr(0, path.find_last_of("/\\"));
+				path += shaders_path + "\\newShader.glsl";
+				cout << "Creating new file in " << path << endl;
+				//cout << "With template " << new_shader_str << endl;
+				ofstream file(path);
+				file << new_shader_str;
 
-			shader_str = new_shader_str;
+				shader_str = new_shader_str;
+			}
 		}
 
 		if(success)

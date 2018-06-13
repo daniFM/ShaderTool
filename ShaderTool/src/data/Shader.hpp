@@ -24,9 +24,7 @@ namespace st
 
 	public:
 
-		Shader()
-		{
-		}
+		Shader() = default;
 
 		Shader(string title, string path, string shader_text)
 			:

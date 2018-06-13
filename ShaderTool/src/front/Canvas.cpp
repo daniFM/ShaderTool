@@ -18,7 +18,7 @@ namespace st_front
 
 		setShader();
 
-		loadTexture("..\\assets\\example_texture.jpg");
+		//loadTexture("..\\assets\\example_texture.jpg");
 		
 		static const GLfloat quad_positions[] =
 		{

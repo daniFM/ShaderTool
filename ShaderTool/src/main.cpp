@@ -28,22 +28,18 @@ int main(int number_of_arguments, char * arguments[])
 	}
 
 	// Están mal
-	string shader_path = "\\Shaders";
-	string texture_path = "\\Textures";
+	string data_path = "\\data";
 
 	if (number_of_arguments > 1)
 	{
-		shader_path = arguments[1];
-	}
-	if (number_of_arguments > 2)
-	{
-		texture_path = arguments[2];
+		data_path = arguments[1];
 	}
 
 	//Set document
 
-	shared_ptr < DocumentManager > document_manager = make_shared<DocumentManager>();
-	document_manager->loadShader(shader_path);	//"..\\assets\\example_texture.tga"
+	shared_ptr < DocumentManager > document_manager = make_shared<DocumentManager>(data_path);
+
+	document_manager->loadShader(data_path);
 	
 	try
 	{

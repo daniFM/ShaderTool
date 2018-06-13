@@ -30,13 +30,13 @@ namespace st_front
 {
 	UIController::UIController(shared_ptr<st::DocumentManager> dm)
 		:
-		Screen(Eigen::Vector2i(1024, 768), "ShaderTool", true),
+		Screen(Eigen::Vector2i(960, 600), "ShaderTool", true),
 		doc_manager(dm)
 	{
 		this->setLayout(new BoxLayout(Orientation::Horizontal,
 			Alignment::Minimum, 0, 6));
 
-		//Preview widget
+		// PREVIEW WIDGET -------------------------------------------------------------------------
 
 		Widget * preview = new Widget(this);
 		preview->setLayout(new GroupLayout);
@@ -49,15 +49,20 @@ namespace st_front
 		//canvas = new Canvas3D(this);
 		canvas->setFixedSize(nanogui::Vector2i(512, 512));
 
+		loadTexture(doc_manager->textures_path + "\\example_texture2.jpg");
+
+		// TOOLS WIDGET ---------------------------------------------------------------------------
+
 		Widget * tools = new Widget(this);
 		tools->setLayout(new GroupLayout);
+		tools->setFixedWidth(400);
 
 		button = new nanogui::Button(tools, "Open shader");
 		button->setCallback(std::bind(&UIController::openButton, this));
 
-		//Save Widget
+		// SAVE WIDGET ----------------------------------------------------------------------------
 
-		Label * label = new Label(tools, "Shader options");
+		new Label(tools, "Shader options");
 
 		Widget * tools_save = new Widget(tools);
 		tools_save->setLayout(new BoxLayout(Orientation::Horizontal,
@@ -70,9 +75,9 @@ namespace st_front
 		button = new Button(tools_save, "Save");
 		button->setCallback(std::bind(&UIController::saveButton, this));
 
-		//Load texture Widget
+		// LOAD TEXTURE WIDGET ---------------------------------------------------------------------
 
-		label = new Label(tools, "Texture options");
+		new Label(tools, "Texture options");
 
 		Widget * tools_tex = new Widget(tools);
 		tools_tex->setLayout(new BoxLayout(Orientation::Horizontal,
@@ -85,8 +90,8 @@ namespace st_front
 		button = new Button(tools_tex, "Load texture");
 		button->setCallback(std::bind(&UIController::openTexButton, this));
 
-		/*
-		text_box = new nanogui::TextBox(window);
+
+		/*text_box = new nanogui::TextBox(window);
 		text_box->setEditable(true);
 		text_box->setFixedSize(Vector2i(512, 600));
 		text_box->setAlignment(TextBox::Alignment::Left);*/
@@ -114,14 +119,19 @@ namespace st_front
 
 	void UIController::openTexButton()
 	{
-		Vector2i newres = canvas->loadTexture(texture_path->value());
+		loadTexture(texture_path->value());
+	}
+
+	void UIController::loadTexture(string path)
+	{
+		Vector2i newres = canvas->loadTexture(path);
 
 		int w = newres.x();
 		int h = newres.y();
 		float aspect = (float)w / (float)h;
 
 		int prevh = canvas->fixedHeight();
-		canvas->setHeight((int)(prevh / aspect));	//(int)(prevh * aspect)
+		canvas->setHeight((int)(prevh / aspect));
 	}
 
 	bool UIController::keyboardEvent(int key, int scancode, int action, int modifiers)

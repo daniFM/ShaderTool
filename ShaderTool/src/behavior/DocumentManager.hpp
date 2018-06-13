@@ -20,11 +20,25 @@ namespace st
 {
 	class DocumentManager
 	{
+	private:
+
 		Shader shader;
 
 	public:
 
-		DocumentManager() = default;
+		const string data_path;
+		const string shaders_path;
+		const string textures_path;
+
+	public:
+
+		DocumentManager(string path)
+			:
+			data_path(path),
+			shaders_path(path + "\\Shaders"),
+			textures_path(path + "\\Textures")
+		{
+		}
 
 		bool loadShader();
 		bool loadShader(string path);
@@ -37,5 +51,6 @@ namespace st
 		{
 			return make_shared<Shader>(shader);
 		}
+
 	};
 }
