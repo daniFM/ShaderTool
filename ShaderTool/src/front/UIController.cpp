@@ -64,7 +64,7 @@ namespace st_front
 	void UIController::buttonClicked()
 	{
 		doc_manager->loadShader();
-		//canvas->setShader(doc_manager->getShader());
+		canvas->setShader(doc_manager->getShader());
 
 		performLayout();
 	}
@@ -76,15 +76,6 @@ namespace st_front
 
 	void UIController::draw(NVGcontext * context)
 	{
-		//framebuffer->setFramebuffer();
-
 		Screen::draw(context);
-
-		/*int width = canvas->width();
-		int height = canvas->height();
-		int x = canvas->position().x();
-		int y = canvas->position().y() + this->height() - height;
-
-		framebuffer->render(x, y, width, height);*/
 	}
 }

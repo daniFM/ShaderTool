@@ -77,6 +77,9 @@ namespace st_front
 
 		virtual void drawGL() override;
 
+		void setShader();
+		void setShader(shared_ptr<st::Shader> shader);
+
 	private:
 
 		auto_ptr< Texture > loadTexture(string path);
