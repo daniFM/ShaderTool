@@ -89,9 +89,6 @@
     <ClInclude Include="src\front\Canvas.hpp">
       <Filter>Header Files\Front</Filter>
     </ClInclude>
-    <ClInclude Include="src\behavior\GLTexture.hpp">
-      <Filter>Header Files\Behavior</Filter>
-    </ClInclude>
     <ClInclude Include="src\front\Canvas3D.hpp">
       <Filter>Header Files\Front</Filter>
     </ClInclude>

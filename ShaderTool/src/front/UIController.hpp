@@ -11,7 +11,7 @@ Subject to license in LICENSE.txt
 
 #include <nanogui/screen.h>
 #include <Canvas.hpp>
-#include <Canvas3D.hpp>
+//#include <Canvas3D.hpp>
 #include <DocumentManager.hpp>
 
 namespace st_front
@@ -23,8 +23,8 @@ namespace st_front
 		Canvas * canvas;
 		//Canvas3D * canvas;
 
-		nanogui::Label * label;
 		nanogui::TextBox * shader_name;
+		nanogui::TextBox * texture_path;
 
 		shared_ptr < st::DocumentManager > doc_manager;
 
@@ -37,6 +37,8 @@ namespace st_front
 		void previewButton();
 		void openButton();
 		void saveButton();
+
+		void openTexButton();
 
 		bool keyboardEvent(int key, int scancode, int action, int modifiers) override;
 
