@@ -30,29 +30,41 @@ namespace st_front
 {
 	UIController::UIController(shared_ptr<st::DocumentManager> dm)
 		:
-		Screen(Eigen::Vector2i(1024, 768), "NanoGUI Test", true),
+		Screen(Eigen::Vector2i(1024, 768), "ShaderTool", true),
 		doc_manager(dm)
 	{
-		this->setLayout(new nanogui::GroupLayout);
+		this->setLayout(new BoxLayout(Orientation::Horizontal,
+			Alignment::Minimum, 0, 6));
 
-		/*Window *window = new Window(this, "Preview");
-		window->setPosition(Vector2i(0, 0));
-		window->setLayout(new GroupLayout());*/
+		Widget * preview = new Widget(this);
+		preview->setLayout(new GroupLayout);
 
-		auto * button = new nanogui::Button(this, "Preview");
+		auto * button = new nanogui::Button(preview, "Preview");
+		button->setFixedWidth(512);
+		button->setCallback(std::bind(&UIController::previewButton, this));
 
-		button->setCallback(std::bind(&UIController::buttonClicked, this));
-
-		//label = new nanogui::Label(this, "");
-
-		canvas = new Canvas(this);
+		canvas = new Canvas(preview);
 		//canvas = new Canvas3D(this);
 		canvas->setFixedSize(nanogui::Vector2i(512, 512));
 
-		/*window = new Window(this, "Shader Editor");
-		window->setPosition(Vector2i(542, 0));
-		window->setLayout(new GroupLayout());
+		Widget * tools = new Widget(this);
+		tools->setLayout(new GroupLayout);
 
+		button = new nanogui::Button(tools, "Open shader");
+		button->setCallback(std::bind(&UIController::openButton, this));
+
+		Widget * tools_save = new Widget(tools);
+		tools_save->setLayout(new BoxLayout(Orientation::Horizontal,
+			Alignment::Middle, 0, 6));
+
+		shader_name = new TextBox(tools_save);
+		shader_name->setValue("yourShaderName");
+		shader_name->setEditable(true);
+
+		button = new Button(tools_save, "Save");
+		button->setCallback(std::bind(&UIController::saveButton, this));
+
+		/*
 		text_box = new nanogui::TextBox(window);
 		text_box->setEditable(true);
 		text_box->setFixedSize(Vector2i(512, 600));
@@ -61,12 +73,22 @@ namespace st_front
 		performLayout();
 	}
 
-	void UIController::buttonClicked()
+	void UIController::previewButton()
 	{
 		doc_manager->loadShader();
 		canvas->setShader(doc_manager->getShader());
 
 		performLayout();
+	}
+
+	void UIController::openButton()
+	{
+		doc_manager->openShader();
+	}
+
+	void UIController::saveButton()
+	{
+		doc_manager->saveShader(shader_name->value());
 	}
 
 	bool UIController::keyboardEvent(int key, int scancode, int action, int modifiers)

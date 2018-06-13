@@ -48,5 +48,10 @@ namespace st
 		{
 			return make_shared<string>(shader_text);
 		}
+
+		void setPath(string _path)
+		{
+			path = _path;
+		}
 	};
 }

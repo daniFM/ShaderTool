@@ -24,7 +24,7 @@ namespace st_front
 		//Canvas3D * canvas;
 
 		nanogui::Label * label;
-		nanogui::TextBox * text_box;
+		nanogui::TextBox * shader_name;
 
 		shared_ptr < st::DocumentManager > doc_manager;
 
@@ -34,8 +34,12 @@ namespace st_front
 
 	private:
 
-		void buttonClicked();
+		void previewButton();
+		void openButton();
+		void saveButton();
+
 		bool keyboardEvent(int key, int scancode, int action, int modifiers) override;
+
 		void draw(NVGcontext * context) override;
 	};
 }

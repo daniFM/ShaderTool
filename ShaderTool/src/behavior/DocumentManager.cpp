@@ -9,6 +9,7 @@ Subject to license in LICENSE.txt
 
 #include <iostream>
 #include <fstream>
+#include <cstdio>
 
 #include "DocumentManager.hpp"
 
@@ -72,4 +73,36 @@ namespace st
 
 		return success;
 	}
+
+	bool DocumentManager::saveShader(string name)
+	{
+		bool success = true;
+
+		int result;
+		string oldname = shader.getPath();
+		string newname = oldname.substr(0, oldname.find_last_of("/\\") + 1) + name + ".glsl";
+		result = rename(oldname.c_str(), newname.c_str());
+
+		if (result == 0)
+		{
+			success = true;
+			puts("File successfully renamed");
+
+			shader.setPath(newname);
+		}
+		else
+		{
+			success = false;
+			perror("Error renaming file");
+		}
+
+		return success;
+	}
+
+	void DocumentManager::openShader()
+	{
+		string command = "start notepad.exe " + shader.getPath();
+		system(command.c_str());
+	}
+
 }

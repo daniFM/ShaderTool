@@ -28,7 +28,10 @@ namespace st
 
 		bool loadShader();
 		bool loadShader(string path);
-		bool saveShader(string path);
+
+		bool saveShader(string name);
+
+		void openShader();
 
 		shared_ptr<Shader> getShader()
 		{
