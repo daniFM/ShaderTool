@@ -51,9 +51,6 @@
     <ClCompile Include="..\libraries\targa\src\targa.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\behavior\GLTexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data\Shader.hpp">
@@ -91,9 +88,6 @@
     </ClInclude>
     <ClInclude Include="src\front\Canvas.hpp">
       <Filter>Header Files\Front</Filter>
-    </ClInclude>
-    <ClInclude Include="src\behavior\GLTexture.hpp">
-      <Filter>Header Files\Behavior</Filter>
     </ClInclude>
     <ClInclude Include="src\front\Canvas3D.hpp">
       <Filter>Header Files\Front</Filter>

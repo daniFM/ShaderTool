@@ -36,6 +36,8 @@ namespace st_front
 		this->setLayout(new BoxLayout(Orientation::Horizontal,
 			Alignment::Minimum, 0, 6));
 
+		//Preview widget
+
 		Widget * preview = new Widget(this);
 		preview->setLayout(new GroupLayout);
 
@@ -53,6 +55,10 @@ namespace st_front
 		button = new nanogui::Button(tools, "Open shader");
 		button->setCallback(std::bind(&UIController::openButton, this));
 
+		//Save Widget
+
+		Label * label = new Label(tools, "Shader options");
+
 		Widget * tools_save = new Widget(tools);
 		tools_save->setLayout(new BoxLayout(Orientation::Horizontal,
 			Alignment::Middle, 0, 6));
@@ -63,6 +69,21 @@ namespace st_front
 
 		button = new Button(tools_save, "Save");
 		button->setCallback(std::bind(&UIController::saveButton, this));
+
+		//Load texture Widget
+
+		label = new Label(tools, "Texture options");
+
+		Widget * tools_tex = new Widget(tools);
+		tools_tex->setLayout(new BoxLayout(Orientation::Horizontal,
+			Alignment::Middle, 0, 6));
+
+		texture_path = new TextBox(tools_tex);
+		texture_path->setValue("..\\assets\\example_texture.jpg");
+		texture_path->setEditable(true);
+
+		button = new Button(tools_tex, "Load texture");
+		button->setCallback(std::bind(&UIController::openTexButton, this));
 
 		/*
 		text_box = new nanogui::TextBox(window);
@@ -89,6 +110,11 @@ namespace st_front
 	void UIController::saveButton()
 	{
 		doc_manager->saveShader(shader_name->value());
+	}
+
+	void UIController::openTexButton()
+	{
+		canvas->loadTexture(texture_path->value());
 	}
 
 	bool UIController::keyboardEvent(int key, int scancode, int action, int modifiers)

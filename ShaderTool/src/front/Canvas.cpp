@@ -1,7 +1,8 @@
 
 #include <Canvas.hpp>
 
-#include <GLTexture.hpp>
+//#include <GLTexture.hpp>
+#include <stb_image.h>
 
 
 extern "C"
@@ -17,54 +18,17 @@ namespace st_front
 
 		setShader();
 
-		const char* filename = "..\\assets\\example_texture.tga";
-
-		st::GLTexture texture;
-		out_texture_id = texture.load(filename);
-
-
-
-		//std::auto_ptr< Texture > texture = loadTexture(filename);
-
-		//bool has_texture = texture.get() != 0;
-
-		//if (has_texture)
-		//{
-		//	// Se habilitan las texturas, se genera un id para un búfer de textura,
-		//	// se selecciona el búfer de textura creado y se configuran algunos de
-		//	// sus parámetros:
-
-		//	glEnable(GL_TEXTURE_2D);
-		//	glGenTextures(1, &out_texture_id);
-		//	glBindTexture(GL_TEXTURE_2D, out_texture_id);
-		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-
-		//	// Se suben los colores de la textura a la memoria de vídeo:
-
-		//	glTexImage2D
-		//	(
-		//		GL_TEXTURE_2D,
-		//		0,
-		//		GL_RGBA,
-		//		texture->get_width(),
-		//		texture->get_height(),
-		//		0,
-		//		GL_RGBA,
-		//		GL_UNSIGNED_BYTE,
-		//		texture->colors()
-		//	);
-		//}
-
+		loadTexture("..\\assets\\example_texture.jpg");
+		
 		static const GLfloat quad_positions[] =
 		{
-			+1.0f, -1.0f, 0.0f,
 			+1.0f, +1.0f, 0.0f,
-			-1.0f, +1.0f, 0.0f,
+			+1.0f, -1.0f, 0.0f,
+			-1.0f, -1.0f, 0.0f,
 
-			1.0f, -1.0f, 0.0f,
-			-1.0f, +1.0f, 0.0f,
-			-1.0f, -1.0f, 0.0f
+			+1.0f, +1.0f, 0.0f,
+			-1.0f, -1.0f, 0.0f,
+			-1.0f, +1.0f, 0.0f
 		};
 
 		static const GLfloat quad_texture_uv[] =
@@ -159,36 +123,104 @@ namespace st_front
 		mShader.bind();
 	}
 
-	auto_ptr< Texture > Canvas::loadTexture(string path)
+	void Canvas::loadTexture(string path)
 	{
-		std::auto_ptr< Texture > texture;
-		tga_image                loaded_image;
+		using handleType = std::unique_ptr<uint8_t[], void(*)(void*)>;
 
-		if (tga_read(&loaded_image, path.c_str()) == TGA_NOERR)
-		{
-			// Si se ha podido cargar la imagen desde el archivo, se crea un búfer para una textura:
-
-			texture.reset(new Texture(loaded_image.width, loaded_image.height));
-
-			// Se convierte el formato de píxel de la imagen cargada a RGBA8888:
-
-			tga_convert_depth(&loaded_image, texture->bits_per_color());
-			tga_swap_red_blue(&loaded_image);
-
-			// Se copian los pixels del búfer de la imagen cargada al búfer de la textura:
-
-			Texture::Color * loaded_image_pixels = reinterpret_cast< Texture::Color * >(loaded_image.image_data);
-			Texture::Color * loaded_image_pixels_end = loaded_image_pixels + loaded_image.width * loaded_image.height;
-			Texture::Color * image_buffer_pixels = texture->colors();
-
-			while (loaded_image_pixels <  loaded_image_pixels_end)
-			{
-				*image_buffer_pixels++ = *loaded_image_pixels++;
-			}
-
-			tga_free_buffers(&loaded_image);
+		if (out_texture_id) {
+			glDeleteTextures(1, &out_texture_id);
+			out_texture_id = 0;
 		}
+		int force_channels = 0;
+		int w, h, n;
+		handleType textureData(stbi_load(path.c_str(), &w, &h, &n, force_channels), stbi_image_free);
+		if (!textureData)
+			throw std::invalid_argument("Could not load texture data from file " + path);
 
-		return (texture);
+		glGenTextures(1, &out_texture_id);
+		glBindTexture(GL_TEXTURE_2D, out_texture_id);
+		GLint internalFormat;
+		GLint format;
+		switch (n) {
+		case 1: internalFormat = GL_R8; format = GL_RED; break;
+		case 2: internalFormat = GL_RG8; format = GL_RG; break;
+		case 3: internalFormat = GL_RGB8; format = GL_RGB; break;
+		case 4: internalFormat = GL_RGBA8; format = GL_RGBA; break;
+		default: internalFormat = 0; format = 0; break;
+		}
+		glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, w, h, 0, format, GL_UNSIGNED_BYTE, textureData.get());
+		/*glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);*/
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+
+		//std::auto_ptr< Texture > texture = loadTexture(filename);
+
+		//bool has_texture = texture.get() != 0;
+
+		//if (has_texture)
+		//{
+		//	// Se habilitan las texturas, se genera un id para un búfer de textura,
+		//	// se selecciona el búfer de textura creado y se configuran algunos de
+		//	// sus parámetros:
+
+		//	glEnable(GL_TEXTURE_2D);
+		//	glGenTextures(1, &out_texture_id);
+		//	glBindTexture(GL_TEXTURE_2D, out_texture_id);
+		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+		//	// Se suben los colores de la textura a la memoria de vídeo:
+
+		//	glTexImage2D
+		//	(
+		//		GL_TEXTURE_2D,
+		//		0,
+		//		GL_RGBA,
+		//		texture->get_width(),
+		//		texture->get_height(),
+		//		0,
+		//		GL_RGBA,
+		//		GL_UNSIGNED_BYTE,
+		//		texture->colors()
+		//	);
+		//}
+
+
+		//std::auto_ptr< Texture > texture;
+		//tga_image                loaded_image;
+
+		//if (tga_read(&loaded_image, path.c_str()) == TGA_NOERR)
+		//{
+		//	// Si se ha podido cargar la imagen desde el archivo, se crea un búfer para una textura:
+
+		//	texture.reset(new Texture(loaded_image.width, loaded_image.height));
+
+		//	// Se convierte el formato de píxel de la imagen cargada a RGBA8888:
+
+		//	tga_convert_depth(&loaded_image, texture->bits_per_color());
+		//	tga_swap_red_blue(&loaded_image);
+
+		//	// Se copian los pixels del búfer de la imagen cargada al búfer de la textura:
+
+		//	Texture::Color * loaded_image_pixels = reinterpret_cast< Texture::Color * >(loaded_image.image_data);
+		//	Texture::Color * loaded_image_pixels_end = loaded_image_pixels + loaded_image.width * loaded_image.height;
+		//	Texture::Color * image_buffer_pixels = texture->colors();
+
+		//	while (loaded_image_pixels <  loaded_image_pixels_end)
+		//	{
+		//		*image_buffer_pixels++ = *loaded_image_pixels++;
+		//	}
+
+		//	tga_free_buffers(&loaded_image);
+		//}
+
+		//return (texture);
 	}
 }

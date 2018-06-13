@@ -80,9 +80,8 @@ namespace st_front
 		void setShader();
 		void setShader(shared_ptr<st::Shader> shader);
 
-	private:
-
-		auto_ptr< Texture > loadTexture(string path);
+		void loadTexture(string path);
+		//auto_ptr< Texture > loadTexture(string path);
 
 	};
 
