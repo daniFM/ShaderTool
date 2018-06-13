@@ -11,7 +11,7 @@ Subject to license in LICENSE.txt
 
 #include <nanogui/screen.h>
 #include <Canvas.hpp>
-#include <Canvas3D.hpp>
+//#include <Canvas3D.hpp>
 #include <DocumentManager.hpp>
 
 namespace st_front

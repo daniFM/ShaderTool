@@ -148,6 +148,7 @@
     <ClCompile Include="..\libraries\targa\src\targa.c" />
     <ClCompile Include="src\behavior\DocumentManager.cpp" />
     <ClCompile Include="src\behavior\Framebuffer.cpp" />
+    <ClCompile Include="src\behavior\GLTexture.cpp" />
     <ClCompile Include="src\behavior\ShaderProgram.cpp" />
     <ClCompile Include="src\behavior\View.cpp" />
     <ClCompile Include="src\front\Canvas.cpp" />

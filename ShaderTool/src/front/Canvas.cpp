@@ -1,6 +1,8 @@
 
 #include <Canvas.hpp>
 
+#include <GLTexture.hpp>
+
 
 extern "C"
 {
@@ -17,38 +19,42 @@ namespace st_front
 
 		const char* filename = "..\\assets\\example_texture.tga";
 
-		//st::GLTexture texture;
-		std::auto_ptr< Texture > texture = loadTexture(filename);
+		st::GLTexture texture;
+		out_texture_id = texture.load(filename);
 
-		bool has_texture = texture.get() != 0;
 
-		if (has_texture)
-		{
-			// Se habilitan las texturas, se genera un id para un búfer de textura,
-			// se selecciona el búfer de textura creado y se configuran algunos de
-			// sus parámetros:
 
-			glEnable(GL_TEXTURE_2D);
-			glGenTextures(1, &out_texture_id);
-			glBindTexture(GL_TEXTURE_2D, out_texture_id);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		//std::auto_ptr< Texture > texture = loadTexture(filename);
 
-			// Se suben los colores de la textura a la memoria de vídeo:
+		//bool has_texture = texture.get() != 0;
 
-			glTexImage2D
-			(
-				GL_TEXTURE_2D,
-				0,
-				GL_RGBA,
-				texture->get_width(),
-				texture->get_height(),
-				0,
-				GL_RGBA,
-				GL_UNSIGNED_BYTE,
-				texture->colors()
-			);
-		}
+		//if (has_texture)
+		//{
+		//	// Se habilitan las texturas, se genera un id para un búfer de textura,
+		//	// se selecciona el búfer de textura creado y se configuran algunos de
+		//	// sus parámetros:
+
+		//	glEnable(GL_TEXTURE_2D);
+		//	glGenTextures(1, &out_texture_id);
+		//	glBindTexture(GL_TEXTURE_2D, out_texture_id);
+		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+		//	// Se suben los colores de la textura a la memoria de vídeo:
+
+		//	glTexImage2D
+		//	(
+		//		GL_TEXTURE_2D,
+		//		0,
+		//		GL_RGBA,
+		//		texture->get_width(),
+		//		texture->get_height(),
+		//		0,
+		//		GL_RGBA,
+		//		GL_UNSIGNED_BYTE,
+		//		texture->colors()
+		//	);
+		//}
 
 		static const GLfloat quad_positions[] =
 		{
