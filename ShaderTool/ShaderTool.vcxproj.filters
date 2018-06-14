@@ -30,13 +30,7 @@
     <ClCompile Include="src\behavior\DocumentManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\behavior\View.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\behavior\ShaderProgram.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\behavior\Framebuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\front\UIController.cpp">
@@ -56,15 +50,6 @@
     <ClInclude Include="src\data\Shader.hpp">
       <Filter>Header Files\Data</Filter>
     </ClInclude>
-    <ClInclude Include="src\data\Texture.hpp">
-      <Filter>Header Files\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="src\behavior\Window.hpp">
-      <Filter>Header Files\Behavior</Filter>
-    </ClInclude>
-    <ClInclude Include="src\behavior\View.hpp">
-      <Filter>Header Files\Behavior</Filter>
-    </ClInclude>
     <ClInclude Include="src\behavior\DocumentManager.hpp">
       <Filter>Header Files\Behavior</Filter>
     </ClInclude>
@@ -72,9 +57,6 @@
       <Filter>Header Files\Data</Filter>
     </ClInclude>
     <ClInclude Include="src\behavior\ShaderProgram.hpp">
-      <Filter>Header Files\Behavior</Filter>
-    </ClInclude>
-    <ClInclude Include="src\behavior\Framebuffer.hpp">
       <Filter>Header Files\Behavior</Filter>
     </ClInclude>
     <ClInclude Include="src\behavior\Color_Buffer.hpp">

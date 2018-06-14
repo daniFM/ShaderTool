@@ -61,8 +61,9 @@ namespace st
 			{
 				//Create new shader file
 
-				path = path.substr(0, path.find_last_of("/\\"));
-				path += shaders_path + "\\newShader.glsl";
+				/*path = path.substr(0, path.find_last_of("/\\"));
+				path += shaders_path + "\\newShader.glsl";*/
+				path = shaders_path + "\\newShader.glsl";
 				cout << "Creating new file in " << path << endl;
 				//cout << "With template " << new_shader_str << endl;
 				ofstream file(path);
@@ -95,6 +96,8 @@ namespace st
 			puts("File successfully renamed");
 
 			shader.setPath(newname);
+
+			openShader();
 		}
 		else
 		{
