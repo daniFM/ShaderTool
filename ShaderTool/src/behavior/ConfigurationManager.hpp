@@ -26,14 +26,16 @@ namespace st
 {
 	class ConfigurationManager
 	{
+		string shader_type;
+
+		Shader default_shader;
+
+	public:
+
 		const string data_path;
 		const string shaders_path;
 		const string textures_path;
 		const string config_path;
-
-		string shader_type;
-
-		Shader default_shader;
 
 	public:
 

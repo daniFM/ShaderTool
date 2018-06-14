@@ -51,7 +51,7 @@ int main(int number_of_arguments, char * arguments[])
 		nanogui::init();
 		{
 
-			st_front::UIController ui(document_manager);
+			st_front::UIController ui(document_manager, config);
 
 			ui.drawAll();
 			ui.setVisible(true);

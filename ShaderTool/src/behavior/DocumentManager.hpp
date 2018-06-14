@@ -25,11 +25,7 @@ namespace st
 		Shader shader;
 		Shader default_shader;
 
-	public:
-
-		//const string data_path;
 		const string shaders_path;
-		const string textures_path;
 
 	public:
 
@@ -37,7 +33,6 @@ namespace st
 			:
 			//data_path		(path),
 			shaders_path	(path + "\\Shaders"),
-			textures_path	(path + "\\Textures"),
 			default_shader(*_shader.get())
 		{
 			//shader = default_shader;

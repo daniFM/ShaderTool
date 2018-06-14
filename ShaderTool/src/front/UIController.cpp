@@ -9,15 +9,6 @@ Subject to license in LICENSE.txt
 
 #include <UIController.hpp>
 
-//#include <nanogui/glcanvas.h>
-//#include <nanogui/button.h>
-//#include <nanogui/label.h>
-//#include <nanogui/layout.h>
-//
-//#include <GLFW/glfw3.h>
-
-#include <nanogui/window.h>
-
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -28,10 +19,11 @@ using namespace nanogui;
 
 namespace st_front
 {
-	UIController::UIController(shared_ptr<st::DocumentManager> dm)
+	UIController::UIController(shared_ptr<st::DocumentManager> dm, shared_ptr<st::ConfigurationManager> cm)
 		:
 		Screen(Eigen::Vector2i(960, 600), "ShaderTool", true),
-		doc_manager(dm)
+		doc_manager(dm),
+		conf_manager(cm)
 	{
 		this->setLayout(new BoxLayout(Orientation::Horizontal,
 			Alignment::Minimum, 0, 6));
@@ -49,7 +41,7 @@ namespace st_front
 		//canvas = new Canvas3D(this);
 		canvas->setFixedSize(nanogui::Vector2i(512, 512));
 
-		loadTexture(doc_manager->textures_path + "\\example_texture2.jpg");
+		loadTexture(conf_manager->textures_path + "\\example_texture2.jpg");
 
 		// TOOLS WIDGET ---------------------------------------------------------------------------
 
@@ -84,7 +76,7 @@ namespace st_front
 			Alignment::Middle, 0, 6));
 
 		texture_path = new TextBox(tools_tex);
-		texture_path->setValue("..\\assets\\example_texture.jpg");
+		texture_path->setValue("example_texture.jpg");
 		texture_path->setEditable(true);
 
 		button = new Button(tools_tex, "Load texture");
@@ -119,7 +111,7 @@ namespace st_front
 
 	void UIController::openTexButton()
 	{
-		loadTexture(texture_path->value());
+		loadTexture(conf_manager->textures_path + "\\" + texture_path->value());
 	}
 
 	void UIController::loadTexture(string path)
