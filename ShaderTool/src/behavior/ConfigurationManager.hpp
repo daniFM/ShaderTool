@@ -9,7 +9,10 @@ Subject to license in LICENSE.txt
 
 #pragma once
 
+#include <string>
+#include <memory>
 
+#include <Shader.hpp>
 
 using namespace std;
 
@@ -23,16 +26,29 @@ namespace st
 {
 	class ConfigurationManager
 	{
+		const string data_path;
+		const string shaders_path;
+		const string textures_path;
+		const string config_path;
 
+		string shader_type;
+
+		Shader default_shader;
 
 	public:
 
 		ConfigurationManager(const string & path);
 
-		bool load_config(const string & scene_file_path);
+		shared_ptr < Shader > getDefaultShader()
+		{
+			return make_shared<Shader>(default_shader);
+		}
 
-		bool parse_config(rapidxml::xml_node<char>* scene_node);
+	private:
 
-		//bool parse_entities(rapidxml::xml_node<char>* entities_node);
+		bool load_config(const string & config_file_path);
+		bool parse_config(rapidxml::xml_node<char>* config_node);
+		bool parse_shaders(rapidxml::xml_node<char>* shaders_node);
+
 	};
 }

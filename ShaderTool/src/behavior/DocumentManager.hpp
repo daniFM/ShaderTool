@@ -23,21 +23,25 @@ namespace st
 	private:
 
 		Shader shader;
+		Shader default_shader;
 
 	public:
 
-		const string data_path;
+		//const string data_path;
 		const string shaders_path;
 		const string textures_path;
 
 	public:
 
-		DocumentManager(string path)
+		DocumentManager(string path, shared_ptr<Shader> _shader)
 			:
-			data_path(path),
-			shaders_path(path + "\\Shaders"),
-			textures_path(path + "\\Textures")
+			//data_path		(path),
+			shaders_path	(path + "\\Shaders"),
+			textures_path	(path + "\\Textures"),
+			default_shader(*_shader.get())
 		{
+			//shader = default_shader;
+			loadShader(default_shader.getPath());
 		}
 
 		bool loadShader();

@@ -20,15 +20,20 @@ using namespace std;
 namespace st
 {
 	ConfigurationManager::ConfigurationManager(const string & path)
+		:
+		data_path		(path),
+		shaders_path	(path + "\\Shaders"),
+		textures_path	(path + "\\Textures"),
+		config_path		(path + "\\config")
 	{
-		load_config(path);
+		load_config(config_path + "\\config.xml");
 	}
 
-	bool ConfigurationManager::load_config(const string & scene_file_path)
+	bool ConfigurationManager::load_config(const string & config_file_path)
 	{
 		// Read file content
 
-		fstream xml_file(scene_file_path, fstream::in);
+		fstream xml_file(config_file_path, fstream::in);
 
 		if (xml_file.good())
 		{
@@ -61,7 +66,7 @@ namespace st
 
 			xml_node< > * root = document.first_node();
 
-			if (root && string(root->name()) == "scene")
+			if (root && string(root->name()) == "config")
 			{
 				parse_config(root);
 			}
@@ -70,15 +75,19 @@ namespace st
 		return true;
 	}
 
-	bool ConfigurationManager::parse_config(xml_node<> * scene_node)
+	bool ConfigurationManager::parse_config(xml_node<> * config_node)
 	{
-		for (xml_node<> * child = scene_node->first_node(); child; child = child->next_sibling())
+		for (xml_node<> * child = config_node->first_node(); child; child = child->next_sibling())
 		{
 			if (child->type() == node_element)
 			{
-				if (string(child->name()) == "entities")
+				if (string(child->name()) == "shader_type")
 				{
-					//parse_entities(child);
+					shader_type = child->contents();
+				}
+				else if (string(child->name()) == "default_shaders")
+				{
+					parse_shaders(child);
 				}
 				//else if (string(child->name()) == "config")
 				//{
@@ -95,56 +104,25 @@ namespace st
 		return true;
 	}
 
-	//bool Scene::parse_entities(xml_node<> * entities_node)
-	//{
-	//	char * name = "";
-	//	cout << "Parseando entidades" << endl;
+	bool ConfigurationManager::parse_shaders(xml_node<> * shaders_node)
+	{
+		cout << "Parsing default shaders" << endl;
 
-	//	/*for (
-	//	xml_node<> * entity
-	//	)*/
 
-	//	/*for (
-	//	xml_attribute<> * attribute = entities_node->first_attribute();
-	//	attribute;
-	//	attribute = attribute->next_attribute()
-	//	)
-	//	{
-	//	cout << "Parseando " << string(attribute->name()) << endl;
-	//	if (string(attribute->name()) == "name")
-	//	{
-	//	name = attribute->value();
-	//	}
-	//	}*/
-	//	/*cout << "Name: " << name << endl;
-	//	if (name == "") return false;*/
+		for (xml_node<> * shader_tag = shaders_node->first_node(); shader_tag; shader_tag = shader_tag->next_sibling())
+		{
+			if (shader_tag->type() == node_element)
+			{
+				if (string(shader_tag->name()) == shader_type)
+				{
+					string s_name = shader_tag->first_attribute()->value();
+					string code = string(shader_tag->contents());
 
-	//	for (xml_node<> * entity_tag = entities_node->first_node(); entity_tag; entity_tag = entity_tag->next_sibling())
-	//	{
-	//		if (entity_tag->type() == node_element)
-	//		{
-	//			if (string(entity_tag->name()) != "entity") return false;
+					default_shader = Shader(s_name, shaders_path + "\\" + s_name + ".glsl", code);
+				}
+			}
+		}
 
-	//			shared_ptr< Entity > entity(new Entity(this));
-	//			name = entity_tag->first_attribute()->value();
-
-	//			for (xml_node<> * child = entity_tag->first_node(); child; child = child->next_sibling())
-	//			{
-	//				if (child->type() == node_element)
-	//				{
-	//					if (string(child->name()) == "components")	//if (string(entity->name()) == "components")
-	//					{
-	//						if (!parse_components(child, *entity))
-	//							return false;
-	//					}
-	//				}
-	//			}
-
-	//			entities[name] = entity;
-	//			cout << "Parsed enity: " << name << endl;
-	//		}
-	//	}
-
-	//	return true;
-	//}
+		return true;
+	}
 }
