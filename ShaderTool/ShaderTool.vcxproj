@@ -88,7 +88,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>NANOGUI_GLAD;SFML_STATIC;GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\src\data;$(SolutionDir)\src\behavior;$(SolutionDir)\src\front;$(SolutionDir)..\libraries\sfml-2.3-vs-2015\include;$(SolutionDir)..\libraries\gl\headers;$(SolutionDir)..\libraries\targa\include;$(SolutionDir)..\libraries\glew\include;$(SolutionDir)..\libraries\glm;$(SolutionDir)..\libraries\nanogui-vs2017\include;$(SolutionDir)..\libraries\nanovg-vs2017\include;$(SolutionDir)..\libraries\glfw-vs2017\include;$(SolutionDir)..\libraries\glad-vs2017\include;$(SolutionDir)..\libraries\eigen\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\src\data;$(SolutionDir)\src\behavior;$(SolutionDir)\src\front;$(SolutionDir)..\libraries\sfml-2.3-vs-2015\include;$(SolutionDir)..\libraries\gl\headers;$(SolutionDir)..\libraries\targa\include;$(SolutionDir)..\libraries\glew\include;$(SolutionDir)..\libraries\glm;$(SolutionDir)..\libraries\nanogui-vs2017\include;$(SolutionDir)..\libraries\nanovg-vs2017\include;$(SolutionDir)..\libraries\glfw-vs2017\include;$(SolutionDir)..\libraries\glad-vs2017\include;$(SolutionDir)..\libraries\eigen\include;$(SolutionDir)..\libraries\rapidxml</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\libraries\targa\src\targa.c" />
+    <ClCompile Include="src\behavior\ConfigurationManager.cpp" />
     <ClCompile Include="src\behavior\DocumentManager.cpp" />
     <ClCompile Include="src\behavior\ShaderProgram.cpp" />
     <ClCompile Include="src\front\Canvas.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="..\libraries\targa\include\targa.h" />
     <ClInclude Include="src\behavior\Color_Buffer.hpp" />
     <ClInclude Include="src\behavior\Color_Buffer_Rgba8888.hpp" />
+    <ClInclude Include="src\behavior\ConfigurationManager.hpp" />
     <ClInclude Include="src\behavior\DocumentManager.hpp" />
     <ClInclude Include="src\behavior\ShaderProgram.hpp" />
     <ClInclude Include="src\data\Shader.hpp" />

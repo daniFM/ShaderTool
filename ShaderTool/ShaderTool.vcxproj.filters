@@ -45,6 +45,9 @@
     <ClCompile Include="..\libraries\targa\src\targa.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\behavior\ConfigurationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data\Shader.hpp">
@@ -76,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="..\libraries\targa\include\targa.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\behavior\ConfigurationManager.hpp">
+      <Filter>Header Files\Behavior</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
