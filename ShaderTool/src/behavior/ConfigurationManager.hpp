@@ -11,6 +11,7 @@ Subject to license in LICENSE.txt
 
 #include <string>
 #include <memory>
+#include <vector>
 
 #include <Shader.hpp>
 
@@ -28,12 +29,12 @@ namespace st
 	{
 		string shader_type;
 
-		Shader default_shader;
+		vector < shared_ptr < Shader > > default_shaders;
 
 	public:
 
 		const string data_path;
-		const string shaders_path;
+		const string def_shaders_path;
 		const string textures_path;
 		const string config_path;
 
@@ -41,9 +42,9 @@ namespace st
 
 		ConfigurationManager(const string & path);
 
-		shared_ptr < Shader > getDefaultShader()
+		vector < shared_ptr < Shader > > getDefaultShaders()
 		{
-			return make_shared<Shader>(default_shader);
+			return default_shaders;
 		}
 
 	private:

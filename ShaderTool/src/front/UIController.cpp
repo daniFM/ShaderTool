@@ -49,8 +49,8 @@ namespace st_front
 		tools->setLayout(new GroupLayout);
 		tools->setFixedWidth(400);
 
-		button = new nanogui::Button(tools, "Open shader");
-		button->setCallback(std::bind(&UIController::openButton, this));
+		button = new nanogui::Button(tools, "Edit shader");
+		button->setCallback(std::bind(&UIController::editButton, this));
 
 		// SAVE WIDGET ----------------------------------------------------------------------------
 
@@ -60,12 +60,27 @@ namespace st_front
 		tools_save->setLayout(new BoxLayout(Orientation::Horizontal,
 			Alignment::Middle, 0, 6));
 
-		shader_name = new TextBox(tools_save);
-		shader_name->setValue("yourShaderName");
-		shader_name->setEditable(true);
+		save_shader_name = new TextBox(tools_save);
+		save_shader_name->setValue("yourShaderName");
+		save_shader_name->setFixedWidth(200);
+		save_shader_name->setEditable(true);
 
 		button = new Button(tools_save, "Save");
 		button->setCallback(std::bind(&UIController::saveButton, this));
+
+		//
+
+		Widget * tools_open = new Widget(tools);
+		tools_open->setLayout(new BoxLayout(Orientation::Horizontal,
+			Alignment::Fill, 0, 6));
+
+		open_shader_name = new TextBox(tools_open);
+		open_shader_name->setValue("");
+		open_shader_name->setFixedWidth(200);
+		open_shader_name->setEditable(true);
+
+		button = new Button(tools_open, "Open");
+		button->setCallback(std::bind(&UIController::openButton, this));
 
 		// LOAD TEXTURE WIDGET ---------------------------------------------------------------------
 
@@ -77,6 +92,7 @@ namespace st_front
 
 		texture_path = new TextBox(tools_tex);
 		texture_path->setValue("example_texture.jpg");
+		texture_path->setFixedWidth(200);
 		texture_path->setEditable(true);
 
 		button = new Button(tools_tex, "Load texture");
@@ -99,14 +115,20 @@ namespace st_front
 		performLayout();
 	}
 
-	void UIController::openButton()
+	void UIController::editButton()
 	{
 		doc_manager->openShader();
 	}
 
 	void UIController::saveButton()
 	{
-		doc_manager->saveShader(shader_name->value());
+		doc_manager->saveShader(save_shader_name->value());
+	}
+
+	void UIController::openButton()
+	{
+		doc_manager->loadShader(doc_manager->shaders_path + "\\" + open_shader_name->value() + ".glsl");
+		canvas->setShader(doc_manager->getShader());
 	}
 
 	void UIController::openTexButton()

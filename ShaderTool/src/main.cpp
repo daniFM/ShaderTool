@@ -42,7 +42,7 @@ int main(int number_of_arguments, char * arguments[])
 
 	//Set document
 
-	shared_ptr < DocumentManager > document_manager = make_shared<DocumentManager>(data_path, config->getDefaultShader());
+	shared_ptr < DocumentManager > document_manager = make_shared<DocumentManager>(data_path, config->getDefaultShaders());
 
 	//document_manager->loadShader(data_path);
 	

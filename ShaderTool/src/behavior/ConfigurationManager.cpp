@@ -10,7 +10,6 @@ Subject to license in LICENSE.txt
 #include <ConfigurationManager.hpp>
 
 #include <iostream>
-#include <vector>
 #include <fstream>
 #include <rapidxml.hpp>
 
@@ -22,7 +21,7 @@ namespace st
 	ConfigurationManager::ConfigurationManager(const string & path)
 		:
 		data_path		(path),
-		shaders_path	(path + "\\Shaders"),
+		def_shaders_path(path + "\\config"),
 		textures_path	(path + "\\Textures"),
 		config_path		(path + "\\config")
 	{
@@ -113,13 +112,14 @@ namespace st
 		{
 			if (shader_tag->type() == node_element)
 			{
-				if (string(shader_tag->name()) == shader_type)
-				{
-					string s_name = shader_tag->first_attribute()->value();
-					string code = string(shader_tag->contents());
+				
+				string s_name = shader_tag->first_attribute()->value();
+				string code = string(shader_tag->contents());
 
-					default_shader = Shader(s_name, shaders_path + "\\" + s_name + ".glsl", code);
-				}
+				if (string(shader_tag->name()) == shader_type)
+					default_shaders.insert(default_shaders.begin(), make_shared<Shader>(s_name, def_shaders_path + "\\" + s_name + ".glsl", code));
+				else
+					default_shaders.push_back(make_shared<Shader>(s_name, def_shaders_path + "\\" + s_name + ".glsl", code));
 			}
 		}
 

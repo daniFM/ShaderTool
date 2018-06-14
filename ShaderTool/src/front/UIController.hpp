@@ -44,7 +44,8 @@ namespace st_front
 		Canvas * canvas;
 		//Canvas3D * canvas;
 
-		nanogui::TextBox * shader_name;
+		nanogui::TextBox * save_shader_name;
+		nanogui::TextBox * open_shader_name;
 		nanogui::TextBox * texture_path;
 
 		shared_ptr < st::DocumentManager >      doc_manager;
@@ -57,8 +58,9 @@ namespace st_front
 	private:
 
 		void previewButton();
-		void openButton();
+		void editButton();
 		void saveButton();
+		void openButton();
 
 		void openTexButton();
 		void loadTexture(string path);

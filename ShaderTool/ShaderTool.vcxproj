@@ -161,6 +161,7 @@
     <ClInclude Include="src\behavior\ConfigurationManager.hpp" />
     <ClInclude Include="src\behavior\DocumentManager.hpp" />
     <ClInclude Include="src\behavior\ShaderProgram.hpp" />
+    <ClInclude Include="src\data\CNode.hpp" />
     <ClInclude Include="src\data\Shader.hpp" />
     <ClInclude Include="src\data\UniformVariable.hpp" />
     <ClInclude Include="src\front\Canvas.hpp" />

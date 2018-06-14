@@ -83,5 +83,8 @@
     <ClInclude Include="src\behavior\ConfigurationManager.hpp">
       <Filter>Header Files\Behavior</Filter>
     </ClInclude>
+    <ClInclude Include="src\data\CNode.hpp">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
