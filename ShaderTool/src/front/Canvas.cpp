@@ -12,11 +12,13 @@ extern "C"
 
 namespace st_front
 {
-	Canvas::Canvas(Widget *parent) : nanogui::GLCanvas(parent)
+	Canvas::Canvas(Widget *parent, std::shared_ptr < st::ShaderProgram > shader) : nanogui::GLCanvas(parent),
+		shader_program(shader)
 	{
 		using namespace nanogui;
 
-		setShader();
+		//setShader();
+		shader_program->use();
 
 		//loadTexture("..\\assets\\example_texture.jpg");
 		
@@ -56,7 +58,8 @@ namespace st_front
 	{
 		using namespace nanogui;
 
-		mShader.bind();
+		//mShader.bind();
+		shader_program->use();
 
 		glEnable(GL_DEPTH_TEST);
 
@@ -72,6 +75,7 @@ namespace st_front
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
 		glDrawArrays(GL_TRIANGLES, 0, 6);
+
 		glDisable(GL_DEPTH_TEST);
 
 		glBindTexture(GL_TEXTURE_2D, 0);
@@ -114,13 +118,16 @@ namespace st_front
 
 	void Canvas::setShader(shared_ptr<st::Shader> shader)
 	{
-		string code = *shader->getCode().get();
+		/*string code = *shader->getCode().get();
 		string vertex_shader_code = code.substr(0, code.find_last_of("#"));
 		string fragment_shader_code = code.substr(code.find_last_of("#"));
 
 		mShader.init(shader->getTitle(), vertex_shader_code, fragment_shader_code);
 
-		mShader.bind();
+		mShader.bind();*/
+
+		shader_program->compileShader(shader);
+		shader_program->use();
 	}
 
 	nanogui::Vector2i Canvas::loadTexture(string path)

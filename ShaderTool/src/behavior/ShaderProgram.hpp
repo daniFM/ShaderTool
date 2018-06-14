@@ -35,6 +35,7 @@ namespace st
 	public:
 
 		ShaderProgram();
+		ShaderProgram(shared_ptr<Shader> shader);
 
 		GLuint compileShader(shared_ptr<Shader> shader);
 

@@ -33,6 +33,10 @@ namespace st_front
 		Screen(Eigen::Vector2i(960, 600), "ShaderTool", true),
 		doc_manager(dm)
 	{
+		//shader_program = make_shared<st::ShaderProgram>(doc_manager->getShader());
+
+		// INTERFACE CREATION ---------------------------------------------------------------------
+
 		this->setLayout(new BoxLayout(Orientation::Horizontal,
 			Alignment::Minimum, 0, 6));
 
@@ -45,7 +49,7 @@ namespace st_front
 		button->setFixedWidth(512);
 		button->setCallback(std::bind(&UIController::previewButton, this));
 
-		canvas = new Canvas(preview);
+		canvas = new Canvas(preview, make_shared<st::ShaderProgram>(doc_manager->getShader()));
 		//canvas = new Canvas3D(this);
 		canvas->setFixedSize(nanogui::Vector2i(512, 512));
 

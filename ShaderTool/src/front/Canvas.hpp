@@ -54,7 +54,7 @@ namespace st_front
 
 		nanogui::GLShader mShader;
 
-		std::shared_ptr < st::ShaderProgram > shader;
+		std::shared_ptr < st::ShaderProgram > shader_program;
 
 		/// The resolution in wich the scene is going to be rendered in the framebuffer.
 		static const GLsizei framebuffer_width = 2048;
@@ -69,10 +69,11 @@ namespace st_front
 
 	public:
 
-		 Canvas(Widget *parent);
+		 Canvas(Widget *parent, std::shared_ptr < st::ShaderProgram > shader);
 		~Canvas()
 		{
-			mShader.free();
+			//mShader.free();
+			shader_program->disable();
 		}
 
 		virtual void drawGL() override;

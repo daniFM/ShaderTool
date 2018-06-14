@@ -17,6 +17,12 @@ namespace st
 		fragment_shader_code = "";
 	}
 
+	ShaderProgram::ShaderProgram(shared_ptr<Shader> shader)
+	{
+		//ShaderProgram();
+		compileShader(shader);
+	}
+
 	GLuint ShaderProgram::compileShader(shared_ptr<Shader> shader)
 	{
 		string code = *shader->getCode().get();

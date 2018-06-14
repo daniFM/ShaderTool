@@ -26,6 +26,7 @@ namespace st_front
 		nanogui::TextBox * shader_name;
 		nanogui::TextBox * texture_path;
 
+		//shared_ptr < st::ShaderProgram   > shader_program;
 		shared_ptr < st::DocumentManager > doc_manager;
 
 	public:
