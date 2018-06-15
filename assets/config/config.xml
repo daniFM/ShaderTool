@@ -16,13 +16,21 @@
 			<layout type="BoxLayout">
 				<params Orientation="Horizontal" Alignment="Minimum" margin="0" spacing="6" />
 			</layout>
-		<Widget>
-			<layout type="GroupLayout" />
-			<Button name="Preview">
-				<width value="512" />
-				<callback value="prevButton" />
-			</Button>
-		</Widget>
+			<Widget>
+				<layout type="GroupLayout" />
+				<Button name="Preview">
+					<width value="512" />
+					<callback value="prevButton" />
+				</Button>
+				<Canvas width="512" height="512" />
+			</Widget>
+			<Widget>
+				<Button name="EditShader">
+					<callback value="prevButton" />
+				</Button>
+				<Label name="Shader options" />
+				<!-- ... -->
+			</Widget>
 		</Screen>
 	</Layout>
 </config>

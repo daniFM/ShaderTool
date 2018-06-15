@@ -88,15 +88,10 @@ namespace st
 				{
 					parse_shaders(child);
 				}
-				//else if (string(child->name()) == "config")
-				//{
-				//	parse_config(child);
-				//}
-				//else if (string(child->name()) == "components")
-				//{
-				//	//parse_components(child, [CHILD ENTITY]);
-				//}
-				//...
+				else if (string(child->name()) == "Layout")
+				{
+					parse_layout(child);
+				}
 			}
 		}
 
@@ -124,5 +119,35 @@ namespace st
 		}
 
 		return true;
+	}
+
+	bool ConfigurationManager::parse_layout(xml_node<> * layout_node)
+	{
+		cout << "Parsing application layout" << endl;
+
+		for (xml_node<> * layout_tag = layout_node->first_node(); layout_tag; layout_tag = layout_tag->next_sibling())
+		{
+			if (layout_tag->type() == node_element)
+			{
+				if (layout_tag->name() == "layout")
+				{
+
+				}
+				else if (layout_tag->name() == "Screen")
+				{
+					xml_attribute<> * attr = layout_tag->first_attribute();
+					root = make_shared<CScreen>
+						(
+							attr->value(),
+							attr->next_attribute()->value(),
+							attr->next_attribute()->value(),
+							attr->next_attribute()->value()
+						);
+
+				}
+
+				parse_layout(layout_tag);
+			}
+		}
 	}
 }

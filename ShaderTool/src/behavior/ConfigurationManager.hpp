@@ -14,6 +14,7 @@ Subject to license in LICENSE.txt
 #include <vector>
 
 #include <Shader.hpp>
+#include <CNode.hpp>
 
 using namespace std;
 
@@ -30,6 +31,8 @@ namespace st
 		string shader_type;
 
 		vector < shared_ptr < Shader > > default_shaders;
+
+		shared_ptr < CNode > root;
 
 	public:
 
@@ -49,9 +52,10 @@ namespace st
 
 	private:
 
-		bool load_config(const string & config_file_path);
-		bool parse_config(rapidxml::xml_node<char>* config_node);
-		bool parse_shaders(rapidxml::xml_node<char>* shaders_node);
+		bool load_config	(const string & config_file_path);
+		bool parse_config	(rapidxml::xml_node<char>* config_node);
+		bool parse_shaders	(rapidxml::xml_node<char>* shaders_node);
+		bool parse_layout	(rapidxml::xml_node<char>* layout_node);
 
 	};
 }
