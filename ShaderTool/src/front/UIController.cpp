@@ -30,18 +30,23 @@ namespace st_front
 
 		// PREVIEW WIDGET -------------------------------------------------------------------------
 
-		Widget * preview = new Widget(this);
+		preview = new Widget(this);
 		preview->setLayout(new GroupLayout);
 
 		auto * button = new nanogui::Button(preview, "Preview");
 		button->setFixedWidth(512);
 		button->setCallback(std::bind(&UIController::previewButton, this));
 
-		canvas = new Canvas(preview);
-		//canvas = new Canvas3D(this);
-		canvas->setFixedSize(nanogui::Vector2i(512, 512));
+		//canvas = new Canvas2D(preview);
+		////canvas = new Canvas3D(this);
+		//canvas->setFixedSize(nanogui::Vector2i(512, 512));
+		changeButton();
 
 		loadTexture(conf_manager->textures_path + "\\example_texture2.jpg");
+
+		button = new nanogui::Button(preview, "Change mode");
+		button->setFixedWidth(512);
+		button->setCallback(std::bind(&UIController::changeButton, this));
 
 		// TOOLS WIDGET ---------------------------------------------------------------------------
 
@@ -115,6 +120,15 @@ namespace st_front
 		performLayout();
 	}
 
+	void UIController::changeButton()
+	{
+		string newMode = conf_manager->swapMode();
+		doc_manager->loadShader(doc_manager->shaders_path + "\\newShader.glsl");
+
+		changeMode(newMode);
+
+	}
+
 	void UIController::editButton()
 	{
 		doc_manager->openShader();
@@ -146,6 +160,16 @@ namespace st_front
 
 		int prevh = canvas->fixedHeight();
 		canvas->setHeight((int)(prevh / aspect));
+	}
+
+	void UIController::changeMode(string newMode)
+	{
+		if (newMode == "postprocessing")
+			canvas = new Canvas2D(preview);
+		else// (newMode == "default3d")
+			canvas = new Canvas3D(preview);
+
+		canvas->setShader(doc_manager->getShader());
 	}
 
 	bool UIController::keyboardEvent(int key, int scancode, int action, int modifiers)

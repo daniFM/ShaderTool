@@ -42,9 +42,24 @@ namespace st
 
 		ConfigurationManager(const string & path);
 
-		vector < shared_ptr < Shader > > getDefaultShaders()
+		vector < shared_ptr < Shader > > getDefaultShaders() { return default_shaders; }
+
+		/*string getShaderType()			  { return shader_type; }
+		void   setShaderType(string type) { shader_type = type; }*/
+
+		string swapMode()
 		{
-			return default_shaders;
+			if (shader_type == "postprocesing")
+			{
+				shader_type = "default3d";
+			} else if (shader_type == "default3d")
+			{
+				shader_type = "postprocesing";
+			}
+			
+			reverse(default_shaders.begin(), default_shaders.end());
+
+			return shader_type;
 		}
 
 	private:

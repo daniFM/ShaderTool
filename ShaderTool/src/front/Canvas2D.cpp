@@ -1,5 +1,5 @@
 
-#include <Canvas.hpp>
+#include <Canvas2D.hpp>
 
 //#include <GLTexture.hpp>
 #include <stb_image.h>
@@ -12,7 +12,7 @@ extern "C"
 
 namespace st_front
 {
-	Canvas::Canvas(Widget *parent) : nanogui::GLCanvas(parent)
+	Canvas2D::Canvas2D(Widget *parent) : nanogui::GLCanvas(parent)
 	{
 		using namespace nanogui;
 
@@ -52,7 +52,7 @@ namespace st_front
 
 	}
 
-	void Canvas::drawGL()
+	void Canvas2D::drawGL()
 	{
 		using namespace nanogui;
 
@@ -78,7 +78,7 @@ namespace st_front
 
 	}
 
-	void Canvas::setShader()
+	void Canvas2D::setShader()
 	{
 		mShader.init(
 			/* An identifying name */
@@ -112,7 +112,7 @@ namespace st_front
 		mShader.bind();
 	}
 
-	void Canvas::setShader(shared_ptr<st::Shader> shader)
+	void Canvas2D::setShader(shared_ptr<st::Shader> shader)
 	{
 		string code = *shader->getCode().get();
 		string vertex_shader_code = code.substr(0, code.find_last_of("#"));
@@ -123,7 +123,7 @@ namespace st_front
 		mShader.bind();
 	}
 
-	nanogui::Vector2i Canvas::loadTexture(string path)
+	nanogui::Vector2i Canvas2D::loadTexture(string path)
 	{
 		using handleType = std::unique_ptr<uint8_t[], void(*)(void*)>;
 

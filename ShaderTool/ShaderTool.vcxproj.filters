@@ -36,9 +36,6 @@
     <ClCompile Include="src\front\UIController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\front\Canvas.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\front\Canvas3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -46,6 +43,9 @@
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="src\behavior\ConfigurationManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\front\Canvas2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,9 +71,6 @@
     <ClInclude Include="src\front\UIController.hpp">
       <Filter>Header Files\Front</Filter>
     </ClInclude>
-    <ClInclude Include="src\front\Canvas.hpp">
-      <Filter>Header Files\Front</Filter>
-    </ClInclude>
     <ClInclude Include="src\front\Canvas3D.hpp">
       <Filter>Header Files\Front</Filter>
     </ClInclude>
@@ -85,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="src\data\CNode.hpp">
       <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\front\Canvas2D.hpp">
+      <Filter>Header Files\Front</Filter>
+    </ClInclude>
+    <ClInclude Include="src\front\Canvas.hpp">
+      <Filter>Header Files\Front</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

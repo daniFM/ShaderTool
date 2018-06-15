@@ -30,7 +30,7 @@ Subject to license in LICENSE.txt
 #include <nanogui/graph.h>
 #include <nanogui/tabwidget.h>
 
-#include <Canvas.hpp>
+#include <Canvas2D.hpp>
 #include <Canvas3D.hpp>
 #include <DocumentManager.hpp>
 #include <ConfigurationManager.hpp>
@@ -41,8 +41,11 @@ namespace st_front
 	{
 	private:
 
-		Canvas * canvas;
+		Widget * preview;
+
+		//Canvas2D * canvas;
 		//Canvas3D * canvas;
+		Canvas * canvas;
 
 		nanogui::TextBox * save_shader_name;
 		nanogui::TextBox * open_shader_name;
@@ -58,12 +61,15 @@ namespace st_front
 	private:
 
 		void previewButton();
+		void changeButton();
 		void editButton();
 		void saveButton();
 		void openButton();
 
 		void openTexButton();
 		void loadTexture(string path);
+
+		void changeMode(string newMode);
 
 		bool keyboardEvent(int key, int scancode, int action, int modifiers) override;
 

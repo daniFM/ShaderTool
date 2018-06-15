@@ -149,7 +149,7 @@
     <ClCompile Include="src\behavior\ConfigurationManager.cpp" />
     <ClCompile Include="src\behavior\DocumentManager.cpp" />
     <ClCompile Include="src\behavior\ShaderProgram.cpp" />
-    <ClCompile Include="src\front\Canvas.cpp" />
+    <ClCompile Include="src\front\Canvas2D.cpp" />
     <ClCompile Include="src\front\Canvas3D.cpp" />
     <ClCompile Include="src\front\UIController.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -165,6 +165,7 @@
     <ClInclude Include="src\data\Shader.hpp" />
     <ClInclude Include="src\data\UniformVariable.hpp" />
     <ClInclude Include="src\front\Canvas.hpp" />
+    <ClInclude Include="src\front\Canvas2D.hpp" />
     <ClInclude Include="src\front\Canvas3D.hpp" />
     <ClInclude Include="src\front\UIController.hpp" />
   </ItemGroup>

@@ -10,57 +10,24 @@ Subject to license in LICENSE.txt
 #pragma once
 
 #include <nanogui/glcanvas.h>
-#include <iostream>
+
 #include <string>
-
-// Includes for the GLTexture class.
-#include <cstdint>
 #include <memory>
-#include <utility>
 
-#include <ShaderProgram.hpp>
-#include <Color_Buffer_Rgba8888.hpp>
+#include <Shader.hpp>
+
+using namespace std;
 
 namespace st_front
 {
-	typedef st::Color_Buffer_Rgba8888 Texture;
-
-	class Canvas : public nanogui::GLCanvas
+	class Canvas : nanogui::GLCanvas
 	{
+		         Canvas() = default;
+		virtual ~Canvas() = 0;
 
-	private:
+		virtual void setShader() = 0;
+		virtual void setShader(shared_ptr<st::Shader> shader) = 0;
 
-		nanogui::GLShader mShader;
-
-		std::shared_ptr < st::ShaderProgram > shader;
-
-		/// The resolution in wich the scene is going to be rendered in the framebuffer.
-		static const GLsizei framebuffer_width = 2048;
-		static const GLsizei framebuffer_height = 2048;
-
-		GLuint framebuffer_id;
-		GLuint depthbuffer_id;
-		GLuint out_texture_id;
-
-		GLuint triangle_vbo0;
-		GLuint triangle_vbo1;
-
-	public:
-
-		 Canvas(Widget *parent);
-		~Canvas()
-		{
-			mShader.free();
-		}
-
-		virtual void drawGL() override;
-
-		void setShader();
-		void setShader(shared_ptr<st::Shader> shader);
-
-		nanogui::Vector2i loadTexture(string path);
-		//auto_ptr< Texture > loadTexture(string path);
-
+		virtual nanogui::Vector2i loadTexture(string path) = 0;
 	};
-
 }

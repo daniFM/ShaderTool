@@ -23,7 +23,7 @@ Subject to license in LICENSE.txt
 namespace st_front
 {
 
-	class Canvas3D : public nanogui::GLCanvas
+	class Canvas3D : public Canvas	//nanogui::GLCanvas
 	{
 
 	private:
