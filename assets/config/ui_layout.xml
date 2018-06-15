@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Screen name="ShaderTool" width="960" height="600" fullscreen="false" resizable="false">
+	<layout type="BoxLayout">
+		<params Orientation="Horizontal" Alignment="Minimum" margin="0" spacing="6" />
+	</layout>
+	<Widget>
+		<layout type="GroupLayout" />
+		<Canvas width="512" height="512" />
+	</Widget>
+</Screen>
+
+<!--
+<Screen name="ShaderTool" width="960" height="600" fullscreen="false" resizable="false">
+	<layout type="BoxLayout">
+		<params Orientation="Horizontal" Alignment="Minimum" margin="0" spacing="6" />
+	</layout>
+	<Widget>
+		<layout type="GroupLayout" />
+		<Button name="Preview" width="512" callback="prevButton" />
+		<Canvas width="512" height="512" />
+	</Widget>
+	<Widget>
+		<Button name="EditShader" callback="prevButton" />
+		<Label name="Shader options" />
+	</Widget>
+</Screen>
+-->

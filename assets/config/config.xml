@@ -11,26 +11,4 @@
 		<postprocessing name="default_postprocessing">default_postprocessing.glsl</postprocessing>
 		<default3d name="default_3d">default_3d.glsl</default3d>
 	</default_shaders>
-	<Layout>
-		<Screen name="ShaderTool" width="960" height="600" fullscreen="true">
-			<layout type="BoxLayout">
-				<params Orientation="Horizontal" Alignment="Minimum" margin="0" spacing="6" />
-			</layout>
-			<Widget>
-				<layout type="GroupLayout" />
-				<Button name="Preview">
-					<width value="512" />
-					<callback value="prevButton" />
-				</Button>
-				<Canvas width="512" height="512" />
-			</Widget>
-			<Widget>
-				<Button name="EditShader">
-					<callback value="prevButton" />
-				</Button>
-				<Label name="Shader options" />
-				<!-- ... -->
-			</Widget>
-		</Screen>
-	</Layout>
 </config>

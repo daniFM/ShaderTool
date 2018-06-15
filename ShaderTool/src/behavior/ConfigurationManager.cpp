@@ -88,10 +88,10 @@ namespace st
 				{
 					parse_shaders(child);
 				}
-				else if (string(child->name()) == "Layout")
+				/*else if (string(child->name()) == "Layout")
 				{
 					parse_layout(child);
-				}
+				}*/
 			}
 		}
 
@@ -121,6 +121,7 @@ namespace st
 		return true;
 	}
 
+	/*
 	bool ConfigurationManager::parse_layout(xml_node<> * layout_node)
 	{
 		cout << "Parsing application layout" << endl;
@@ -150,4 +151,5 @@ namespace st
 			}
 		}
 	}
+	*/
 }

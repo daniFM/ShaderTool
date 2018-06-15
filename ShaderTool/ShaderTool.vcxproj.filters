@@ -48,6 +48,9 @@
     <ClCompile Include="src\behavior\ConfigurationManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\front\UIBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data\Shader.hpp">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="src\data\CNode.hpp">
       <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\front\UIBuilder.hpp">
+      <Filter>Header Files\Front</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -44,7 +44,6 @@ int main(int number_of_arguments, char * arguments[])
 
 	shared_ptr < DocumentManager > document_manager = make_shared<DocumentManager>(data_path, config->getDefaultShaders());
 
-	//document_manager->loadShader(data_path);
 	
 	try
 	{
@@ -53,10 +52,7 @@ int main(int number_of_arguments, char * arguments[])
 
 			st_front::UIController ui(document_manager, config);
 
-			ui.drawAll();
-			ui.setVisible(true);
-
-			nanogui::mainloop();
+			ui.run();			
 
 		}
 		nanogui::shutdown();
