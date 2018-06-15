@@ -16,7 +16,7 @@ Subject to license in LICENSE.txt
 
 using namespace std;
 using namespace st;
-using namespace st_front;
+using namespace st;
 
 int main(int number_of_arguments, char * arguments[])
 {
@@ -50,7 +50,7 @@ int main(int number_of_arguments, char * arguments[])
 		nanogui::init();
 		{
 
-			st_front::UIController ui(document_manager, config);
+			st::UIController ui(document_manager, config);
 
 			ui.run();			
 

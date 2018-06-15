@@ -2,7 +2,7 @@
 #include <Canvas3D.hpp>
 #include <GLTexture.hpp>
 
-namespace st_front
+namespace st
 {
 	Canvas3D::Canvas3D(Widget *parent) : nanogui::GLCanvas(parent)
 	{

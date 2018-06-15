@@ -25,6 +25,8 @@ namespace st
 
 		std::map< string, function< void() > > callbacks;
 
+		st::Canvas * canvas;
+
 	public:
 
 		UIBuilder() = default;
@@ -35,6 +37,8 @@ namespace st
 		{
 			callbacks[name] = fun;
 		}
+
+		st::Canvas * getCanvas() { return canvas; }
 
 	private:
 

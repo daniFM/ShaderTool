@@ -18,10 +18,11 @@ Subject to license in LICENSE.txt
 #include <memory>
 #include <utility>
 
-#include <ShaderProgram.hpp>
+//#include <ShaderProgram.hpp>
+#include <Shader.hpp>
 #include <Color_Buffer_Rgba8888.hpp>
 
-namespace st_front
+namespace st
 {
 	typedef st::Color_Buffer_Rgba8888 Texture;
 
@@ -32,7 +33,7 @@ namespace st_front
 
 		nanogui::GLShader mShader;
 
-		std::shared_ptr < st::ShaderProgram > shader;
+		//std::shared_ptr < st::ShaderProgram > shader;
 
 		/// The resolution in wich the scene is going to be rendered in the framebuffer.
 		static const GLsizei framebuffer_width = 2048;

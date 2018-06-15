@@ -39,7 +39,7 @@ Subject to license in LICENSE.txt
 
 using namespace std;
 using namespace nanogui;
-using namespace st_front;
+using namespace st;
 
 namespace st
 {

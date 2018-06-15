@@ -13,7 +13,7 @@ Subject to license in LICENSE.txt
 #include <ConfigurationManager.hpp>
 #include <UIBuilder.hpp>
 
-namespace st_front
+namespace st
 {
 	class UIController
 	{

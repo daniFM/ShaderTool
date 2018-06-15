@@ -235,9 +235,10 @@ namespace st
 		int width = std::stoi(str_width);
 		int height = std::stoi(str_height);
 
-		st_front::Canvas * canvas = new st_front::Canvas(parent);
-		canvas->setFixedSize(nanogui::Vector2i(width, height));
+		st::Canvas * mycanvas = new st::Canvas(parent);
+		mycanvas->setFixedSize(nanogui::Vector2i(width, height));
 
+		canvas = mycanvas;
 	}
 
 	void UIBuilder::parseLabel(nanogui::Widget * parent, rapidxml::xml_node<> * label_node)

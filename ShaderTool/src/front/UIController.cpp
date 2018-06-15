@@ -17,7 +17,7 @@ Subject to license in LICENSE.txt
 using namespace std;
 using namespace nanogui;
 
-namespace st_front
+namespace st
 {
 	UIController::UIController(shared_ptr<st::DocumentManager> dm, shared_ptr<st::ConfigurationManager> cm)
 		:
@@ -33,6 +33,12 @@ namespace st_front
 		ui_builder.add_callback("openTexButton", std::bind(&UIController::openTexButton, this));
 
 		screen = ui_builder.parseUI(conf_manager->config_path + "\\ui_layout.xml");
+
+		canvas = ui_builder.getCanvas();
+
+		loadTexture(conf_manager->textures_path + "\\example_texture2.jpg");
+
+		screen->performLayout();
 
 		//this->setLayout(new BoxLayout(Orientation::Horizontal,
 		//	Alignment::Minimum, 0, 6));
@@ -113,7 +119,6 @@ namespace st_front
 		//text_box->setFixedSize(Vector2i(512, 600));
 		//text_box->setAlignment(TextBox::Alignment::Left);*/
 
-		//performLayout();
 	}
 
 	void UIController::run()

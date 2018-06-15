@@ -1,16 +1,20 @@
+/*
+
+Author: Daniel Fernández (https://github.com/daniFM)
+Date:	14/06/2018
+
+Subject to license in LICENSE.txt
+
+*/
 
 #include <Canvas.hpp>
 
 //#include <GLTexture.hpp>
 #include <stb_image.h>
 
+using namespace std;
 
-extern "C"
-{
-#include <targa.h>
-}
-
-namespace st_front
+namespace st
 {
 	Canvas::Canvas(Widget *parent) : nanogui::GLCanvas(parent)
 	{

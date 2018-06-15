@@ -20,7 +20,7 @@ Subject to license in LICENSE.txt
 
 #include <Shader.hpp>
 
-namespace st_front
+namespace st
 {
 
 	class Canvas3D : public nanogui::GLCanvas
