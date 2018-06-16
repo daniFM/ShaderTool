@@ -93,8 +93,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>winmm.lib;sfml-main-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;opengl32.lib;glu32.lib;glew32s.lib;nanogui.lib;glfw3.lib;glad.lib;PAthManager.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\libraries\sfml-2.3-vs-2015\lib;$(SolutionDir)..\libraries\glew\lib;$(SolutionDir)..\libraries\nanogui-vs2017\lib\32bit\debug;$(SolutionDir)..\libraries\nanovg-vs2017\lib\32bit\debug;$(SolutionDir)..\libraries\glfw-vs2017\lib\32bit\debug;$(SolutionDir)..\libraries\glad-vs2017\lib\32bit\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>winmm.lib;sfml-main-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;opengl32.lib;glu32.lib;glew32s.lib;nanogui.lib;glfw3.lib;glad.lib;PathManager.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\libraries\sfml-2.3-vs-2015\lib;$(SolutionDir)..\libraries\glew\lib;$(SolutionDir)..\libraries\nanogui-vs2017\lib\32bit\debug;$(SolutionDir)..\libraries\nanovg-vs2017\lib\32bit\debug;$(SolutionDir)..\libraries\glfw-vs2017\lib\32bit\debug;$(SolutionDir)..\libraries\glad-vs2017\lib\32bit\debug;$(SolutionDir)..\libraries\PathManager;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
