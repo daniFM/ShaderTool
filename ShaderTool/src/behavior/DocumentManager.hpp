@@ -1,6 +1,6 @@
 /*
 
-Author: Daniel Fernández (https://github.com/daniFM)
+Author: Daniel Fernï¿½ndez (https://github.com/daniFM)
 Date:	16/05/2018
 
 Subject to license in LICENSE.txt
@@ -27,17 +27,19 @@ namespace st
 
 		vector < shared_ptr <Shader > > default_shaders;
 
+		string text_editor;
+
 	public:
 
 		const string shaders_path;
 
 	public:
 
-		DocumentManager(string path, vector < shared_ptr <Shader > > shaders)
+		DocumentManager(string path, string editor, vector < shared_ptr <Shader > > shaders)
 			:
-			//data_path		(path),
 			shaders_path	(path + "\\Shaders"),
-			default_shaders(shaders)
+			text_editor     (editor),
+			default_shaders (shaders)
 		{
 			//shader = default_shader;
 			//loadShader(default_shaders[0]->getPath());

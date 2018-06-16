@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <config>
 	<text_editor>notepad.exe</text_editor>
+	<!-- <text_editor>C:\Program Files\Sublime Text 3\sublime_text.exe</text_editor> -->
 	<!--  
 	Supported shader types:
-	  · postprocessing
-	  · default3d
+	  · postprocessing - yes
+	  · default3d      - no, wip
 	-->
 	<shader_type>postprocessing</shader_type>
 	<default_shaders>

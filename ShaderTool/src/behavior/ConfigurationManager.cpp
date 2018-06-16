@@ -1,6 +1,6 @@
 /*
 
-Author: Daniel Fernández (https://github.com/daniFM)
+Author: Daniel Fernï¿½ndez (https://github.com/daniFM)
 Date:	14/06/2018
 
 Subject to license in LICENSE.txt
@@ -80,7 +80,11 @@ namespace st
 		{
 			if (child->type() == node_element)
 			{
-				if (string(child->name()) == "shader_type")
+				if (string(child->name()) == "text_editor")
+				{
+					text_editor = child->contents();
+				}
+				else if (string(child->name()) == "shader_type")
 				{
 					shader_type = child->contents();
 				}

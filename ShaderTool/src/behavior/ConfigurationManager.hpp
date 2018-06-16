@@ -1,6 +1,6 @@
 /*
 
-Author: Daniel Fernández (https://github.com/daniFM)
+Author: Daniel Fernï¿½ndez (https://github.com/daniFM)
 Date:	14/06/2018
 
 Subject to license in LICENSE.txt
@@ -31,6 +31,8 @@ namespace st
 
 		vector < shared_ptr < Shader > > default_shaders;
 
+		string text_editor;
+
 	public:
 
 		const string data_path;
@@ -45,6 +47,11 @@ namespace st
 		vector < shared_ptr < Shader > > getDefaultShaders()
 		{
 			return default_shaders;
+		}
+
+		string getEditor()
+		{
+			return text_editor;
 		}
 
 	private:

@@ -1,6 +1,6 @@
 /*
 
-Author: Daniel Fernández (https://github.com/daniFM)
+Author: Daniel Fernï¿½ndez (https://github.com/daniFM)
 Date:	16/05/2018
 
 Subject to license in LICENSE.txt
@@ -123,6 +123,13 @@ namespace st
 	void DocumentManager::openShader()
 	{
 		string command = "start notepad.exe " + shader.getPath();
+		string command;
+		if (text_editor == "notepad.exe")
+			command = "start " + text_editor + " " + shader.getPath();
+		else
+			command = "\"\"" + text_editor + "\" \"" + shader.getPath() + "\"\"";
+
+		cout << command << endl;
 		system(command.c_str());
 	}
 
