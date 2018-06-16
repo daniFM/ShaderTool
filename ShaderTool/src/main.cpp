@@ -14,12 +14,17 @@ Subject to license in LICENSE.txt
 #include <DocumentManager.hpp>
 #include <ConfigurationManager.hpp>
 
+#include <Path.hpp>
+
 using namespace std;
 using namespace st;
 using namespace st;
 
 int main(int number_of_arguments, char * arguments[])
 {
+	pm::Path path;
+	path.test();
+
 	//Check arguments
 
 	cout << number_of_arguments << " Arguments:" << endl;

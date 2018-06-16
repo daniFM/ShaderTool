@@ -20,33 +20,33 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{8D7CAD35-3A56-4A79-A9E7-E0060DF1831C}</ProjectGuid>
+    <ProjectGuid>{03FDCA57-40FF-4F6F-A391-1ED6EF725689}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ShaderTool</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <RootNamespace>PathManager</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -86,30 +86,24 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>NANOGUI_GLAD;SFML_STATIC;GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;PATHMANAGER_EXPORTS;_WINDOWS;_USRDLL;DLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\src\data;$(SolutionDir)\src\behavior;$(SolutionDir)\src\front;$(SolutionDir)..\libraries\sfml-2.3-vs-2015\include;$(SolutionDir)..\libraries\gl\headers;$(SolutionDir)..\libraries\targa\include;$(SolutionDir)..\libraries\glew\include;$(SolutionDir)..\libraries\glm;$(SolutionDir)..\libraries\nanogui-vs2017\include;$(SolutionDir)..\libraries\nanovg-vs2017\include;$(SolutionDir)..\libraries\glfw-vs2017\include;$(SolutionDir)..\libraries\glad-vs2017\include;$(SolutionDir)..\libraries\eigen\include;$(SolutionDir)..\libraries\rapidxml;$(SolutionDir)..\PathManager\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>winmm.lib;sfml-main-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;opengl32.lib;glu32.lib;glew32s.lib;nanogui.lib;glfw3.lib;glad.lib;PAthManager.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\libraries\sfml-2.3-vs-2015\lib;$(SolutionDir)..\libraries\glew\lib;$(SolutionDir)..\libraries\nanogui-vs2017\lib\32bit\debug;$(SolutionDir)..\libraries\nanovg-vs2017\lib\32bit\debug;$(SolutionDir)..\libraries\glfw-vs2017\lib\32bit\debug;$(SolutionDir)..\libraries\glad-vs2017\lib\32bit\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;PATHMANAGER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\libraries\cpp-toolkit\headers;..\libraries\SOIL\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>..\libraries\SOIL\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libSOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -118,14 +112,14 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;PATHMANAGER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -134,41 +128,22 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;PATHMANAGER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\libraries\targa\src\targa.c" />
-    <ClCompile Include="src\behavior\ConfigurationManager.cpp" />
-    <ClCompile Include="src\behavior\DocumentManager.cpp" />
-    <ClCompile Include="src\behavior\ShaderProgram.cpp" />
-    <ClCompile Include="src\front\Canvas.cpp" />
-    <ClCompile Include="src\front\Canvas3D.cpp" />
-    <ClCompile Include="src\front\UIBuilder.cpp" />
-    <ClCompile Include="src\front\UIController.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClInclude Include="src\Config.hpp" />
+    <ClInclude Include="src\Path.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\libraries\targa\include\targa.h" />
-    <ClInclude Include="src\behavior\Color_Buffer.hpp" />
-    <ClInclude Include="src\behavior\Color_Buffer_Rgba8888.hpp" />
-    <ClInclude Include="src\behavior\ConfigurationManager.hpp" />
-    <ClInclude Include="src\behavior\DocumentManager.hpp" />
-    <ClInclude Include="src\behavior\ShaderProgram.hpp" />
-    <ClInclude Include="src\data\CNode.hpp" />
-    <ClInclude Include="src\data\Shader.hpp" />
-    <ClInclude Include="src\data\UniformVariable.hpp" />
-    <ClInclude Include="src\front\Canvas.hpp" />
-    <ClInclude Include="src\front\Canvas3D.hpp" />
-    <ClInclude Include="src\front\UIBuilder.hpp" />
-    <ClInclude Include="src\front\UIController.hpp" />
+    <ClCompile Include="src\Path.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
