@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config>
 	<text_editor>notepad.exe</text_editor>
-	<!-- <text_editor>C:\Program Files\Sublime Text 3\sublime_text.exe</text_editor> -->
+	<text_editor>C:\Program Files\Sublime Text 3\sublime_text.exe</text_editor>
 	<!--  
 	Supported shader types:
 	  · postprocessing - yes

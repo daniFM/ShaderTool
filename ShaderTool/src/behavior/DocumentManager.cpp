@@ -122,7 +122,7 @@ namespace st
 
 	void DocumentManager::openShader()
 	{
-		string command = "start notepad.exe " + shader.getPath();
+		//string command = "start notepad.exe " + shader.getPath();
 		string command;
 		if (text_editor == "notepad.exe")
 			command = "start " + text_editor + " " + shader.getPath();

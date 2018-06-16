@@ -16,14 +16,14 @@
 			<layout type="BoxLayout">
 				<params Orientation="Horizontal" Alignment="Middle" margin="0" spacing="6" />
 			</layout>
-			<TextBox caption="yourShaderName" width="200" editable="true" />
+			<TextBox name="save_shader_name" caption="yourShaderName" width="200" editable="true" />
 			<Button name="Save" callback="saveButton" />
 		</Widget>
 		<Widget>
 			<layout type="BoxLayout">
 				<params Orientation="Horizontal" Alignment="Fill" margin="0" spacing="6" />
 			</layout>
-			<TextBox caption="" width="200" editable="true" />
+			<TextBox name="open_shader_name" caption="" width="200" editable="true" />
 			<Button name="Open" callback="openButton" />
 		</Widget>
 		<Label name="Texture options" />
@@ -31,7 +31,7 @@
 			<layout type="BoxLayout">
 				<params Orientation="Horizontal" Alignment="Middle" margin="0" spacing="6" />
 			</layout>
-			<TextBox caption="example_texture.jpg" width="200" editable="true" />
+			<TextBox name="texture_path" caption="example_texture.jpg" width="200" editable="true" />
 			<Button name="Load texture" callback="openTexButton" />
 		</Widget>
 	</Widget>

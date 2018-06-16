@@ -1,5 +1,11 @@
+/*
 
-//  comentario de cabecera
+Author: Daniel Fernández (https://github.com/daniFM)
+Date:	15/06/2018
+
+Subject to license in LICENSE.txt
+
+*/
 
 #include <UIBuilder.hpp>
 #include <iostream>
@@ -261,13 +267,15 @@ namespace st
 		save_shader_name->setEditable(true);*/
 
 		string str_name;
+		string str_caption;
 		string str_width;
 		string str_height;
 		string str_editable;
 
 		for (xml_attribute<> * attribute = textbox_node->first_attribute(); attribute; attribute = attribute->next_attribute())
 		{
-			if (string(attribute->name()) == "caption")		str_name = attribute->value(); else
+			if (string(attribute->name()) == "name")		str_name = attribute->value(); else
+			if (string(attribute->name()) == "caption")		str_caption = attribute->value(); else
 			if (string(attribute->name()) == "width")		str_width = attribute->value(); else
 			if (string(attribute->name()) == "height")      str_height = attribute->value(); else
 			if (string(attribute->name()) == "editable")	str_editable = attribute->value();
@@ -277,12 +285,20 @@ namespace st
 
 		TextBox * tb = new TextBox(parent);
 
-		tb->setValue(str_name);
+		tb->setValue(str_caption);
 
 		if (str_width != "")  tb->setFixedWidth(std::stoi(str_width));
 		if (str_height != "") tb->setFixedHeight(std::stoi(str_height));
 
 		tb->setEditable(editable);
+
+		if (str_name == "save_shader_name")
+			save_shader_name = tb;
+		else if (str_name == "open_shader_name")
+			open_shader_name = tb;
+		else if (str_name == "texture_path")
+			texture_path = tb;
+
 	}
 
 }

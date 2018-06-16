@@ -1,4 +1,11 @@
-// comentario de cabecera
+/*
+
+Author: Daniel Fernández (https://github.com/daniFM)
+Date:	15/06/2018
+
+Subject to license in LICENSE.txt
+
+*/
 
 #pragma once
 
@@ -17,7 +24,6 @@ using std::string;
 
 namespace st
 {
-
 	class UIBuilder
 	{
 
@@ -25,7 +31,12 @@ namespace st
 
 		std::map< string, function< void() > > callbacks;
 
-		st::Canvas * canvas;
+	public:
+
+		Canvas * canvas;
+		nanogui::TextBox * save_shader_name;
+		nanogui::TextBox * open_shader_name;
+		nanogui::TextBox * texture_path;
 
 	public:
 
@@ -38,7 +49,7 @@ namespace st
 			callbacks[name] = fun;
 		}
 
-		st::Canvas * getCanvas() { return canvas; }
+		//st::Canvas * getCanvas() { return canvas; }
 
 	private:
 

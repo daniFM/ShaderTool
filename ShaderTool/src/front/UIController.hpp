@@ -9,6 +9,9 @@ Subject to license in LICENSE.txt
 
 #pragma once
 
+#include <nanogui/screen.h>
+#include <Canvas.hpp>
+
 #include <DocumentManager.hpp>
 #include <ConfigurationManager.hpp>
 #include <UIBuilder.hpp>
@@ -21,12 +24,16 @@ namespace st
 
 		nanogui::Screen * screen;
 
+	public:
+
 		Canvas * canvas;
 		//Canvas3D * canvas;
 
 		nanogui::TextBox * save_shader_name;
 		nanogui::TextBox * open_shader_name;
 		nanogui::TextBox * texture_path;
+
+	private:
 
 		shared_ptr < st::DocumentManager >      doc_manager;
 		shared_ptr < st::ConfigurationManager > conf_manager;
