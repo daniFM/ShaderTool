@@ -1,6 +1,6 @@
 /*
 
-Author: Daniel Fernández (https://github.com/daniFM)
+Author: Daniel Fernï¿½ndez (https://github.com/daniFM)
 Date:	16/05/2018
 
 Subject to license in LICENSE.txt
@@ -34,48 +34,60 @@ namespace st
 
 		if (infile.good())
 		{
-			//while (!infile.eof()) // To get you all the lines.
-			//{
-			//	getline(infile, shader_str); // Saves the line in STRING.
-			//	cout << shader_str; // Prints our STRING.
-			//}
+			shader = Shader(path, path, shader_str);
 		}
 		else
 		{
-			cout << "File not found, creating new file" << endl;
+			//cout << "File not found, creating new file" << endl;
+
+			//path = shaders_path + "\\newShader.glsl";
+			////path = default_shaders[0]->getPath();
+			//cout << "Creating new file in " << path << endl;
+
+			//string new_shader_str = *default_shaders[0]->getCode().get();
+
+			//ofstream file(path);
+			//file << new_shader_str;
+
+			//shader_str = new_shader_str;
 
 			//Get default template
 
-			ifstream t(shaders_path + "\\defaultShader.glsl");
-			string new_shader_str(
-				(istreambuf_iterator<char>(t)),
-				 istreambuf_iterator<char>()
-			);
+			string name = path.substr(path.find_last_of("/\\") + 1, path.length() - 1);
 
-			if (!t.good())
-			{
-				cout << "ERROR: Could not find shader template" << endl;
-				success = false;
-			}
-			else
-			{
-				//Create new shader file
-
-				/*path = path.substr(0, path.find_last_of("/\\"));
-				path += shaders_path + "\\newShader.glsl";*/
-				path = shaders_path + "\\newShader.glsl";
-				cout << "Creating new file in " << path << endl;
-				//cout << "With template " << new_shader_str << endl;
-				ofstream file(path);
-				file << new_shader_str;
-
-				shader_str = new_shader_str;
-			}
+			createFromTemplate(name);
 		}
 
-		if(success)
+		return success;
+	}
+
+	bool DocumentManager::createFromTemplate(string name)
+	{
+		bool success = true;
+
+		ifstream t(default_shaders[0]->getPath());
+		string new_shader_str(
+			(istreambuf_iterator<char>(t)),
+			istreambuf_iterator<char>()
+		);
+
+		if (!t.good())
 		{
-			shader = Shader(path, path, shader_str);
+			cout << "ERROR: Could not find shader template" << endl;
+			success = false;
+		}
+		else
+		{
+			//Create new shader file
+
+			/*path = path.substr(0, path.find_last_of("/\\"));
+			path += shaders_path + "\\newShader.glsl";*/
+			string path = shaders_path + "\\" + name;
+			cout << "Creating new file in " << path << endl;
+			ofstream file(path);
+			file << new_shader_str;
+
+			shader = Shader(name, path, new_shader_str);
 		}
 
 		return success;
@@ -110,7 +122,14 @@ namespace st
 
 	void DocumentManager::openShader()
 	{
-		string command = "start notepad.exe " + shader.getPath();
+		//string command = "start notepad.exe " + shader.getPath();
+		string command;
+		if (text_editor == "notepad.exe")
+			command = "start " + text_editor + " " + shader.getPath();
+		else
+			command = "\"\"" + text_editor + "\" \"" + shader.getPath() + "\"\"";
+
+		cout << command << endl;
 		system(command.c_str());
 	}
 

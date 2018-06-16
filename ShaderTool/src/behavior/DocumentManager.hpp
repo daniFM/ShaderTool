@@ -1,6 +1,6 @@
 /*
 
-Author: Daniel Fernández (https://github.com/daniFM)
+Author: Daniel Fernï¿½ndez (https://github.com/daniFM)
 Date:	16/05/2018
 
 Subject to license in LICENSE.txt
@@ -11,6 +11,7 @@ Subject to license in LICENSE.txt
 
 #include <string>
 #include <memory>
+#include <vector>
 
 #include <Shader.hpp>
 
@@ -24,24 +25,31 @@ namespace st
 
 		Shader shader;
 
+		vector < shared_ptr <Shader > > default_shaders;
+
+		string text_editor;
+
 	public:
 
-		const string data_path;
 		const string shaders_path;
-		const string textures_path;
 
 	public:
 
-		DocumentManager(string path)
+		DocumentManager(string path, string editor, vector < shared_ptr <Shader > > shaders)
 			:
-			data_path(path),
-			shaders_path(path + "\\Shaders"),
-			textures_path(path + "\\Textures")
+			shaders_path	(path + "\\Shaders"),
+			text_editor     (editor),
+			default_shaders (shaders)
 		{
+			//shader = default_shader;
+			//loadShader(default_shaders[0]->getPath());
+			createFromTemplate("newShader.glsl");
 		}
 
 		bool loadShader();
 		bool loadShader(string path);
+
+		bool createFromTemplate(string name);
 
 		bool saveShader(string name);
 

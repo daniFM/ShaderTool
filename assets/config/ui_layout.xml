@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Screen name="ShaderTool" width="960" height="600" fullscreen="false" resizable="true">
+	<layout type="BoxLayout">
+		<params Orientation="Horizontal" Alignment="Minimum" margin="0" spacing="6" />
+	</layout>
+	<Widget>
+		<layout type="GroupLayout" />
+		<Button name="Preview" width="512" callback="previewButton" />
+		<Canvas width="512" height="512" />
+	</Widget>
+	<Widget>
+		<layout type="GroupLayout" />
+		<Button name="EditShader" callback="editButton" />
+		<Label name="Shader options" />
+		<Widget>
+			<layout type="BoxLayout">
+				<params Orientation="Horizontal" Alignment="Middle" margin="0" spacing="6" />
+			</layout>
+			<TextBox name="save_shader_name" caption="yourShaderName" width="200" editable="true" />
+			<Button name="Save" callback="saveButton" />
+		</Widget>
+		<Widget>
+			<layout type="BoxLayout">
+				<params Orientation="Horizontal" Alignment="Fill" margin="0" spacing="6" />
+			</layout>
+			<TextBox name="open_shader_name" caption="" width="200" editable="true" />
+			<Button name="Open" callback="openButton" />
+		</Widget>
+		<Label name="Texture options" />
+		<Widget>
+			<layout type="BoxLayout">
+				<params Orientation="Horizontal" Alignment="Middle" margin="0" spacing="6" />
+			</layout>
+			<TextBox name="texture_path" caption="example_texture.jpg" width="200" editable="true" />
+			<Button name="Load texture" callback="openTexButton" />
+		</Widget>
+	</Widget>
+</Screen>

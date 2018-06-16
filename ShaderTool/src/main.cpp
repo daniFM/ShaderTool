@@ -12,10 +12,11 @@ Subject to license in LICENSE.txt
 #include <cassert>
 
 #include <DocumentManager.hpp>
+#include <ConfigurationManager.hpp>
 
 using namespace std;
 using namespace st;
-using namespace st_front;
+using namespace st;
 
 int main(int number_of_arguments, char * arguments[])
 {
@@ -35,23 +36,28 @@ int main(int number_of_arguments, char * arguments[])
 		data_path = arguments[1];
 	}
 
+	//Get configuration
+
+	shared_ptr < ConfigurationManager > config = make_shared<ConfigurationManager>(data_path);
+
 	//Set document
 
-	shared_ptr < DocumentManager > document_manager = make_shared<DocumentManager>(data_path);
+	shared_ptr < DocumentManager > document_manager = make_shared<DocumentManager>
+		(
+			data_path,
+			config->getEditor(),
+			config->getDefaultShaders()
+		);
 
-	document_manager->loadShader(data_path);
 	
 	try
 	{
 		nanogui::init();
 		{
 
-			st_front::UIController ui(document_manager);
+			st::UIController ui(document_manager, config);
 
-			ui.drawAll();
-			ui.setVisible(true);
-
-			nanogui::mainloop();
+			ui.run();			
 
 		}
 		nanogui::shutdown();

@@ -9,8 +9,8 @@ out vec4 frag_color;
 
 void main()
 {
-    frag_color = 3.0 * modelViewProj * vec4(color, 1.0);
-    gl_Position = modelViewProj * vec4(position, 1.0);
+  frag_color = 3.0 * modelViewProj * vec4(color, 1.0);
+  gl_Position = modelViewProj * vec4(position, 1.0);
 }
 
 #version 330
@@ -21,5 +21,5 @@ in vec4 frag_color;
 
 void main()
 {
-    color = frag_color;
+  color = frag_color;
 }

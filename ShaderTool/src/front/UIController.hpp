@@ -11,38 +11,50 @@ Subject to license in LICENSE.txt
 
 #include <nanogui/screen.h>
 #include <Canvas.hpp>
-//#include <Canvas3D.hpp>
-#include <DocumentManager.hpp>
 
-namespace st_front
+#include <DocumentManager.hpp>
+#include <ConfigurationManager.hpp>
+#include <UIBuilder.hpp>
+
+namespace st
 {
-	class UIController : public nanogui::Screen
+	class UIController
 	{
 	private:
+
+		nanogui::Screen * screen;
+
+	public:
 
 		Canvas * canvas;
 		//Canvas3D * canvas;
 
-		nanogui::TextBox * shader_name;
+		nanogui::TextBox * save_shader_name;
+		nanogui::TextBox * open_shader_name;
 		nanogui::TextBox * texture_path;
 
-		shared_ptr < st::DocumentManager > doc_manager;
+	private:
+
+		shared_ptr < st::DocumentManager >      doc_manager;
+		shared_ptr < st::ConfigurationManager > conf_manager;
 
 	public:
 
-		UIController(shared_ptr<st::DocumentManager> dm);
+		UIController(shared_ptr<st::DocumentManager> dm, shared_ptr<st::ConfigurationManager> cm);
+
+		void run();
 
 	private:
 
 		void previewButton();
-		void openButton();
+		void editButton();
 		void saveButton();
+		void openButton();
 
 		void openTexButton();
 		void loadTexture(string path);
 
-		bool keyboardEvent(int key, int scancode, int action, int modifiers) override;
-
-		void draw(NVGcontext * context) override;
+		/*bool keyboardEvent(int key, int scancode, int action, int modifiers) override;
+		void draw(NVGcontext * context) override;*/
 	};
 }
