@@ -35,27 +35,14 @@ namespace st
 		if (infile.good())
 		{
 			shader = Shader(path, path, shader_str);
+			openShader();
 		}
 		else
 		{
-			//cout << "File not found, creating new file" << endl;
+			string name = pm::Path::getFileName(path);
 
-			//path = shaders_path + "\\newShader.glsl";
-			////path = default_shaders[0]->getPath();
-			//cout << "Creating new file in " << path << endl;
-
-			//string new_shader_str = *default_shaders[0]->getCode().get();
-
-			//ofstream file(path);
-			//file << new_shader_str;
-
-			//shader_str = new_shader_str;
-
-			//Get default template
-
-			string name = path.substr(path.find_last_of("/\\") + 1, path.length() - 1);
-
-			createFromTemplate(name);
+			if (createFromTemplate(name))
+				openShader();
 		}
 
 		return success;
@@ -80,8 +67,6 @@ namespace st
 		{
 			//Create new shader file
 
-			/*path = path.substr(0, path.find_last_of("/\\"));
-			path += shaders_path + "\\newShader.glsl";*/
 			string path = shaders_path + "\\" + name;
 			cout << "Creating new file in " << path << endl;
 			ofstream file(path);
@@ -99,7 +84,7 @@ namespace st
 
 		int result;
 		string oldname = shader.getPath();
-		string newname = oldname.substr(0, oldname.find_last_of("/\\") + 1) + name + ".glsl";
+		string newname = pm::Path::getChangedName(oldname, name);
 		result = rename(oldname.c_str(), newname.c_str());
 
 		if (result == 0)

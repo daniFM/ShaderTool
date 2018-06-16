@@ -12,6 +12,7 @@ Subject to license in LICENSE.txt
 #include <string>
 #include <memory>
 #include <vector>
+#include <Path.hpp>
 
 #include <Shader.hpp>
 
