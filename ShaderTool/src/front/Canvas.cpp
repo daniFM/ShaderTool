@@ -20,7 +20,7 @@ namespace st
 	{
 		using namespace nanogui;
 
-		setShader();
+		//setShader();
 
 		//loadTexture("..\\assets\\example_texture.jpg");
 		
@@ -80,40 +80,6 @@ namespace st
 
 		glBindTexture(GL_TEXTURE_2D, 0);
 
-	}
-
-	void Canvas::setShader()
-	{
-		mShader.init(
-			/* An identifying name */
-			"a_simple_shader",
-
-			/* Vertex shader */
-			"#version 330\n"
-			"layout (location = 0) in vec3 vertex_coordinates;\n"
-			"layout (location = 1) in vec2 vertex_texture_uv;\n"
-			"out vec2 texture_uv;\n"
-			"void main()\n"
-			"{\n"
-			"   gl_Position = vec4(vertex_coordinates, 1.0);\n"
-			"   texture_uv  = vertex_texture_uv;\n"
-			"}",
-
-			/* Fragment shader */
-			"#version 330\n"
-			"uniform sampler2D sampler2d;\n"
-			"in  vec2 texture_uv;\n"
-			"out vec4 fragment_color;\n"
-			"void main()\n"
-			"{\n"
-			"    vec3 color = texture (sampler2d, texture_uv.st).rgb;\n"
-			"    float i = (color.r + color.g + color.b) * 0.3333333333;\n"
-			"    fragment_color = vec4(vec3(i, i, i) * vec3(1.0, 0.75, 0.5), 1.0);\n"
-			"    //fragment_color = vec4(1, 0, 0, 1);\n"
-			"}"
-		);
-
-		mShader.bind();
 	}
 
 	void Canvas::setShader(shared_ptr<st::Shader> shader)

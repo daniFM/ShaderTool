@@ -15,12 +15,12 @@ Subject to license in LICENSE.txt
 
 namespace st
 {
-	bool DocumentManager::loadShader()
+	bool DocumentManager::loadShader(bool open)
 	{
-		return loadShader(shader.getPath());
+		return loadShader(shader.getPath(), open);
 	}
 
-	bool DocumentManager::loadShader(string path)
+	bool DocumentManager::loadShader(string path, bool open)
 	{
 		cout << "Openning file: " << path << endl;
 
@@ -35,14 +35,20 @@ namespace st
 		if (infile.good())
 		{
 			shader = Shader(path, path, shader_str);
-			openShader();
+
+			if (open)
+			{
+				openShader();
+			}
 		}
 		else
 		{
 			string name = pm::Path::getFileName(path);
 
-			if (createFromTemplate(name))
+			if (createFromTemplate(name) && open)
+			{
 				openShader();
+			}
 		}
 
 		return success;

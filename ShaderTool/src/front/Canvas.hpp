@@ -56,7 +56,6 @@ namespace st
 
 		virtual void drawGL() override;
 
-		void setShader();
 		void setShader(shared_ptr<st::Shader> shader);
 
 		nanogui::Vector2i loadTexture(string path);

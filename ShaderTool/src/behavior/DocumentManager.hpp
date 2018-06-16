@@ -47,8 +47,8 @@ namespace st
 			createFromTemplate("newShader.glsl");
 		}
 
-		bool loadShader();
-		bool loadShader(string path);
+		bool loadShader(bool open=false);
+		bool loadShader(string path, bool open=false);
 
 		bool createFromTemplate(string name);
 

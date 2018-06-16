@@ -41,6 +41,8 @@ namespace st
 
 		loadTexture(conf_manager->textures_path + "\\example_texture2.jpg");
 
+		previewButton();
+
 		screen->performLayout();
 
 		
@@ -59,8 +61,6 @@ namespace st
 	{
 		doc_manager->loadShader();
 		canvas->setShader(doc_manager->getShader());
-
-		//performLayout(); ------------------------------ ????
 	}
 
 	void UIController::editButton()
@@ -76,7 +76,7 @@ namespace st
 
 	void UIController::openButton()
 	{
-		doc_manager->loadShader(doc_manager->shaders_path + "\\" + open_shader_name->value() + ".glsl");
+		doc_manager->loadShader(doc_manager->shaders_path + "\\" + open_shader_name->value() + ".glsl", true);
 		canvas->setShader(doc_manager->getShader());
 	}
 
