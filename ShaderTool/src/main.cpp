@@ -33,7 +33,7 @@ int main(int number_of_arguments, char * arguments[])
 	}
 
 	// Default path
-	string data_path = "\\data";
+	string data_path = "data";
 
 	if (number_of_arguments > 1)
 	{
