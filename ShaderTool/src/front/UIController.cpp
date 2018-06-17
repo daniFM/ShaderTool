@@ -39,11 +39,11 @@ namespace st
 		open_shader_name = ui_builder.open_shader_name;
 		texture_path = ui_builder.texture_path;
 
-		loadTexture(conf_manager->textures_path + "\\example_texture2.jpg");
-
 		previewButton();
 
 		screen->performLayout();
+
+		loadTexture(conf_manager->textures_path + "\\example_texture.jpg");
 
 		
 
