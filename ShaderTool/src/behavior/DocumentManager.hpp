@@ -51,6 +51,7 @@ namespace st
 		/// Reloads the current set shader.
 		/// @param open Wether or not open the shader with the text editor.
 		bool loadShader(bool open=false);
+
 		/// Loads a new shader.
 		/// If the shader file is not found, creates a new one in the provided path from the template.
 		/// @param open Wether or not open the shader with the text editor.

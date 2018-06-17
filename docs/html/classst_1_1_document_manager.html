@@ -89,6 +89,7 @@ $(document).ready(function(){initNavTree('classst_1_1_document_manager.html','')
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classst_1_1_document_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">st::DocumentManager Class Reference</div>  </div>
@@ -127,6 +128,15 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aebcb5a8610e0b0f8541e2b7bc62e78a5"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_document_manager.html#aebcb5a8610e0b0f8541e2b7bc62e78a5">shaders_path</a></td></tr>
 <tr class="separator:aebcb5a8610e0b0f8541e2b7bc62e78a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aaecdb2cf96cc77e8f1ddf22bf798fb21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classst_1_1_shader.html">Shader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_document_manager.html#aaecdb2cf96cc77e8f1ddf22bf798fb21">shader</a></td></tr>
+<tr class="separator:aaecdb2cf96cc77e8f1ddf22bf798fb21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62ace8d65b2f3fd061ef20b48221b762"><td class="memItemLeft" align="right" valign="top">vector&lt; shared_ptr&lt; <a class="el" href="classst_1_1_shader.html">Shader</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_document_manager.html#a62ace8d65b2f3fd061ef20b48221b762">default_shaders</a></td></tr>
+<tr class="separator:a62ace8d65b2f3fd061ef20b48221b762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c1325f520145fd87f4a760da6b4d334"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_document_manager.html#a3c1325f520145fd87f4a760da6b4d334">text_editor</a></td></tr>
+<tr class="separator:a3c1325f520145fd87f4a760da6b4d334"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages the shaders files. </p>
@@ -330,6 +340,50 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a62ace8d65b2f3fd061ef20b48221b762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62ace8d65b2f3fd061ef20b48221b762">&#9670;&nbsp;</a></span>default_shaders</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; shared_ptr &lt;<a class="el" href="classst_1_1_shader.html">Shader</a> &gt; &gt; st::DocumentManager::default_shaders</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaecdb2cf96cc77e8f1ddf22bf798fb21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaecdb2cf96cc77e8f1ddf22bf798fb21">&#9670;&nbsp;</a></span>shader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classst_1_1_shader.html">Shader</a> st::DocumentManager::shader</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aebcb5a8610e0b0f8541e2b7bc62e78a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebcb5a8610e0b0f8541e2b7bc62e78a5">&#9670;&nbsp;</a></span>shaders_path</h2>
 
@@ -340,6 +394,28 @@ Public Attributes</h2></td></tr>
           <td class="memname">const string st::DocumentManager::shaders_path</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c1325f520145fd87f4a760da6b4d334"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c1325f520145fd87f4a760da6b4d334">&#9670;&nbsp;</a></span>text_editor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string st::DocumentManager::text_editor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

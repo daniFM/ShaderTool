@@ -15,6 +15,6 @@ var dir_00320a8f6a3a62683f8b175aa55a2fe2 =
       [ "Texture", "classst_1_1_texture.html", "classst_1_1_texture" ]
     ] ],
     [ "UniformVariable.hpp", "_uniform_variable_8hpp.html", [
-      [ "UniformVariable", "classst_1_1_uniform_variable.html", null ]
+      [ "UniformVariable", "classst_1_1_uniform_variable.html", "classst_1_1_uniform_variable" ]
     ] ]
 ];

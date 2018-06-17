@@ -54,13 +54,16 @@ namespace st
 		/// Preview button functionality.
 		/// Reads the shader from the file and sets it in the canvas.
 		void previewButton();
+
 		/// Edit button functionality.
 		/// Opens the current file with the configured text editor.
 		void editButton();
+
 		/// Save button functionality.
 		/// Saves the current shader with another name.
 		/// By not using this, if you are editing the default "newShader" will be overwritten the next time the program is ran.
 		void saveButton();
+
 		/// Open shader functionality.
 		/// Opens a new shader from the configured template.
 		void openButton();
@@ -68,6 +71,7 @@ namespace st
 		/// Open texture functionality.
 		/// Loads a new texture from the configured path.
 		void openTexButton();
+
 		/// Loads and sets the texture from the provided path.
 		void loadTexture(string path);
 

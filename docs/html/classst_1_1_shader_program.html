@@ -88,6 +88,8 @@ $(document).ready(function(){initNavTree('classst_1_1_shader_program.html','');}
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classst_1_1_shader_program-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">st::ShaderProgram Class Reference</div>  </div>
@@ -109,6 +111,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a284d286f57580daee32fe7ef79ede4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2deffceb21b88ccef9e1871cf52f8113"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_shader_program.html#a2deffceb21b88ccef9e1871cf52f8113">disable</a> ()</td></tr>
 <tr class="separator:a2deffceb21b88ccef9e1871cf52f8113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:acdef5be6bf70f2caaf3f810dcf4824e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_shader_program.html#acdef5be6bf70f2caaf3f810dcf4824e2">show_compilation_error</a> (GLuint shader_id)</td></tr>
+<tr class="separator:acdef5be6bf70f2caaf3f810dcf4824e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9c517c2f7cff5f7d464800f14e721b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_shader_program.html#ad9c517c2f7cff5f7d464800f14e721b6">show_linkage_error</a> (GLuint program_id)</td></tr>
+<tr class="separator:ad9c517c2f7cff5f7d464800f14e721b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a0fca232cc1cf57b68ff4145d7ae879ac"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_shader_program.html#a0fca232cc1cf57b68ff4145d7ae879ac">shader_program_id</a></td></tr>
+<tr class="separator:a0fca232cc1cf57b68ff4145d7ae879ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af21e941f697446c6e767c35ff2bba4d6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_shader_program.html#af21e941f697446c6e767c35ff2bba4d6">vertex_shader_code</a></td></tr>
+<tr class="separator:af21e941f697446c6e767c35ff2bba4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf355df64cf81a7522ce604240e1f00e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_shader_program.html#abf355df64cf81a7522ce604240e1f00e">fragment_shader_code</a></td></tr>
+<tr class="separator:abf355df64cf81a7522ce604240e1f00e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a OpenGL shader program. Not in use, as I'm using nanogui's shaders right now. </p>
@@ -174,6 +192,58 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="acdef5be6bf70f2caaf3f810dcf4824e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdef5be6bf70f2caaf3f810dcf4824e2">&#9670;&nbsp;</a></span>show_compilation_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void st::ShaderProgram::show_compilation_error </td>
+          <td>(</td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>shader_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9c517c2f7cff5f7d464800f14e721b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9c517c2f7cff5f7d464800f14e721b6">&#9670;&nbsp;</a></span>show_linkage_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void st::ShaderProgram::show_linkage_error </td>
+          <td>(</td>
+          <td class="paramtype">GLuint&#160;</td>
+          <td class="paramname"><em>program_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a284d286f57580daee32fe7ef79ede4e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a284d286f57580daee32fe7ef79ede4e6">&#9670;&nbsp;</a></span>use()</h2>
 
@@ -193,6 +263,73 @@ Public Member Functions</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abf355df64cf81a7522ce604240e1f00e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf355df64cf81a7522ce604240e1f00e">&#9670;&nbsp;</a></span>fragment_shader_code</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string st::ShaderProgram::fragment_shader_code</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0fca232cc1cf57b68ff4145d7ae879ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fca232cc1cf57b68ff4145d7ae879ac">&#9670;&nbsp;</a></span>shader_program_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLint st::ShaderProgram::shader_program_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af21e941f697446c6e767c35ff2bba4d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af21e941f697446c6e767c35ff2bba4d6">&#9670;&nbsp;</a></span>vertex_shader_code</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string st::ShaderProgram::vertex_shader_code</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

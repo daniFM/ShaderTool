@@ -12,5 +12,7 @@ var classst_1_1_color___buffer___rgba8888 =
     [ "set_color", "classst_1_1_color___buffer___rgba8888.html#ad84551dc8b8e60a1f1924fa62b7a5590", null ],
     [ "set_pixel", "classst_1_1_color___buffer___rgba8888.html#aacf3ee7ca6bf9a01674acf3fe61c30c8", null ],
     [ "set_pixel", "classst_1_1_color___buffer___rgba8888.html#a96a117dde0e68fb62e106e6d07705b4b", null ],
-    [ "size", "classst_1_1_color___buffer___rgba8888.html#ad880b3c6171bd17be94024d18de748f8", null ]
+    [ "size", "classst_1_1_color___buffer___rgba8888.html#ad880b3c6171bd17be94024d18de748f8", null ],
+    [ "buffer", "classst_1_1_color___buffer___rgba8888.html#aceb209254fddc3da8a7a11f7e024edc9", null ],
+    [ "color", "classst_1_1_color___buffer___rgba8888.html#ac3f1a26c1e0d20b7945b3d8b83161f78", null ]
 ];

@@ -11,5 +11,7 @@ var classst_1_1_g_l_texture =
     [ "operator=", "classst_1_1_g_l_texture.html#ad54b425944149fa95e01a94f81e0b716", null ],
     [ "operator=", "classst_1_1_g_l_texture.html#adda3c04987151acba1d430ce1efc860c", null ],
     [ "texture", "classst_1_1_g_l_texture.html#af2b881a1dd61c22e4c9ba0edcd953536", null ],
-    [ "textureName", "classst_1_1_g_l_texture.html#a5aaf1d590ef2f0a30a270f5f86f77243", null ]
+    [ "textureName", "classst_1_1_g_l_texture.html#a5aaf1d590ef2f0a30a270f5f86f77243", null ],
+    [ "mTextureId", "classst_1_1_g_l_texture.html#ac08e8ad6c3ac033d4799a2af88515988", null ],
+    [ "mTextureName", "classst_1_1_g_l_texture.html#ad97e32eba8faec07cc5e2e34cbc33117", null ]
 ];

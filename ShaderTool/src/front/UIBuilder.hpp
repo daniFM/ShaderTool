@@ -68,15 +68,19 @@ namespace st
 
 		/// Parses and creates a pointer to a Widget.
 		void parseWidget  (nanogui::Widget * parent, rapidxml::xml_node<> * widget_node);
+
 		/// Parses and creates a pointer to a Button.
 		/// Accepted parameters: name, width, height, callback.
 		void parseButton  (nanogui::Widget * parent, rapidxml::xml_node<> * button_node);
+
 		/// Parses and creates a pointer to a Canvas.
 		/// Accepted parameters: width, height.
 		void parseCanvas  (nanogui::Widget * parent, rapidxml::xml_node<> * button_node);
+
 		/// Parses and creates a pointer to a Label.
 		/// Accepted parameters: name.
 		void parseLabel   (nanogui::Widget * parent, rapidxml::xml_node<> * button_node);
+
 		/// Parses and creates a pointer to a Textboc.
 		/// Accepted parameters: name, caption, width, height, editable.
 		void parseTextBox (nanogui::Widget * parent, rapidxml::xml_node<> * button_node);

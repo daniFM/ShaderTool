@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['save_5fshader_5fname',['save_shader_name',['../classst_1_1_u_i_builder.html#aba56dabae289a389039fb0f690f46667',1,'st::UIBuilder::save_shader_name()'],['../classst_1_1_u_i_controller.html#a9e6c25bd821d26aa5341876121a81eee',1,'st::UIController::save_shader_name()']]],
-  ['shaders_5fpath',['shaders_path',['../classst_1_1_document_manager.html#aebcb5a8610e0b0f8541e2b7bc62e78a5',1,'st::DocumentManager']]]
+  ['open_5fshader_5fname',['open_shader_name',['../classst_1_1_u_i_builder.html#ab0cc71cba35bc20fc331ad89322e7390',1,'st::UIBuilder::open_shader_name()'],['../classst_1_1_u_i_controller.html#a5e2e08df1b22ea2e020d2f4d866fd18a',1,'st::UIController::open_shader_name()']]],
+  ['out_5ftexture_5fid',['out_texture_id',['../classst_1_1_framebuffer.html#a82d153d279658ee010e0da828441fc30',1,'st::Framebuffer::out_texture_id()'],['../classst_1_1_canvas.html#ae008205524bc54dbd17401d21d48de5e',1,'st::Canvas::out_texture_id()']]]
 ];

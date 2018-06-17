@@ -63,10 +63,13 @@ namespace st
 
 		/// Loads the config xml and stars the parsing.
 		bool load_config	(const string & config_file_path);
+
 		/// Parses root node of the configuration.
 		bool parse_config	(rapidxml::xml_node<char>* config_node);
+
 		/// Parses template shaders.
 		bool parse_shaders	(rapidxml::xml_node<char>* shaders_node);
+
 		//bool parse_layout	(rapidxml::xml_node<char>* layout_node);
 
 	};

@@ -88,6 +88,8 @@ $(document).ready(function(){initNavTree('classst_1_1_canvas.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classst_1_1_canvas-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">st::Canvas Class Reference</div>  </div>
@@ -123,6 +125,29 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a55ad4b32650efe9c8e8df3945273ca59"><td class="memItemLeft" align="right" valign="top">nanogui::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_canvas.html#a55ad4b32650efe9c8e8df3945273ca59">loadTexture</a> (string path)</td></tr>
 <tr class="memdesc:a55ad4b32650efe9c8e8df3945273ca59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a texture and binds it to the shader.  <a href="#a55ad4b32650efe9c8e8df3945273ca59">More...</a><br /></td></tr>
 <tr class="separator:a55ad4b32650efe9c8e8df3945273ca59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac70f344013059924a13f55618d7a8e8c"><td class="memItemLeft" align="right" valign="top">nanogui::GLShader&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_canvas.html#ac70f344013059924a13f55618d7a8e8c">mShader</a></td></tr>
+<tr class="separator:ac70f344013059924a13f55618d7a8e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae55d1cd3aa02316a7b796c5a93ce6761"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_canvas.html#ae55d1cd3aa02316a7b796c5a93ce6761">framebuffer_id</a></td></tr>
+<tr class="separator:ae55d1cd3aa02316a7b796c5a93ce6761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0622959c9a74aef3d6a7b573dfca835f"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_canvas.html#a0622959c9a74aef3d6a7b573dfca835f">depthbuffer_id</a></td></tr>
+<tr class="separator:a0622959c9a74aef3d6a7b573dfca835f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae008205524bc54dbd17401d21d48de5e"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_canvas.html#ae008205524bc54dbd17401d21d48de5e">out_texture_id</a></td></tr>
+<tr class="separator:ae008205524bc54dbd17401d21d48de5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52d4b69d771a0db9634b7b1a7164c294"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_canvas.html#a52d4b69d771a0db9634b7b1a7164c294">triangle_vbo0</a></td></tr>
+<tr class="separator:a52d4b69d771a0db9634b7b1a7164c294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab516d0b6419fbced896179e37cc8462d"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_canvas.html#ab516d0b6419fbced896179e37cc8462d">triangle_vbo1</a></td></tr>
+<tr class="separator:ab516d0b6419fbced896179e37cc8462d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a093844ecce53b8a501ae9d69d03cf41e"><td class="memItemLeft" align="right" valign="top">static const GLsizei&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_canvas.html#a093844ecce53b8a501ae9d69d03cf41e">framebuffer_width</a> = 2048</td></tr>
+<tr class="memdesc:a093844ecce53b8a501ae9d69d03cf41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The resolution in wich the scene is going to be rendered in the framebuffer.  <a href="#a093844ecce53b8a501ae9d69d03cf41e">More...</a><br /></td></tr>
+<tr class="separator:a093844ecce53b8a501ae9d69d03cf41e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ece269a4577e515dc3d0075b9954634"><td class="memItemLeft" align="right" valign="top">static const GLsizei&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_canvas.html#a6ece269a4577e515dc3d0075b9954634">framebuffer_height</a> = 2048</td></tr>
+<tr class="separator:a6ece269a4577e515dc3d0075b9954634"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Customized GLCanvas class to act as a customizable framebuffer. </p>
@@ -249,6 +274,185 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0622959c9a74aef3d6a7b573dfca835f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0622959c9a74aef3d6a7b573dfca835f">&#9670;&nbsp;</a></span>depthbuffer_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint st::Canvas::depthbuffer_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ece269a4577e515dc3d0075b9954634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ece269a4577e515dc3d0075b9954634">&#9670;&nbsp;</a></span>framebuffer_height</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const GLsizei st::Canvas::framebuffer_height = 2048</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae55d1cd3aa02316a7b796c5a93ce6761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae55d1cd3aa02316a7b796c5a93ce6761">&#9670;&nbsp;</a></span>framebuffer_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint st::Canvas::framebuffer_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a093844ecce53b8a501ae9d69d03cf41e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a093844ecce53b8a501ae9d69d03cf41e">&#9670;&nbsp;</a></span>framebuffer_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const GLsizei st::Canvas::framebuffer_width = 2048</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The resolution in wich the scene is going to be rendered in the framebuffer. </p>
+
+</div>
+</div>
+<a id="ac70f344013059924a13f55618d7a8e8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac70f344013059924a13f55618d7a8e8c">&#9670;&nbsp;</a></span>mShader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nanogui::GLShader st::Canvas::mShader</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae008205524bc54dbd17401d21d48de5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae008205524bc54dbd17401d21d48de5e">&#9670;&nbsp;</a></span>out_texture_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint st::Canvas::out_texture_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52d4b69d771a0db9634b7b1a7164c294"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d4b69d771a0db9634b7b1a7164c294">&#9670;&nbsp;</a></span>triangle_vbo0</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint st::Canvas::triangle_vbo0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab516d0b6419fbced896179e37cc8462d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab516d0b6419fbced896179e37cc8462d">&#9670;&nbsp;</a></span>triangle_vbo1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint st::Canvas::triangle_vbo1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['callbacks',['callbacks',['../classst_1_1_c_node.html#ab6e7f9d3043e2b6a9dab046a62506eac',1,'st::CNode']]],
+  ['callbacks',['callbacks',['../classst_1_1_c_node.html#ab6e7f9d3043e2b6a9dab046a62506eac',1,'st::CNode::callbacks()'],['../classst_1_1_u_i_builder.html#a97cf0cd20529e4406e072df84dbc334e',1,'st::UIBuilder::callbacks()']]],
   ['canvas',['Canvas',['../classst_1_1_canvas.html',1,'st::Canvas'],['../classst_1_1_u_i_builder.html#aa136829ba2fa3d84213cece4d9ebae9f',1,'st::UIBuilder::canvas()'],['../classst_1_1_u_i_controller.html#acde48f36e9f1eeba1384a4a911cd641d',1,'st::UIController::canvas()'],['../classst_1_1_canvas.html#a7196cac96ed227e386f87ecf36a238d4',1,'st::Canvas::Canvas()']]],
   ['canvas_2ecpp',['Canvas.cpp',['../_canvas_8cpp.html',1,'']]],
   ['canvas_2ehpp',['Canvas.hpp',['../_canvas_8hpp.html',1,'']]],
@@ -9,10 +9,11 @@ var searchData=
   ['canvas3d_2ehpp',['Canvas3D.hpp',['../_canvas3_d_8hpp.html',1,'']]],
   ['cbutton',['CButton',['../classst_1_1_c_button.html',1,'st::CButton'],['../classst_1_1_c_button.html#af4c130ad3bf370db76cb64813ac604fe',1,'st::CButton::CButton()']]],
   ['ccanvas',['CCanvas',['../classst_1_1_c_canvas.html',1,'st::CCanvas'],['../classst_1_1_c_canvas.html#af2f9268a9f44b3427a8d1c9a8514fa56',1,'st::CCanvas::CCanvas()']]],
+  ['children',['children',['../classst_1_1_c_node.html#acdec4b3d5659dae93570690d406b2883',1,'st::CNode']]],
   ['clabel',['CLabel',['../classst_1_1_c_label.html',1,'st::CLabel'],['../classst_1_1_c_label.html#a0a14f435886a519b2adcba4cf8a03598',1,'st::CLabel::CLabel()']]],
   ['cnode',['CNode',['../classst_1_1_c_node.html',1,'st::CNode'],['../classst_1_1_c_node.html#ae2144552a7438396b506af571b1e3536',1,'st::CNode::CNode()']]],
   ['cnode_2ehpp',['CNode.hpp',['../_c_node_8hpp.html',1,'']]],
-  ['color',['Color',['../structst_1_1_color___buffer___rgba8888_1_1_color.html',1,'st::Color_Buffer_Rgba8888']]],
+  ['color',['Color',['../structst_1_1_color___buffer___rgba8888_1_1_color.html',1,'st::Color_Buffer_Rgba8888::Color'],['../classst_1_1_color___buffer___rgba8888.html#ac3f1a26c1e0d20b7945b3d8b83161f78',1,'st::Color_Buffer_Rgba8888::color()']]],
   ['color_5fbuffer',['Color_Buffer',['../classst_1_1_color___buffer.html',1,'st::Color_Buffer'],['../classst_1_1_color___buffer.html#a6acd0eaf7a99baf47efb0ddfd47f044b',1,'st::Color_Buffer::Color_Buffer()']]],
   ['color_5fbuffer_2ehpp',['Color_Buffer.hpp',['../_color___buffer_8hpp.html',1,'']]],
   ['color_5fbuffer_5frgba8888',['Color_Buffer_Rgba8888',['../classst_1_1_color___buffer___rgba8888.html',1,'st::Color_Buffer_Rgba8888'],['../classst_1_1_color___buffer___rgba8888.html#ae1302235782d5120fb23833f91447842',1,'st::Color_Buffer_Rgba8888::Color_Buffer_Rgba8888()']]],
@@ -20,6 +21,7 @@ var searchData=
   ['colors',['colors',['../classst_1_1_color___buffer___rgba8888.html#a01ff68720c7f9c86763a2aec80444da4',1,'st::Color_Buffer_Rgba8888::colors()'],['../classst_1_1_color___buffer___rgba8888.html#af7733b3229d618edb56dae560ef21083',1,'st::Color_Buffer_Rgba8888::colors() const']]],
   ['compileshader',['compileShader',['../classst_1_1_shader_program.html#a629e63de3154ae99cb9e6be07ac683e8',1,'st::ShaderProgram']]],
   ['component',['component',['../structst_1_1_color___buffer___rgba8888_1_1_color.html#a91d298bec44b30089d910f78980ec7ca',1,'st::Color_Buffer_Rgba8888::Color']]],
+  ['conf_5fmanager',['conf_manager',['../classst_1_1_u_i_controller.html#a87c66e62501c422ccb084006ba96746e',1,'st::UIController']]],
   ['config_5fpath',['config_path',['../classst_1_1_configuration_manager.html#adf88b90279861abe7ab224ce9712dd5c',1,'st::ConfigurationManager']]],
   ['configurationmanager',['ConfigurationManager',['../classst_1_1_configuration_manager.html',1,'st::ConfigurationManager'],['../classst_1_1_configuration_manager.html#a0784ed4d9ee881d4bfd56c60e1793075',1,'st::ConfigurationManager::ConfigurationManager()']]],
   ['configurationmanager_2ecpp',['ConfigurationManager.cpp',['../_configuration_manager_8cpp.html',1,'']]],

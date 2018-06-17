@@ -19,5 +19,5 @@ var namespacest =
     [ "Texture", "classst_1_1_texture.html", "classst_1_1_texture" ],
     [ "UIBuilder", "classst_1_1_u_i_builder.html", "classst_1_1_u_i_builder" ],
     [ "UIController", "classst_1_1_u_i_controller.html", "classst_1_1_u_i_controller" ],
-    [ "UniformVariable", "classst_1_1_uniform_variable.html", null ]
+    [ "UniformVariable", "classst_1_1_uniform_variable.html", "classst_1_1_uniform_variable" ]
 ];

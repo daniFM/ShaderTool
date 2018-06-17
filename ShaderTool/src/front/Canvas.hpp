@@ -66,6 +66,7 @@ namespace st
 		/// Loads a texture and binds it to the shader.
 		/// @param path Path to the texture.
 		nanogui::Vector2i loadTexture(string path);
+
 		//auto_ptr< Texture > loadTexture(string path);
 
 	};

@@ -89,6 +89,8 @@ $(document).ready(function(){initNavTree('classst_1_1_configuration_manager.html
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classst_1_1_configuration_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">st::ConfigurationManager Class Reference</div>  </div>
@@ -122,6 +124,27 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ab66db916b00335ce065c8a04a3df070b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf88b90279861abe7ab224ce9712dd5c"><td class="memItemLeft" align="right" valign="top">const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_configuration_manager.html#adf88b90279861abe7ab224ce9712dd5c">config_path</a></td></tr>
 <tr class="separator:adf88b90279861abe7ab224ce9712dd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a7707f16fa56b1fae9398af1d0aca6dbc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_configuration_manager.html#a7707f16fa56b1fae9398af1d0aca6dbc">load_config</a> (const string &amp;config_file_path)</td></tr>
+<tr class="memdesc:a7707f16fa56b1fae9398af1d0aca6dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the config xml and stars the parsing.  <a href="#a7707f16fa56b1fae9398af1d0aca6dbc">More...</a><br /></td></tr>
+<tr class="separator:a7707f16fa56b1fae9398af1d0aca6dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e3208ea9400c4e4eccd7377ab29f67c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_configuration_manager.html#a4e3208ea9400c4e4eccd7377ab29f67c">parse_config</a> (<a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt; char &gt; *config_node)</td></tr>
+<tr class="memdesc:a4e3208ea9400c4e4eccd7377ab29f67c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses root node of the configuration.  <a href="#a4e3208ea9400c4e4eccd7377ab29f67c">More...</a><br /></td></tr>
+<tr class="separator:a4e3208ea9400c4e4eccd7377ab29f67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd8bbc7c55c988b225d8108b897a47c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_configuration_manager.html#acd8bbc7c55c988b225d8108b897a47c4">parse_shaders</a> (<a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt; char &gt; *shaders_node)</td></tr>
+<tr class="memdesc:acd8bbc7c55c988b225d8108b897a47c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses template shaders.  <a href="#acd8bbc7c55c988b225d8108b897a47c4">More...</a><br /></td></tr>
+<tr class="separator:acd8bbc7c55c988b225d8108b897a47c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a902ce9ecee920d527444656cf1a5ca94"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_configuration_manager.html#a902ce9ecee920d527444656cf1a5ca94">shader_type</a></td></tr>
+<tr class="separator:a902ce9ecee920d527444656cf1a5ca94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a333deed7cd7e7e2dbbaafedff7183b51"><td class="memItemLeft" align="right" valign="top">vector&lt; shared_ptr&lt; <a class="el" href="classst_1_1_shader.html">Shader</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_configuration_manager.html#a333deed7cd7e7e2dbbaafedff7183b51">default_shaders</a></td></tr>
+<tr class="separator:a333deed7cd7e7e2dbbaafedff7183b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c231ea3e3700f0d049d4b81278b76d7"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_configuration_manager.html#a1c231ea3e3700f0d049d4b81278b76d7">text_editor</a></td></tr>
+<tr class="separator:a1c231ea3e3700f0d049d4b81278b76d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains the application configuration and loads it. </p>
@@ -207,6 +230,90 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7707f16fa56b1fae9398af1d0aca6dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7707f16fa56b1fae9398af1d0aca6dbc">&#9670;&nbsp;</a></span>load_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool st::ConfigurationManager::load_config </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>config_file_path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Loads the config xml and stars the parsing. </p>
+
+</div>
+</div>
+<a id="a4e3208ea9400c4e4eccd7377ab29f67c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e3208ea9400c4e4eccd7377ab29f67c">&#9670;&nbsp;</a></span>parse_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool st::ConfigurationManager::parse_config </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt; char &gt; *&#160;</td>
+          <td class="paramname"><em>config_node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses root node of the configuration. </p>
+
+</div>
+</div>
+<a id="acd8bbc7c55c988b225d8108b897a47c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd8bbc7c55c988b225d8108b897a47c4">&#9670;&nbsp;</a></span>parse_shaders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool st::ConfigurationManager::parse_shaders </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt; char &gt; *&#160;</td>
+          <td class="paramname"><em>shaders_node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses template shaders. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="adf88b90279861abe7ab224ce9712dd5c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf88b90279861abe7ab224ce9712dd5c">&#9670;&nbsp;</a></span>config_path</h2>
@@ -246,6 +353,72 @@ Public Attributes</h2></td></tr>
           <td class="memname">const string st::ConfigurationManager::def_shaders_path</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a333deed7cd7e7e2dbbaafedff7183b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a333deed7cd7e7e2dbbaafedff7183b51">&#9670;&nbsp;</a></span>default_shaders</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; shared_ptr &lt; <a class="el" href="classst_1_1_shader.html">Shader</a> &gt; &gt; st::ConfigurationManager::default_shaders</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a902ce9ecee920d527444656cf1a5ca94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a902ce9ecee920d527444656cf1a5ca94">&#9670;&nbsp;</a></span>shader_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string st::ConfigurationManager::shader_type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c231ea3e3700f0d049d4b81278b76d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c231ea3e3700f0d049d4b81278b76d7">&#9670;&nbsp;</a></span>text_editor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string st::ConfigurationManager::text_editor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

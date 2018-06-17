@@ -89,6 +89,8 @@ $(document).ready(function(){initNavTree('classst_1_1_u_i_builder.html','');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classst_1_1_u_i_builder-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">st::UIBuilder Class Reference</div>  </div>
@@ -121,6 +123,37 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ab0cc71cba35bc20fc331ad89322e7390"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a232c634296e3c9b6303f133ff12086ec"><td class="memItemLeft" align="right" valign="top">nanogui::TextBox *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_u_i_builder.html#a232c634296e3c9b6303f133ff12086ec">texture_path</a></td></tr>
 <tr class="separator:a232c634296e3c9b6303f133ff12086ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a09c5db9de47e6e126404a5ed780155d0"><td class="memItemLeft" align="right" valign="top">nanogui::Screen *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_u_i_builder.html#a09c5db9de47e6e126404a5ed780155d0">parse_screen</a> (const <a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *screen_node)</td></tr>
+<tr class="memdesc:a09c5db9de47e6e126404a5ed780155d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the Screen node.  <a href="#a09c5db9de47e6e126404a5ed780155d0">More...</a><br /></td></tr>
+<tr class="separator:a09c5db9de47e6e126404a5ed780155d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3187b85e5b9a82c74c65a87455490970"><td class="memItemLeft" align="right" valign="top">nanogui::Layout *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_u_i_builder.html#a3187b85e5b9a82c74c65a87455490970">parse_layout</a> (const <a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *layout_node)</td></tr>
+<tr class="memdesc:a3187b85e5b9a82c74c65a87455490970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a layout.  <a href="#a3187b85e5b9a82c74c65a87455490970">More...</a><br /></td></tr>
+<tr class="separator:a3187b85e5b9a82c74c65a87455490970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27ce58716c5de9516f1d5deed5f9c059"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_u_i_builder.html#a27ce58716c5de9516f1d5deed5f9c059">parseWidget</a> (nanogui::Widget *parent, <a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *widget_node)</td></tr>
+<tr class="memdesc:a27ce58716c5de9516f1d5deed5f9c059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses and creates a pointer to a Widget.  <a href="#a27ce58716c5de9516f1d5deed5f9c059">More...</a><br /></td></tr>
+<tr class="separator:a27ce58716c5de9516f1d5deed5f9c059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff918a106db044c19fa5b2288132ca2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_u_i_builder.html#aff918a106db044c19fa5b2288132ca2e">parseButton</a> (nanogui::Widget *parent, <a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *button_node)</td></tr>
+<tr class="memdesc:aff918a106db044c19fa5b2288132ca2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses and creates a pointer to a Button.  <a href="#aff918a106db044c19fa5b2288132ca2e">More...</a><br /></td></tr>
+<tr class="separator:aff918a106db044c19fa5b2288132ca2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea3952b5fa620a2b9baa2a41aad53c12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_u_i_builder.html#aea3952b5fa620a2b9baa2a41aad53c12">parseCanvas</a> (nanogui::Widget *parent, <a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *button_node)</td></tr>
+<tr class="memdesc:aea3952b5fa620a2b9baa2a41aad53c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses and creates a pointer to a <a class="el" href="classst_1_1_canvas.html" title="Customized GLCanvas class to act as a customizable framebuffer. ">Canvas</a>.  <a href="#aea3952b5fa620a2b9baa2a41aad53c12">More...</a><br /></td></tr>
+<tr class="separator:aea3952b5fa620a2b9baa2a41aad53c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dc1a250211eff38e8d164b863e4e86b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_u_i_builder.html#a3dc1a250211eff38e8d164b863e4e86b">parseLabel</a> (nanogui::Widget *parent, <a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *button_node)</td></tr>
+<tr class="memdesc:a3dc1a250211eff38e8d164b863e4e86b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses and creates a pointer to a Label.  <a href="#a3dc1a250211eff38e8d164b863e4e86b">More...</a><br /></td></tr>
+<tr class="separator:a3dc1a250211eff38e8d164b863e4e86b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a654be0242d1f49c96fc7346d18996d30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_u_i_builder.html#a654be0242d1f49c96fc7346d18996d30">parseTextBox</a> (nanogui::Widget *parent, <a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *button_node)</td></tr>
+<tr class="memdesc:a654be0242d1f49c96fc7346d18996d30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses and creates a pointer to a Textboc.  <a href="#a654be0242d1f49c96fc7346d18996d30">More...</a><br /></td></tr>
+<tr class="separator:a654be0242d1f49c96fc7346d18996d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af75375439131b90193954df2bb384a49"><td class="memItemLeft" align="right" valign="top">nanogui::Screen *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_u_i_builder.html#af75375439131b90193954df2bb384a49">screen</a></td></tr>
+<tr class="separator:af75375439131b90193954df2bb384a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97cf0cd20529e4406e072df84dbc334e"><td class="memItemLeft" align="right" valign="top">std::map&lt; string, function&lt; void() &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classst_1_1_u_i_builder.html#a97cf0cd20529e4406e072df84dbc334e">callbacks</a></td></tr>
+<tr class="separator:a97cf0cd20529e4406e072df84dbc334e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Builds the nanogui interface from a xml. </p>
@@ -190,6 +223,220 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3187b85e5b9a82c74c65a87455490970"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3187b85e5b9a82c74c65a87455490970">&#9670;&nbsp;</a></span>parse_layout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nanogui::Layout * st::UIBuilder::parse_layout </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *&#160;</td>
+          <td class="paramname"><em>layout_node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses a layout. </p>
+<p>Only Screen and Widget can have a Layout. </p>
+
+</div>
+</div>
+<a id="a09c5db9de47e6e126404a5ed780155d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09c5db9de47e6e126404a5ed780155d0">&#9670;&nbsp;</a></span>parse_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nanogui::Screen * st::UIBuilder::parse_screen </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *&#160;</td>
+          <td class="paramname"><em>screen_node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses the Screen node. </p>
+<p>Creates a new screen and starts parsing its child nodes. We assume an Screen can only have Layouts and Widgets as children. </p>
+
+</div>
+</div>
+<a id="aff918a106db044c19fa5b2288132ca2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff918a106db044c19fa5b2288132ca2e">&#9670;&nbsp;</a></span>parseButton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void st::UIBuilder::parseButton </td>
+          <td>(</td>
+          <td class="paramtype">nanogui::Widget *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *&#160;</td>
+          <td class="paramname"><em>button_node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses and creates a pointer to a Button. </p>
+<p>Accepted parameters: name, width, height, callback. </p>
+
+</div>
+</div>
+<a id="aea3952b5fa620a2b9baa2a41aad53c12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea3952b5fa620a2b9baa2a41aad53c12">&#9670;&nbsp;</a></span>parseCanvas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void st::UIBuilder::parseCanvas </td>
+          <td>(</td>
+          <td class="paramtype">nanogui::Widget *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *&#160;</td>
+          <td class="paramname"><em>button_node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses and creates a pointer to a <a class="el" href="classst_1_1_canvas.html" title="Customized GLCanvas class to act as a customizable framebuffer. ">Canvas</a>. </p>
+<p>Accepted parameters: width, height. </p>
+
+</div>
+</div>
+<a id="a3dc1a250211eff38e8d164b863e4e86b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dc1a250211eff38e8d164b863e4e86b">&#9670;&nbsp;</a></span>parseLabel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void st::UIBuilder::parseLabel </td>
+          <td>(</td>
+          <td class="paramtype">nanogui::Widget *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *&#160;</td>
+          <td class="paramname"><em>button_node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses and creates a pointer to a Label. </p>
+<p>Accepted parameters: name. </p>
+
+</div>
+</div>
+<a id="a654be0242d1f49c96fc7346d18996d30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a654be0242d1f49c96fc7346d18996d30">&#9670;&nbsp;</a></span>parseTextBox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void st::UIBuilder::parseTextBox </td>
+          <td>(</td>
+          <td class="paramtype">nanogui::Widget *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *&#160;</td>
+          <td class="paramname"><em>button_node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses and creates a pointer to a Textboc. </p>
+<p>Accepted parameters: name, caption, width, height, editable. </p>
+
+</div>
+</div>
 <a id="a2e8ad5e179880e263cf4276e279156d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e8ad5e179880e263cf4276e279156d4">&#9670;&nbsp;</a></span>parseUI()</h2>
 
@@ -210,7 +457,67 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a27ce58716c5de9516f1d5deed5f9c059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27ce58716c5de9516f1d5deed5f9c059">&#9670;&nbsp;</a></span>parseWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void st::UIBuilder::parseWidget </td>
+          <td>(</td>
+          <td class="paramtype">nanogui::Widget *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classrapidxml_1_1xml__node.html">rapidxml::xml_node</a>&lt;&gt; *&#160;</td>
+          <td class="paramname"><em>widget_node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses and creates a pointer to a Widget. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a97cf0cd20529e4406e072df84dbc334e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97cf0cd20529e4406e072df84dbc334e">&#9670;&nbsp;</a></span>callbacks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; string, function&lt; void() &gt; &gt; st::UIBuilder::callbacks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa136829ba2fa3d84213cece4d9ebae9f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa136829ba2fa3d84213cece4d9ebae9f">&#9670;&nbsp;</a></span>canvas</h2>
 
@@ -249,6 +556,28 @@ Public Attributes</h2></td></tr>
           <td class="memname">nanogui::TextBox* st::UIBuilder::save_shader_name</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af75375439131b90193954df2bb384a49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af75375439131b90193954df2bb384a49">&#9670;&nbsp;</a></span>screen</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">nanogui::Screen* st::UIBuilder::screen</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
