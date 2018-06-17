@@ -16,7 +16,7 @@ using namespace nanogui;
 
 namespace st
 {
-	nanogui::Screen *  UIBuilder::parseUI(const string & path)
+	nanogui::Screen * UIBuilder::parseUI(const string & path)
 	{
 		// Read file content
 

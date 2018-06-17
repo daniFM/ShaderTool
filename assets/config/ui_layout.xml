@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Screen name="ShaderTool" width="960" height="600" fullscreen="false" resizable="true">
+<Screen name="ShaderTool" width="910" height="600" fullscreen="false" resizable="false">
 	<layout type="BoxLayout">
 		<params Orientation="Horizontal" Alignment="Minimum" margin="0" spacing="6" />
 	</layout>

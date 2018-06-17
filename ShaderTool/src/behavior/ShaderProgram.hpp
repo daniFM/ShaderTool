@@ -25,6 +25,7 @@ using namespace std;
 
 namespace st
 {
+	/// Represents a OpenGL shader program. Not in use, as I'm using nanogui's shaders right now.
 	class ShaderProgram
 	{
 		GLint shader_program_id;

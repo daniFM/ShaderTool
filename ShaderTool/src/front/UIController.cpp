@@ -70,7 +70,7 @@ namespace st
 
 	void UIController::saveButton()
 	{
-		// file_dialog
+		// file_dialog -> Not using because it changes the working directory.
 		doc_manager->saveShader(save_shader_name->value());
 	}
 
@@ -97,17 +97,9 @@ namespace st
 		canvas->setHeight((int)(prevh / aspect));
 	}
 
-	/*bool UIController::keyboardEvent(int key, int scancode, int action, int modifiers)
-	{
-		return Screen::keyboardEvent(key, scancode, action, modifiers);
-	}
-
-	void UIController::draw(NVGcontext * context)
-	{
-		Screen::draw(context);
-	}*/
 }
 
+// HARDCODED INTERFACE
 
 //this->setLayout(new BoxLayout(Orientation::Horizontal,
 //	Alignment::Minimum, 0, 6));

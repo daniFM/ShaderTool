@@ -22,7 +22,7 @@ Subject to license in LICENSE.txt
 
 namespace st
 {
-
+	/// Customizable GLCanvas implementation. WIP.
 	class Canvas3D : public nanogui::GLCanvas
 	{
 

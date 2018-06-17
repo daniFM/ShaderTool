@@ -43,6 +43,8 @@ namespace st
 		}
 		else
 		{
+			cout << "File doesn't exist, creating a new one from a template: " << path << endl;
+
 			string name = pm::Path::getFileName(path);
 
 			if (createFromTemplate(name) && open)

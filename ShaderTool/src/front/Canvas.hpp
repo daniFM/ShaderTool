@@ -26,6 +26,7 @@ namespace st
 {
 	typedef st::Color_Buffer_Rgba8888 Texture;
 
+	/// Customized GLCanvas class to act as a customizable framebuffer.
 	class Canvas : public nanogui::GLCanvas
 	{
 
@@ -48,16 +49,22 @@ namespace st
 
 	public:
 
+		/// Creates the canvas framebuffer.
 		 Canvas(Widget *parent);
 		~Canvas()
 		{
 			mShader.free();
 		}
 
+		/// Draws the framebuffer.
 		virtual void drawGL() override;
 
+		/// Relaces the shader used to render the framebuffer.
+		/// @param shader Replacement shader.
 		void setShader(shared_ptr<st::Shader> shader);
 
+		/// Loads a texture and binds it to the shader.
+		/// @param path Path to the texture.
 		nanogui::Vector2i loadTexture(string path);
 		//auto_ptr< Texture > loadTexture(string path);
 

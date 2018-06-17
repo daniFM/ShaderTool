@@ -16,6 +16,7 @@ using namespace std;
 
 namespace st
 {
+	/// Data class that contains the code of a shader.
 	class Shader
 	{
 		string title;
@@ -26,6 +27,10 @@ namespace st
 
 		Shader() = default;
 
+		/// Creates a new shader.
+		/// @param tile Shader name.
+		/// @param path Path to the shader file.
+		/// @param shader_text Code of the shader.
 		Shader(string title, string path, string shader_text)
 			:
 			title(title),

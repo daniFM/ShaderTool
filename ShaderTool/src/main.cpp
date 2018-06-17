@@ -7,17 +7,16 @@ Subject to license in LICENSE.txt
 
 */
 
-#include <UIController.hpp>
-#include <iostream>
 #include <cassert>
-
-#include <DocumentManager.hpp>
-#include <ConfigurationManager.hpp>
+#include <iostream>
 
 #include <Path.hpp>
 
+#include <UIController.hpp>
+#include <DocumentManager.hpp>
+#include <ConfigurationManager.hpp>
+
 using namespace std;
-using namespace st;
 using namespace st;
 
 int main(int number_of_arguments, char * arguments[])
@@ -33,7 +32,7 @@ int main(int number_of_arguments, char * arguments[])
 		cout << arguments[i] << endl;
 	}
 
-	// Están mal
+	// Default path
 	string data_path = "\\data";
 
 	if (number_of_arguments > 1)

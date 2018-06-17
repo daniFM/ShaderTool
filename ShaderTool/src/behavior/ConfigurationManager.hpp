@@ -25,6 +25,7 @@ namespace rapidxml
 
 namespace st
 {
+	/// Contains the application configuration and loads it.
 	class ConfigurationManager
 	{
 		string shader_type;
@@ -42,13 +43,17 @@ namespace st
 
 	public:
 
+		/// Creates a configuration manager.
+		/// @param path Path to the root file folder.
 		ConfigurationManager(const string & path);
 
+		/// Returns a vector with the configured shader templates.
 		vector < shared_ptr < Shader > > getDefaultShaders()
 		{
 			return default_shaders;
 		}
 
+		/// Returns the path to the configured text editor.
 		string getEditor()
 		{
 			return text_editor;
@@ -56,8 +61,11 @@ namespace st
 
 	private:
 
+		/// Loads the config xml and stars the parsing.
 		bool load_config	(const string & config_file_path);
+		/// Parses root node of the configuration.
 		bool parse_config	(rapidxml::xml_node<char>* config_node);
+		/// Parses template shaders.
 		bool parse_shaders	(rapidxml::xml_node<char>* shaders_node);
 		//bool parse_layout	(rapidxml::xml_node<char>* layout_node);
 

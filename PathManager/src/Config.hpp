@@ -1,8 +1,8 @@
 #pragma once
 
-#ifdef MY_STATIC_LIBRARY // En caso de usar librería estática
+#ifdef MY_STATIC_LIBRARY // In case of static library
 #define API
-#else  // En caso de usar librería dinámica
+#else  // In case of dynamic library
 #ifdef MY_DYNAMIC_LIBRARY
 #define API __declspec(dllexport)
 #else

@@ -15,6 +15,7 @@ using namespace std;
 
 namespace st
 {
+	/// Represents an uniform used by a shader. WIP.
 	class UniformVariable
 	{
 		string name;

@@ -1,3 +1,11 @@
+/*
+
+Author: Daniel Fernández (https://github.com/daniFM)
+Date:	12/06/2018
+
+Subject to license in LICENSE.txt
+
+*/
 
 #include <Canvas3D.hpp>
 #include <GLTexture.hpp>
