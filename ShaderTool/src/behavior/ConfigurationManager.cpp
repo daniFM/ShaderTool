@@ -12,6 +12,8 @@ Subject to license in LICENSE.txt
 #include <iostream>
 #include <fstream>
 #include <rapidxml.hpp>
+#include <cassert>
+#include <Windows.h>
 
 using namespace rapidxml;
 using namespace std;
@@ -69,6 +71,18 @@ namespace st
 			{
 				parse_config(root);
 			}
+		}
+		else
+		{
+			string info_log =	"Could not find configuration. Make sure you provide with the correct route as a paramenter.\n"
+								"Or that the data folder is next to the executable.";
+			cerr << info_log.c_str() << endl;
+
+			#ifdef _MSC_VER
+				OutputDebugStringA(info_log.c_str());
+			#endif
+
+			assert(false);
 		}
 
 		return true;

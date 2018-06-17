@@ -1,1 +1,1 @@
-start "" ShaderTool.exe ..\assets
+start "" ShaderTool.exe ..\..\assets
